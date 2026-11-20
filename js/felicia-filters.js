@@ -54,6 +54,7 @@
     208: { id: 208, price: 7800, color: 'white', cat: 'pillows', page: 'beddings' },
     209: { id: 209, price: 9500, color: 'cream', cat: 'sheets', page: 'beddings' },
     210: { id: 210, price: 13500, color: 'black', cat: 'duvet', page: 'beddings' },
+    211: { id: 211, price: 2200, color: 'cream', cat: 'pillows', page: 'beddings' },
 
     // --- Kitchen Items (301-310) ---
     301: { id: 301, price: 18500, color: 'gold', cat: 'cookware', page: 'kitchen' },
@@ -455,16 +456,95 @@
     });
   }
 
+  /**
+   * 4. Multi-Image Slideshow Rotators on Product Cards
+   * Automatically cycles related variant images at an interval on the card
+   */
+  function initCardMultiImageRotators() {
+    const cards = document.querySelectorAll('.felicia-product-card');
+    cards.forEach(card => {
+      let images = [];
+      const dataImgs = card.getAttribute('data-images');
+      if (dataImgs) {
+        try { images = JSON.parse(dataImgs); } catch(e) {}
+      } else {
+        const idAttr = card.getAttribute('data-id');
+        if (idAttr && window.feliciaGetProduct) {
+          const p = window.feliciaGetProduct(idAttr);
+          if (p && p.images && p.images.length > 1) images = p.images;
+        }
+      }
+
+      if (!images || images.length <= 1) return;
+
+      const imgWrapper = card.querySelector('.felicia-card-img-wrapper');
+      const imgEl = imgWrapper ? imgWrapper.querySelector('img') : null;
+      if (!imgEl) return;
+
+      let currentIdx = 0;
+      let timer = null;
+      let isPaused = false;
+
+      // Ensure dots container exists
+      let dotsWrap = imgWrapper.querySelector('.felicia-card-dots');
+      if (!dotsWrap) {
+        dotsWrap = document.createElement('div');
+        dotsWrap.className = 'felicia-card-dots';
+        dotsWrap.innerHTML = images.map((_, i) => `<span class="felicia-card-dot ${i === 0 ? 'active' : ''}" data-idx="${i}"></span>`).join('');
+        imgWrapper.appendChild(dotsWrap);
+      }
+
+      const dots = dotsWrap.querySelectorAll('.felicia-card-dot');
+
+      function showCardImage(idx) {
+        currentIdx = (idx + images.length) % images.length;
+        imgEl.style.opacity = '0.35';
+        setTimeout(() => {
+          imgEl.src = images[currentIdx];
+          imgEl.style.opacity = '1';
+        }, 120);
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showCardImage(i);
+        });
+      });
+
+      function startTimer() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => {
+          if (!isPaused) {
+            showCardImage(currentIdx + 1);
+          }
+        }, 3200);
+      }
+
+      card.addEventListener('mouseenter', () => { isPaused = true; });
+      card.addEventListener('mouseleave', () => { isPaused = false; });
+      card.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+      card.addEventListener('touchend', () => {
+        setTimeout(() => { isPaused = false; }, 3000);
+      }, { passive: true });
+
+      startTimer();
+    });
+  }
+
   // DOM Ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       enrichCards();
       initMobileCarousels();
       initFilterEngine();
+      initCardMultiImageRotators();
     });
   } else {
     enrichCards();
     initMobileCarousels();
     initFilterEngine();
+    initCardMultiImageRotators();
   }
 })();

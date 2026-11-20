@@ -556,17 +556,72 @@ html, body {
 }
 
 
+/* Card Multi-Image Slideshow Dots */
+.felicia-card-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 6;
+  background: rgba(18, 16, 20, 0.72);
+  padding: 3px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+.felicia-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+.felicia-card-dot.active {
+  background: var(--felicia-gold, #C5A059);
+  width: 14px;
+  border-radius: 6px;
+}
+.felicia-card-img-wrapper img {
+  transition: opacity 0.22s ease;
+}
+
 /* ========================================================
    FELICIA COLLECTIONS - LUXURY RESPONSIVE FOOTER
    ======================================================== */
 .felicia-luxury-footer {
-  background: #141416 !important;
+  background: #11100F !important;
+  background-color: #11100F !important;
   color: #FFFFFF !important;
   padding: 55px 0 25px 0 !important;
   border-top: 1px solid rgba(197, 160, 89, 0.25) !important;
   width: 100% !important;
   box-sizing: border-box !important;
   overflow-x: clip !important;
+}
+
+.felicia-luxury-footer .felicia-footer-heading {
+  color: #D4AF37 !important;
+}
+.felicia-luxury-footer .felicia-footer-summary {
+  color: #C8C4BC !important;
+}
+.felicia-luxury-footer .felicia-footer-links li a {
+  color: #F5F2EB !important;
+}
+.felicia-luxury-footer .felicia-footer-links li a:hover {
+  color: #D4AF37 !important;
+}
+.felicia-luxury-footer .footer-logo,
+.felicia-luxury-footer .felicia-footer-logo-link img {
+  filter: brightness(1) invert(0) !important;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 .felicia-footer-top {

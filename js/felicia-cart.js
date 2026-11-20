@@ -462,6 +462,29 @@
       description: "Classic majestic bedroom collection in rich sapphire navy and snow white. Features an intricate floral branch trellis center flanked by horizontal striped navy borders and Oxford-flanged pillowcases.",
       specs: ["Material: 100% High-Density Long-Staple Sateen", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Bolster Sham", "Sizes: 6x6 Queen & 7x7 King Beds", "Details: Royal Navy Contrast Border Panels", "Origin: Directly Imported Luxury Bedding"]
     },
+    {
+      id: 211,
+      name: "Fluffy bedside mat",
+      image: "images/Fluffy bedside mat.jpg",
+      images: [
+        "images/Fluffy bedside mat.jpg",
+        "images/Fluffy bedside mat 2.jpg",
+        "images/Fluffy bedside mat 3.jpg",
+        "images/Fluffy bedside mat 4.jpg"
+      ],
+      category: "Bedside Runners & Mats",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "⚜️ 60x180cm",
+      description: "⚜️ 60x180cm luxury ultra-soft faux fur plush fluffy bedside runner mat. Thick anti-slip grip backing, supreme comfort and warmth for master bedroom bedsides.",
+      specs: [
+        "Dimensions: ⚜️ 60cm x 180cm (Bedside Runner Length)",
+        "Material: High-Density Ultra-Soft Plush Faux Fur",
+        "Backing: Anti-Slip Grip Texture",
+        "Care: Easy Care & Machine Washable Gentle Cycle",
+        "Origin: Directly Imported Luxury Bedding"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
@@ -823,10 +846,15 @@
           <button type="button" class="felicia-modal-close" onclick="closeProductModal()" aria-label="Close Product View">&times;</button>
           
           <div class="felicia-modal-grid">
-            <!-- Modal Image Gallery -->
+            <!-- Modal Image Gallery with Slideshow & Thumbnails -->
             <div class="felicia-modal-img-col">
-              <img id="modal-product-img" src="" alt="">
-              <span id="modal-product-badge" class="felicia-badge"></span>
+              <div class="felicia-modal-img-wrap">
+                <img id="modal-product-img" src="" alt="">
+                <span id="modal-product-badge" class="felicia-badge"></span>
+                <button type="button" class="felicia-modal-gallery-arrow felicia-modal-gallery-prev" onclick="changeModalImage(-1)" aria-label="Previous view">&#10094;</button>
+                <button type="button" class="felicia-modal-gallery-arrow felicia-modal-gallery-next" onclick="changeModalImage(1)" aria-label="Next view">&#10095;</button>
+              </div>
+              <div id="modal-product-thumbs" class="felicia-modal-thumbs"></div>
             </div>
 
             <!-- Modal Product Details -->
@@ -887,6 +915,46 @@
 
   let activeModalProductId = null;
   let activeModalQty = 1;
+  let modalSlideshowInterval = null;
+  let modalActiveImgIdx = 0;
+  let modalCurrentImages = [];
+
+  window.changeModalImage = function(direction) {
+    if (!modalCurrentImages || modalCurrentImages.length <= 1) return;
+    modalActiveImgIdx = (modalActiveImgIdx + direction + modalCurrentImages.length) % modalCurrentImages.length;
+    setModalImage(modalActiveImgIdx);
+    resetModalInterval();
+  };
+
+  window.selectModalImage = function(index) {
+    if (!modalCurrentImages || index < 0 || index >= modalCurrentImages.length) return;
+    modalActiveImgIdx = index;
+    setModalImage(modalActiveImgIdx);
+    resetModalInterval();
+  };
+
+  function setModalImage(idx) {
+    const imgEl = document.getElementById('modal-product-img');
+    if (!imgEl || !modalCurrentImages[idx]) return;
+    imgEl.style.opacity = '0.3';
+    setTimeout(() => {
+      imgEl.src = modalCurrentImages[idx];
+      imgEl.style.opacity = '1';
+    }, 120);
+    document.querySelectorAll('.felicia-modal-thumb-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+  }
+
+  function resetModalInterval() {
+    if (modalSlideshowInterval) clearInterval(modalSlideshowInterval);
+    if (modalCurrentImages && modalCurrentImages.length > 1) {
+      modalSlideshowInterval = setInterval(() => {
+        modalActiveImgIdx = (modalActiveImgIdx + 1) % modalCurrentImages.length;
+        setModalImage(modalActiveImgIdx);
+      }, 3500);
+    }
+  }
 
   window.openProductModal = function(productId) {
     const p = feliciaGetProduct(productId);
@@ -895,14 +963,50 @@
     activeModalProductId = p.id;
     activeModalQty = 1;
 
-    document.getElementById('modal-product-img').src = p.image;
-    document.getElementById('modal-product-img').alt = p.name;
+    modalCurrentImages = (p.images && p.images.length > 0) ? p.images : [p.image];
+    modalActiveImgIdx = 0;
+
+    const modalImg = document.getElementById('modal-product-img');
+    modalImg.src = modalCurrentImages[0];
+    modalImg.alt = p.name;
+    modalImg.style.opacity = '1';
+
     document.getElementById('modal-product-badge').textContent = p.badge;
     document.getElementById('modal-product-category').textContent = p.category;
     document.getElementById('modal-product-title').textContent = p.name;
     document.getElementById('modal-product-price').textContent = p.priceFormatted;
     document.getElementById('modal-product-desc').textContent = p.description;
     document.getElementById('modal-qty').textContent = '1';
+
+    // Multi-Image Gallery & Auto-Interval Setup
+    const thumbsContainer = document.getElementById('modal-product-thumbs');
+    const prevBtn = document.querySelector('.felicia-modal-gallery-prev');
+    const nextBtn = document.querySelector('.felicia-modal-gallery-next');
+
+    if (modalCurrentImages.length > 1) {
+      if (prevBtn) prevBtn.style.display = 'flex';
+      if (nextBtn) nextBtn.style.display = 'flex';
+      if (thumbsContainer) {
+        thumbsContainer.style.display = 'flex';
+        thumbsContainer.innerHTML = modalCurrentImages.map((imgSrc, i) => `
+          <button type="button" class="felicia-modal-thumb-btn ${i === 0 ? 'active' : ''}" onclick="selectModalImage(${i})" aria-label="View photo ${i + 1}">
+            <img src="${imgSrc}" alt="${p.name} view ${i + 1}">
+          </button>
+        `).join('');
+      }
+      resetModalInterval();
+    } else {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (thumbsContainer) {
+        thumbsContainer.style.display = 'none';
+        thumbsContainer.innerHTML = '';
+      }
+      if (modalSlideshowInterval) {
+        clearInterval(modalSlideshowInterval);
+        modalSlideshowInterval = null;
+      }
+    }
 
     const specsList = document.getElementById('modal-product-specs');
     if (specsList && p.specs) {
@@ -922,6 +1026,10 @@
   };
 
   window.closeProductModal = function() {
+    if (modalSlideshowInterval) {
+      clearInterval(modalSlideshowInterval);
+      modalSlideshowInterval = null;
+    }
     const modal = document.getElementById('felicia-product-modal');
     if (modal) {
       modal.classList.remove('active');
@@ -1249,12 +1357,86 @@
         position: relative;
         background: #141416;
         min-height: 380px;
+        display: flex;
+        flex-direction: column;
       }
-      .felicia-modal-img-col img {
+      .felicia-modal-img-wrap {
+        position: relative;
+        width: 100%;
+        flex-grow: 1;
+        min-height: 320px;
+        background: #FAF9F6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .felicia-modal-img-wrap img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        max-height: 440px;
+        object-fit: contain;
         display: block;
+        transition: opacity 0.25s ease;
+      }
+      .felicia-modal-gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(20, 20, 22, 0.82);
+        border: 1px solid rgba(212, 175, 55, 0.6);
+        color: #FFFFFF;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 6;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        line-height: 1;
+      }
+      .felicia-modal-gallery-arrow:hover {
+        background: #C5A059;
+        color: #141416;
+      }
+      .felicia-modal-gallery-prev { left: 10px; }
+      .felicia-modal-gallery-next { right: 10px; }
+      .felicia-modal-thumbs {
+        display: none;
+        gap: 8px;
+        padding: 10px 14px;
+        background: #181716;
+        overflow-x: auto;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .felicia-modal-thumb-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        border: 2px solid transparent;
+        padding: 2px;
+        background: #FFFFFF;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .felicia-modal-thumb-btn.active {
+        border-color: #D4AF37;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+      }
+      .felicia-modal-thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
       .felicia-modal-details-col {
         padding: 36px 30px;
