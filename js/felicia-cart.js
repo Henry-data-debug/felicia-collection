@@ -1,0 +1,1270 @@
+/**
+ * Felicia Collections - E-Commerce Engine
+ * Interactive Cart, Slide-out Drawer, and Product Details Modal
+ */
+
+(function() {
+  // Comprehensive Product Catalog
+  const products = [
+    // --- Handbags (1-21) ---
+    {
+      id: 1,
+      name: "The Victoria Quilted Shoulder Bag",
+      image: "images/05e25ad039e66492824b437e828571f6.jpg",
+      category: "Shoulder Bags",
+      price: 6500,
+      priceFormatted: "KSh 6,500",
+      badge: "Bestseller",
+      description: "Directly imported from Milan. Features luxurious diamond quilting, polished gold-tone sliding chain strap, turn-lock closure, and dual interior compartments lined in premium satin.",
+      specs: ["Material: Premium Imported Leatherette", "Hardware: Polished Gold-Tone", "Dimensions: 28cm x 18cm x 9cm", "Closure: Metallic Turn-Lock"]
+    },
+    {
+      id: 2,
+      name: "The Kensington Croc-Embossed Crossbody",
+      image: "images/0b958184287aa3df7714433d45dcdc85.jpg",
+      category: "Crossbody Bags",
+      price: 5800,
+      priceFormatted: "KSh 5,800",
+      badge: "Imported Luxury",
+      description: "Structured high-gloss croc-embossed silhouette imported for modern elegance. Includes an adjustable shoulder strap, reinforced base, and secure zippered pocket.",
+      specs: ["Material: Textured Croc Embossed", "Hardware: High-Shine Gold", "Dimensions: 24cm x 16cm x 8cm", "Strap: Adjustable Crossbody"]
+    },
+    {
+      id: 3,
+      name: "The Milan Classic Structured Satchel",
+      image: "images/115f1f995ab19e3888ed734284390042.jpg",
+      category: "Designer Satchels",
+      price: 7200,
+      priceFormatted: "KSh 7,200",
+      badge: "Signature",
+      description: "A timeless architectural satchel imported from international fashion hubs. Features structured top handles, detachable crossbody strap, and protective bottom feet.",
+      specs: ["Material: Structured Luxury Finish", "Hardware: Brushed Gold", "Dimensions: 30cm x 22cm x 12cm", "Dual carry: Top Handle & Shoulder"]
+    },
+    {
+      id: 4,
+      name: "The Riviera Petite Evening Clutch",
+      image: "images/160609fca8ee891a797d82502d29b693.jpg",
+      category: "Evening Clutches",
+      price: 4500,
+      priceFormatted: "KSh 4,500",
+      badge: "New Arrival",
+      description: "Petite, minimalist evening clutch crafted for galas and dinners. Features a detachable delicate snake-chain strap and built-in credit card slots.",
+      specs: ["Material: Sleek Imported Finish", "Hardware: Champagne Gold", "Dimensions: 22cm x 13cm x 5cm", "Chain: Detachable 110cm"]
+    },
+    {
+      id: 5,
+      name: "The Florence Chain-Strap Crossbody",
+      image: "images/1d4d63b91374edd54220bb9ed2acd576.jpg",
+      category: "Crossbody Bags",
+      price: 6200,
+      priceFormatted: "KSh 6,200",
+      badge: "Popular",
+      description: "Refined Italian-inspired silhouette featuring interwoven gold chain strap, magnetic snap closure, and multi-tier internal organization.",
+      specs: ["Material: Soft-Touch Imported Leatherette", "Hardware: Interwoven Chain Gold", "Dimensions: 26cm x 17cm x 8cm", "Closure: Dual Magnetic Snap"]
+    },
+    {
+      id: 6,
+      name: "The Sovereign Executive Luxury Tote",
+      image: "images/275eecf5570e69c7487aad7771a700c2.jpg",
+      category: "Totes & Shoppers",
+      price: 8500,
+      priceFormatted: "KSh 8,500",
+      badge: "Bestseller",
+      description: "Generously proportioned executive tote designed for modern business women. Accommodates up to a 14-inch laptop, tablet, planners, and personal cosmetics.",
+      specs: ["Material: Heavyweight Textured Import", "Hardware: Reinforced Antique Gold", "Dimensions: 38cm x 28cm x 14cm", "Laptop Sleeve: Fits up to 14\""]
+    },
+    {
+      id: 7,
+      name: "The Monte Carlo Structured Handbag",
+      image: "images/449db1f4fe9c0ad7899d9f6b4604804f.jpg",
+      category: "Designer Satchels",
+      price: 7800,
+      priceFormatted: "KSh 7,800",
+      badge: "Imported Luxury",
+      description: "Iconic trapezoid shape featuring brushed gold turn-lock, dual structured handles, and protective metal studs. An unmistakable status symbol.",
+      specs: ["Material: Imported Fine Grain", "Hardware: Brushed Gold", "Dimensions: 32cm x 24cm x 13cm", "Base: 4 Metal Protective Studs"]
+    },
+    {
+      id: 8,
+      name: "The Bellagio Monogram Flap Bag",
+      image: "images/4e9889b9004931b2709ec9929594050f.jpg",
+      category: "Shoulder Bags",
+      price: 6900,
+      priceFormatted: "KSh 6,900",
+      badge: "New Arrival",
+      description: "Designer flap bag with contrast edge detailing and double chain-link strap. Transitions seamlessly from daytime workwear to night-out glamour.",
+      specs: ["Material: Coated Designer Finish", "Hardware: Double Chain Link", "Dimensions: 27cm x 18cm x 9cm", "Lining: Jacquard Fabric"]
+    },
+    {
+      id: 9,
+      name: "The Duchess Quilted Crossbody",
+      image: "images/5e3fce41b1cb3e6c554e3b3a06c3fe3a.jpg",
+      category: "Crossbody Bags",
+      price: 5500,
+      priceFormatted: "KSh 5,500",
+      badge: "Bestseller",
+      description: "Diamond-quilted imported leatherette with metallic turn-lock, compact yet surprisingly roomy with center zippered partition.",
+      specs: ["Material: Diamond Quilted", "Hardware: Polished Gold", "Dimensions: 23cm x 16cm x 8cm", "Partition: Center Zip Divider"]
+    },
+    {
+      id: 10,
+      name: "The Grand Palais Everyday Tote",
+      image: "images/73338b9b9a82f2c5d7f2ec83f620b96f.jpg",
+      category: "Totes & Shoppers",
+      price: 8900,
+      priceFormatted: "KSh 8,900",
+      badge: "Premium",
+      description: "Generous everyday luxury shopper tote with magnetic snap closure, inner zip pocket, water-resistant luxury lining, and matching key fob.",
+      specs: ["Material: High-Durability Import", "Hardware: Gold Accent Rings", "Dimensions: 40cm x 30cm x 15cm", "Handles: Comfortable 25cm Drop"]
+    },
+    {
+      id: 11,
+      name: "The Elysée Gold-Hardware Shoulder Bag",
+      image: "images/85da2d04d264cf4d048b2a5e83ce491c.jpg",
+      category: "Shoulder Bags",
+      price: 6800,
+      priceFormatted: "KSh 6,800",
+      badge: "Imported Luxury",
+      description: "Graceful curved silhouette with statement high-shine gold buckle, smooth matte touch, and comfortable ergonomic shoulder fit.",
+      specs: ["Material: Matte Smooth Finish", "Hardware: Statement Gold Buckle", "Dimensions: 29cm x 19cm x 7cm", "Strap: Ergonomic Curve"]
+    },
+    {
+      id: 12,
+      name: "The Capri Minimalist Crossbody",
+      image: "images/8eb70be5a7f6d72e6b8251fa7c7d5155.jpg",
+      category: "Crossbody Bags",
+      price: 5200,
+      priceFormatted: "KSh 5,200",
+      badge: "Trending",
+      description: "Clean architectural lines with adjustable shoulder strap and smooth-glide zip closure for cosmopolitan city life.",
+      specs: ["Material: Fine Grain Leatherette", "Hardware: Sleek Minimalist Gold", "Dimensions: 21cm x 15cm x 6cm", "Weight: Ultra Lightweight"]
+    },
+    {
+      id: 13,
+      name: "The Versailles Convertible Satchel",
+      image: "images/9f517df911942a3c68060df0414422ac.jpg",
+      category: "Designer Satchels",
+      price: 7500,
+      priceFormatted: "KSh 7,500",
+      badge: "Signature",
+      description: "Convertible top-handle satchel with dual zipped compartments, embossed designer emblem, and removable tassel ornament.",
+      specs: ["Material: Embossed Fine Texture", "Hardware: Polished Gold Accents", "Dimensions: 31cm x 23cm x 12cm", "Compartments: Dual Zipped"]
+    },
+    {
+      id: 14,
+      name: "The Chelsea Everyday Luxury Shopper",
+      image: "images/ba971fbf79e3d92a002446cdb85b4d7f.jpg",
+      category: "Totes & Shoppers",
+      price: 8200,
+      priceFormatted: "KSh 8,200",
+      badge: "Bestseller",
+      description: "Spacious, lightweight shopper crafted from durable textured imported material. Includes a matching detachable accessory pouch.",
+      specs: ["Material: Textured Luxury Saffiano Style", "Hardware: Minimalist Gold", "Dimensions: 36cm x 28cm x 13cm", "Bonus: Detachable Zipper Pouch"]
+    },
+    {
+      id: 15,
+      name: "The St. Tropez Lock-Flap Bag",
+      image: "images/bbdcc8862a2ebff276d6936aca9a2d38.jpg",
+      category: "Shoulder Bags",
+      price: 6400,
+      priceFormatted: "KSh 6,400",
+      badge: "New Arrival",
+      description: "Chic front flap with designer padlock pendant and sliding chain for versatile shoulder or crossbody wear.",
+      specs: ["Material: Structured Luxury Finish", "Hardware: Padlock Pendant Gold", "Dimensions: 25cm x 17cm x 8cm", "Strap: Sliding Chain"]
+    },
+    {
+      id: 16,
+      name: "The Manhattan Dual-Tone Satchel",
+      image: "images/c550d390c03a1f46efee391ec4519b4e.jpg",
+      category: "Designer Satchels",
+      price: 7900,
+      priceFormatted: "KSh 7,900",
+      badge: "Imported Luxury",
+      description: "Two-tone designer palette with reinforced base and structured silhouette, engineered for high-profile business meetings.",
+      specs: ["Material: Dual-Tone Imported Material", "Hardware: Metallic Gold Finishes", "Dimensions: 33cm x 25cm x 12cm", "Base: Reinforced Stiffener"]
+    },
+    {
+      id: 17,
+      name: "The Mayfair Evening Wristlet Clutch",
+      image: "images/c98dc4843efe9af4e792de2e2dcba7f4.jpg",
+      category: "Evening Clutches",
+      price: 4800,
+      priceFormatted: "KSh 4,800",
+      badge: "Signature",
+      description: "Sleek zip-top clutch with detachable wristlet, phone pocket, and gold metallic zipper. Perfect companion for special evenings.",
+      specs: ["Material: Smooth Metallic Glow", "Hardware: Smooth Glide Gold Zip", "Dimensions: 23cm x 14cm x 4cm", "Strap: Detachable Wristlet Loop"]
+    },
+    {
+      id: 18,
+      name: "The Parisian Chic Envelope Bag",
+      image: "images/c99bbd4bd18112337aadeb8a9e01322e.jpg",
+      category: "Crossbody Bags",
+      price: 6100,
+      priceFormatted: "KSh 6,100",
+      badge: "Bestseller",
+      description: "Classic envelope magnetic flap with gold edge piping and chain, embodying Parisian high-fashion sophistication.",
+      specs: ["Material: Fine Grain Finish", "Hardware: Gold Metallic Edge Trim", "Dimensions: 26cm x 16cm x 7cm", "Closure: Magnetic Snap"]
+    },
+    {
+      id: 19,
+      name: "The Felicia Signature Heritage Tote",
+      image: "images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg",
+      category: "Totes & Shoppers",
+      price: 9500,
+      priceFormatted: "KSh 9,500",
+      badge: "Iconic",
+      description: "Our flagship imported luxury tote featuring distinctive gold FC monogram charm, spacious capacity, and protective dustbag.",
+      specs: ["Material: Ultra-Durable Heritage Texture", "Hardware: Custom Gold FC Monogram Charm", "Dimensions: 42cm x 31cm x 15cm", "Includes: Felicia Luxury Dustbag"]
+    },
+    {
+      id: 20,
+      name: "The Monaco Chain Minaudière Clutch",
+      image: "images/e6c63cc0fdbcc779d3d45ad49b31d897.jpg",
+      category: "Evening Clutches",
+      price: 5600,
+      priceFormatted: "KSh 5,600",
+      badge: "Luxury Import",
+      description: "Hard-shell evening minaudière with rhinestone clasp for red carpet events, weddings, and high-profile celebrations.",
+      specs: ["Material: Hard-Shell Luxury Box", "Hardware: Rhinestone Crystal Clasp", "Dimensions: 19cm x 11cm x 5cm", "Chain: Hideable Fine Link Gold Chain"]
+    },
+    {
+      id: 21,
+      name: "The Verona Compact Crossbody",
+      image: "images/eaa4d1f38caedceb167e5dafd2e0016b.jpg",
+      category: "Crossbody Bags",
+      price: 4950,
+      priceFormatted: "KSh 4,950",
+      badge: "New Arrival",
+      description: "Compact everyday crossbody for essentials with smooth-glide zipper and scratch-resistant finish for busy days.",
+      specs: ["Material: Scratch-Resistant Finish", "Hardware: Polished Gold Accents", "Dimensions: 20cm x 14cm x 6cm", "Strap: Adjustable Comfort Strap"]
+    },
+
+        // --- Women Wear (101-110) ---
+    {
+      id: 101,
+      name: "The Emerald Grecian Draped One-Shoulder Dress",
+      image: "images/women-dress-1.jpg",
+      category: "Cocktail & Evening",
+      price: 8500,
+      priceFormatted: "KSh 8,500",
+      badge: "Bestseller",
+      description: "Directly imported luxury cocktail dress sculpted from premium rich emerald stretch crepe. Features an architectural Grecian draped one-shoulder neckline, flattering ruching across the bodice, and an elegant side leg slit.",
+      specs: ["Material: Heavyweight Stretch Scuba Crepe", "Neckline: Draped One-Shoulder", "Length: Midi (115cm)", "Closure: Concealed Side Zip", "Origin: Imported Luxury"]
+    },
+    {
+      id: 102,
+      name: "The Rose Blossom Floral Lace Off-Shoulder Dress",
+      image: "images/women-dress-2.jpg",
+      category: "Cocktail & Party",
+      price: 9200,
+      priceFormatted: "KSh 9,200",
+      badge: "New Arrival",
+      description: "Chic blush pink cocktail dress with delicate floral corded lace bodice, crossover off-the-shoulder neckline, satin waist sash with bow, and a flowing chiffon A-line skirt.",
+      specs: ["Material: Corded Lace & Chiffon", "Waist: Satin Ribbon Tie Belt", "Silhouette: A-Line Midi", "Lining: Full Soft Breathable Lining", "Origin: Imported Luxury"]
+    },
+    {
+      id: 103,
+      name: "The Bordeaux Bolero & Cami Midi Two-Piece Set",
+      image: "images/women-dress-3.jpg",
+      category: "Midi & Sets",
+      price: 10800,
+      priceFormatted: "KSh 10,800",
+      badge: "Signature Set",
+      description: "Sophisticated imported two-piece set featuring a geometric Greek-key print camisole dress with pleated flounce skirt and a matching tailored burgundy cropped long-sleeve bolero jacket.",
+      specs: ["Set Includes: Cami Dress + Cropped Bolero", "Fabric: Premium Stretch Cotton-Polyester Blend", "Pattern: Geometric Greek-Key Accent", "Closure: Adjustable Spaghetti Straps & Belt", "Origin: Imported Luxury"]
+    },
+    {
+      id: 104,
+      name: "The Lilac Crystal Shimmer Mermaid Gala Gown",
+      image: "images/women-dress-4.jpg",
+      category: "Gala & Red Carpet",
+      price: 16500,
+      priceFormatted: "KSh 16,500",
+      badge: "Haute Couture",
+      description: "A breathtaking imported red-carpet gown in shimmering lavender liquid satin. Features a hand-embellished crystal sequin bustier, pleated cross-draped waist, side slit adorned with crystal trim, and a dramatic mermaid train.",
+      specs: ["Material: Liquid Duchess Satin & Crystals", "Bust: Boned Corset Bustier with Sequins", "Silhouette: Sculpted Mermaid with Train", "Care: Professional Dry Clean Only", "Origin: Imported Luxury"]
+    },
+    {
+      id: 105,
+      name: "The Bronze Papillon Flutter-Sleeve Ballgown",
+      image: "images/women-dress-5.jpg",
+      category: "Evening & Ballgowns",
+      price: 18500,
+      priceFormatted: "KSh 18,500",
+      badge: "Imported Luxury",
+      description: "Magnificent imported floor-length evening ballgown in rich copper bronze duchess satin. Features a clean square neckline, voluminous flutter butterfly sleeves, sculpted waist, and an expansive pleated ballgown skirt.",
+      specs: ["Material: Ultra-Heavyweight Duchess Satin", "Sleeves: Flutter Butterfly Sleeves", "Neckline: Structured Square Neck", "Skirt: Full Floor-Length Flare (145cm)", "Origin: Imported Luxury"]
+    },
+    {
+      id: 106,
+      name: "The Royal Burgundy Puff-Sleeve Gala Gown",
+      image: "images/women-dress-6.jpg",
+      category: "Evening & Ballgowns",
+      price: 17800,
+      priceFormatted: "KSh 17,800",
+      badge: "Grand Gala",
+      description: "Regal deep wine burgundy satin gala ballgown imported for Nairobi black-tie events. Sculpted with dramatic puff shoulders, sweetheart neckline, satin waist cincher, and an opulent floor-sweeping pleated gown skirt.",
+      specs: ["Material: Premium Silk-Finish Heavy Satin", "Neckline: Sweetheart with Puff Shoulders", "Length: Floor Length Gala Silhouette", "Closure: Invisible Back Zipper with Hook", "Origin: Imported Luxury"]
+    },
+    {
+      id: 107,
+      name: "The Crimson Siren Split Mermaid Gown",
+      image: "images/women-dress-7.jpg",
+      category: "Gala & Red Carpet",
+      price: 13500,
+      priceFormatted: "KSh 13,500",
+      badge: "Trending",
+      description: "Sculpted deep crimson red mermaid evening gown. Highlights an asymmetrical wrap crossover sweetheart neckline, tailored short puff sleeves, body-contouring hourglass fit, and a bold front leg slit.",
+      specs: ["Material: Structural Stretch Crepe", "Fit: Hourglass Mermaid Silhouette", "Neckline: Crossover Sweetheart", "Slit: Elegant Center-Front Slit", "Origin: Imported Luxury"]
+    },
+    {
+      id: 108,
+      name: "The Midnight Empress Cape Foyer Gown",
+      image: "images/women-dress-8.jpg",
+      category: "Gala & Red Carpet",
+      price: 19800,
+      priceFormatted: "KSh 19,800",
+      badge: "Royal Edition",
+      description: "An exquisite high-fashion evening gown featuring a swirling midnight navy and crimson dot pattern, dramatic kimono wing sleeves, satin belt with sculpted rose rosette, and an asymmetrical flowing satin side sash.",
+      specs: ["Material: Printed Duchess Satin & Heavy Silk", "Sleeves: Dramatic Draped Wing Cape", "Waist: Sculpted 3D Rose Flower Sash", "Occasion: Diplomatic Dinners & Galas", "Origin: Imported Luxury"]
+    },
+    {
+      id: 109,
+      name: "The Savannah Emerald Pleated Flounce Dress",
+      image: "images/women-dress-9.jpg",
+      category: "Cocktail & Party",
+      price: 11800,
+      priceFormatted: "KSh 11,800",
+      badge: "New Season",
+      description: "Chic modern luxury A-line midi dress tailored from rich bottle green stretch fabric. Features structured tiered ruffle cap sleeves with golden fan motifs, sweetheart neckline, and pleated skirt with contrast patterned panels.",
+      specs: ["Material: Rich Forest Green Stretch Crepe", "Sleeves: Tiered Sculpted Fan Ruffles", "Silhouette: Pleated Fit-and-Flare Midi", "Pattern: Gold & Black Mosaic Insets", "Origin: Imported Luxury"]
+    },
+    {
+      id: 110,
+      name: "The Olive Bow-Tie Pleated Atelier Midi Dress",
+      image: "images/women-dress-10.jpg",
+      category: "Midi & Sets",
+      price: 11200,
+      priceFormatted: "KSh 11,200",
+      badge: "Atelier Chic",
+      description: "Timeless Parisian-inspired olive green midi dress with statement pussy-bow necktie, short puffed sleeves with banded cuffs, covered front button placket, cinched waist, and deep accordion pleats.",
+      specs: ["Material: Fine Double-Knit Crepe", "Details: Pussy-Bow Tie & Covered Buttons", "Sleeves: Victorian Puff with Cuffs", "Length: Elegant Tea-Length Midi (125cm)", "Origin: Imported Luxury"]
+    },
+
+    // --- Beddings (201-208) ---
+    {
+      id: 201,
+      name: "Imperial 1000TC Egyptian Cotton Duvet Set",
+      image: "images/placeholder-beddings.svg",
+      category: "Duvet Sets",
+      price: 12500,
+      priceFormatted: "KSh 12,500",
+      badge: "Hotel Grade",
+      description: "Imported 1000-thread-count long-staple Egyptian cotton with subtle satin stripe finish. Includes duvet cover and 4 pillowcases for Kenyan 6x6 Queen and 7x7 King beds.",
+      specs: ["Thread Count: 1000 TC Long Staple", "Sizes: 6x6 Queen / 7x7 King", "Set: 1 Duvet Cover + 4 Pillowcases", "Origin: Imported Egyptian Cotton"]
+    },
+    {
+      id: 202,
+      name: "The Grand Suite 6-Piece Cloud Comforter Set",
+      image: "images/placeholder-beddings.svg",
+      category: "Comforter Sets",
+      price: 14800,
+      priceFormatted: "KSh 14,800",
+      badge: "Bestseller",
+      description: "Plush microfiber down-alternative comforter, fitted sheet, flat sheet, and coordinating embroidered pillow shams for five-star hotel comfort.",
+      specs: ["Set: 6 Pieces Complete", "Filling: 350 GSM Microfiber Cloud Down", "Origin: Imported Turkey"]
+    },
+    {
+      id: 203,
+      name: "Hotel-Grade Pure White Sateen Sheet Set",
+      image: "images/placeholder-beddings.svg",
+      category: "Sheets & Linens",
+      price: 8500,
+      priceFormatted: "KSh 8,500",
+      badge: "Luxury Import",
+      description: "Ultra-breathable cooling sateen weave designed for Nairobi's climate. Deep pocket fitted sheets fit up to 16-inch mattress thickness.",
+      specs: ["Weave: Silky Sateen", "Pockets: 16\" Extra Deep Fit", "Set: 1 Fitted + 1 Flat + 2 Pillowcases"]
+    },
+    {
+      id: 204,
+      name: "Royal Damask Jacquard Luxury Bed Set",
+      image: "images/placeholder-beddings.svg",
+      category: "Duvet Sets",
+      price: 13900,
+      priceFormatted: "KSh 13,900",
+      badge: "Royal Collection",
+      description: "Regal imported woven jacquard damask duvet cover with piped edging and matching bolster covers.",
+      specs: ["Material: Woven Jacquard Damask", "Set: Duvet + 4 Shams + 1 Bolster", "Origin: Imported Luxury Linens"]
+    },
+    {
+      id: 205,
+      name: "Silk-Touch Botanical Duvet Cover Set",
+      image: "images/placeholder-beddings.svg",
+      category: "Duvet Sets",
+      price: 11500,
+      priceFormatted: "KSh 11,500",
+      badge: "New Arrival",
+      description: "Soft-washed botanical floral duvet set imported from Turkey. Hypoallergenic, fade-resistant, and silky to the touch.",
+      specs: ["Material: Microfiber Sateen", "Hypoallergenic: Yes", "Origin: Imported Turkey"]
+    },
+    {
+      id: 206,
+      name: "All-Season Velvet Touch Quilted Bedspread",
+      image: "images/placeholder-beddings.svg",
+      category: "Bedspreads",
+      price: 9800,
+      priceFormatted: "KSh 9,800",
+      badge: "Popular",
+      description: "Lightweight quilted embossed coverlet in rich champagne gold and charcoal tones.",
+      specs: ["Material: Embossed Velvet Touch", "Care: Machine Washable"]
+    },
+    {
+      id: 207,
+      name: "Memory Foam & Goose Feather Pillow Pair",
+      image: "images/placeholder-beddings.svg",
+      category: "Pillows & Throws",
+      price: 6500,
+      priceFormatted: "KSh 6,500",
+      badge: "Ergonomic",
+      description: "Ergonomic dual-chamber support pillows wrapped in 100% cotton percale shells.",
+      specs: ["Set: 2 Luxury Pillows", "Support: Dual-Chamber Orthopedic"]
+    },
+    {
+      id: 208,
+      name: "Cashmere-Feel Herringbone Bed Throw",
+      image: "images/placeholder-beddings.svg",
+      category: "Pillows & Throws",
+      price: 5200,
+      priceFormatted: "KSh 5,200",
+      badge: "Chic Living",
+      description: "Cozy fringed luxury accent throw for foot-of-bed elegance or living room styling.",
+      specs: ["Material: Super-Soft Acrylic Cashmere Feel", "Dimensions: 150cm x 200cm"]
+    },
+
+    // --- Kitchen Items (301-310) ---
+    {
+      id: 301,
+      name: "Mayer & Boch Imperial Stainless Steel 12-Piece Cookware Set",
+      image: "images/kitchen-item-1.jpg",
+      category: "Cookware Sets",
+      price: 18500,
+      priceFormatted: "KSh 18,500",
+      badge: "Premium Multi-Ply",
+      description: "Imported luxury multi-ply 18/10 stainless steel cookware collection. Features heavy-duty capsule thermal base for rapid, even heat distribution, mirror-polished exterior with decorative satin bands, tempered glass moisture-retaining lids, and ergonomic heat-resistant rose-gold accented handles. Suitable for all stovetops including induction.",
+      specs: ["Pieces: 12-Piece Complete Chef Set (4 Casserole Pots, 1 Saucepan, 1 Skillet, 6 Tempered Lids)", "Material: Heavy-Gauge 18/10 Surgical Stainless Steel", "Handles: Ergonomic Riveted Stay-Cool Rose Gold Accents", "Stovetop Compatibility: Induction, Gas, Electric, Ceramic", "Origin: Directly Imported Luxury Cookware"]
+    },
+    {
+      id: 302,
+      name: "Riviera Teal Non-Stick Cookware & Bakeware 14-Piece Set",
+      image: "images/kitchen-item-2.jpg",
+      category: "Cookware Sets",
+      price: 16800,
+      priceFormatted: "KSh 16,800",
+      badge: "Bestseller Set",
+      description: "Vibrant turquoise teal cookware and bakeware ensemble imported for modern Nairobi kitchens. Hard-anodized aluminum construction provides superior durability and warp resistance, with toxin-free PFOA-free non-stick interiors, dual-riveted comfort-grip silicone handles, shatter-resistant glass lids, heavy-duty rimmed baking sheet, and coordinating silicone cooking tools.",
+      specs: ["Pieces: 14 Pieces (2 Frying Pans, 3 Covered Pots, 1 Baking Sheet, 2 Heat-Safe Silicone Tools)", "Coating: Platinum-Grade Non-Stick (PFOA, Lead & Cadmium Free)", "Color: Rich Riviera Teal with Stainless Rims", "Oven Safe: Up to 200°C (Cookware) / 230°C (Bakeware)", "Origin: Directly Imported Luxury Cookware"]
+    },
+    {
+      id: 303,
+      name: "Maxkon Pro-Grade 2200W Commercial High-Speed Blender",
+      image: "images/kitchen-item-3.jpg",
+      category: "Kitchen Appliances",
+      price: 14500,
+      priceFormatted: "KSh 14,500",
+      badge: "Commercial 2200W",
+      description: "Heavy-duty commercial-grade 2200W vortex blender engineered for silky smoothies, nut butters, crushing solid ice blocks in seconds, and hot gourmet soups. Features Japanese hardened stainless steel 6-point aircraft-grade blades, variable stepless speed dial, instant pulse toggle, and an extra-large 2.5L shatterproof BPA-free tritan pitcher.",
+      specs: ["Power: 2,200 Watts Peak Performance Pure Copper Motor", "Capacity: 2.5 Litres BPA-Free Tritan Impact Pitcher", "Blade Assembly: 6-Blade Multi-Directional Stainless Steel", "Control: Stepless Variable Speed + One-Touch Pulse", "Safety: Overheat Protection & Safety Lid Interlock"]
+    },
+    {
+      id: 304,
+      name: "Deluxe Multi-Function Electric Countertop Convection & Baking Oven",
+      image: "images/kitchen-item-4.jpg",
+      category: "Kitchen Appliances",
+      price: 15200,
+      priceFormatted: "KSh 15,200",
+      badge: "Chef Convection",
+      description: "Compact yet high-capacity imported countertop convection toaster oven. Features dual-stage heating quartz elements with convection fan circulation for golden crusts, precision 60-minute auto-shutoff timer, independent upper and lower heating controls up to 250°C, tempered double-wall glass door, and interior halogen viewing light.",
+      specs: ["Functionality: Bake, Toast, Roast, Broil & Warm", "Heating: Turbo Convection Air Circulation System", "Temperature Range: 100°C to 250°C Precision Thermostat", "Accessories: Enameled Baking Pan, Wire Grilling Rack, Crumb Tray", "Origin: Directly Imported Kitchen Appliance"]
+    },
+    {
+      id: 305,
+      name: "Dual-Burner Shatterproof Tempered Glass Auto-Ignition Gas Cooker",
+      image: "images/kitchen-item-5.jpg",
+      category: "Kitchen Appliances",
+      price: 9800,
+      priceFormatted: "KSh 9,800",
+      badge: "Auto-Ignition",
+      description: "Sleek contemporary dual-burner tabletop gas stove crafted with premium 7mm toughened explosion-proof black tempered glass. Features energy-saving swirl vortex blue-flame brass burner heads, zero-battery automatic piezoelectric ignition, heavy cast-iron pan support trivets, and non-slip rubber feet for effortless daily cooking.",
+      specs: ["Surface: 7mm High-Strength Toughened Tempered Glass", "Burners: Dual Heavy Brass Vortex Flame Cores", "Ignition: Built-in Piezo Electric Automatic (No Matches/Batteries Needed)", "Gas Type: LPG Compatible with Low Gas Consumption Regulator", "Cleaning: Wipe-Clean Stain-Resistant Glass Surface"]
+    },
+    {
+      id: 306,
+      name: "ChefGrade Stainless Steel Temperature-Controlled Electric Deep Fryer",
+      image: "images/kitchen-item-6.jpg",
+      category: "Kitchen Appliances",
+      price: 10500,
+      priceFormatted: "KSh 10,500",
+      badge: "ChefGrade 3.5L",
+      description: "Restaurant-quality brushed stainless steel electric deep fryer designed for quick, crispy fries, golden chicken, samosas, and pastries with minimal oil absorption. Equipped with an immersed rapid-recovery heating element, variable temperature regulator (130°C to 190°C), cool-touch fold-down basket handle, odor-filtering lid with viewing window, and removable enamel oil basin for effortless cleaning.",
+      specs: ["Capacity: 3.5 Litres Family & Party Size", "Power: 2,000W Immersed High-Efficiency Element", "Body: Brushed Grade-304 Stainless Steel Housing", "Filter: Multi-Layer Washable Anti-Odor Charcoal Filter Lid", "Safety: Cool-Touch Handles & Automatic Thermal Cutoff"]
+    },
+    {
+      id: 307,
+      name: "Elite Multi-Speed Turbo Electric Hand & Stand Mixer Set",
+      image: "images/kitchen-item-7.jpg",
+      category: "Kitchen Appliances",
+      price: 7200,
+      priceFormatted: "KSh 7,200",
+      badge: "5-Speed Turbo",
+      description: "Versatile high-torque kitchen mixer system crafted for baking connoisseurs. Features 5 speed settings plus instant Turbo boost, lightweight ergonomic contour grip, dual balloon wire whisks, heavy stainless steel dough kneading hooks, and a sleek compact storage dock that neatly holds the unit and all beaters on your countertop.",
+      specs: ["Motor: 500W High-Torque Pure Copper Motor", "Speeds: 5 Variable Speed Levels + Instant Turbo Burst", "Attachments: 2 Heavy Dough Hooks, 2 Chrome Wire Beaters, 2 Balloon Whisks", "Storage: Custom Countertop Organizer Dock Included", "Eject Button: Quick-Release Safety Beater Ejector"]
+    },
+    {
+      id: 308,
+      name: "Kyoto Two-Tone Crimson & Obsidian Ramen Bowl & Spoon Set",
+      image: "images/kitchen-item-8.jpg",
+      category: "Dinnerware & Porcelain",
+      price: 5800,
+      priceFormatted: "KSh 5,800",
+      badge: "Asian Tableware",
+      description: "Imported Japanese-inspired lacquer-finish dining set crafted in striking two-tone obsidian black and vibrant crimson red. Includes deep stackable bowls designed for steaming ramen, pho, noodles, or hearty soups, paired with traditionally sculpted ergonomic soup ladles. High heat resistance, chip-resistant, and dishwasher safe.",
+      specs: ["Set Includes: 4 Deep Ramen Bowls + 4 Matching Contoured Soup Spoons", "Colorway: Gloss Crimson Red Interior / Obsidian Black Exterior", "Material: Restaurant-Grade Melamine & Glazed Ceramic Compound", "Heat Resistance: -20°C to 120°C (Dishwasher Safe)", "Origin: Directly Imported Asian Tableware"]
+    },
+    {
+      id: 309,
+      name: "Tuscan Scarlet Porcelain Shallow Pasta & Salad Bowl Set (Set of 7)",
+      image: "images/kitchen-item-9.jpg",
+      category: "Dinnerware & Porcelain",
+      price: 8900,
+      priceFormatted: "KSh 8,900",
+      badge: "Scarlet Glaze",
+      description: "Set of 7 restaurant-grade wide shallow rimmed bowls crafted from durable high-fired vitreous porcelain. Coated in a deep Tuscan scarlet red high-gloss glaze that resists cutlery scratching and chipping. Wide, gently flared rim makes it ideal for serving pastas, risotto, salads, stews, and gourmet family-style banquets.",
+      specs: ["Set Includes: 7 Wide Shallow Rimmed Bowls (22cm Diameter)", "Material: High-Fired Non-Porous Vitrified Porcelain", "Finish: High-Gloss Scratch-Proof Scarlet Red Glaze", "Safety: Microwave, Dishwasher, Oven & Freezer Safe", "Origin: Directly Imported Italian-Style Tableware"]
+    },
+    {
+      id: 310,
+      name: "Royal Auburn Swirl 60-Piece Fine Porcelain Dinner & Tea Service Set",
+      image: "images/kitchen-item-10.jpg",
+      category: "Dinnerware & Porcelain",
+      price: 28500,
+      priceFormatted: "KSh 28,500",
+      badge: "Banquet 60-Piece",
+      description: "Comprehensive imported banquet dining service set for 12 guests. Crafted from pristine high-fired white porcelain, accented with fluid artistic auburn crimson ribbon flourishes. Complete with square-contoured dinner plates, deep soup plates, dessert plates, side saucers, and matching tea/coffee cups.",
+      specs: ["Total Pieces: 60-Piece Complete Banquet Service (Serves 12 Guests)", "Contents: 12 Dinner Plates, 12 Soup Bowls, 12 Dessert Plates, 12 Cups, 12 Saucers", "Material: High-Fired Translucent Vitreous Porcelain", "Design: Modern Curved Square Silhouette with Auburn Ribbon Inset", "Origin: Directly Imported Fine Porcelain Dinnerware"]
+    }
+  ];
+
+  // Helper to find a product by ID
+  window.feliciaGetProduct = function(id) {
+    return products.find(p => p.id === parseInt(id));
+  };
+
+  // --- Cart State Management (localStorage) ---
+  const CART_KEY = 'felicia_cart_items';
+
+  function getCart() {
+    try {
+      const stored = localStorage.getItem(CART_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    } catch (e) {}
+    updateCartUI();
+  }
+
+  window.addToCart = function(productId, qty) {
+    qty = qty || 1;
+    const p = feliciaGetProduct(productId);
+    if (!p) return;
+
+    let cart = getCart();
+    const existing = cart.find(item => item.id === p.id);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({
+        id: p.id,
+        name: p.name,
+        image: p.image,
+        category: p.category,
+        price: p.price,
+        priceFormatted: p.priceFormatted,
+        qty: qty
+      });
+    }
+
+    saveCart(cart);
+
+    // Provide immediate visual feedback on the clicked button
+    const btn = event && event.target && event.target.closest ? event.target.closest('.felicia-btn-add-to-cart') : null;
+    if (btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ ADDED TO BAG';
+      btn.style.background = '#0E3B13';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+      }, 1200);
+    }
+
+    // Open Cart Drawer automatically
+    toggleCartDrawer(true);
+  };
+
+  window.updateCartQty = function(productId, delta) {
+    let cart = getCart();
+    const item = cart.find(i => i.id === productId);
+    if (item) {
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+    }
+    saveCart(cart);
+  };
+
+  window.removeFromCart = function(productId) {
+    let cart = getCart().filter(i => i.id !== productId);
+    saveCart(cart);
+  };
+
+  window.clearCart = function() {
+    saveCart([]);
+  };
+
+  // --- Cart Drawer Injection & UI ---
+  function injectCartDrawer() {
+    if (document.getElementById('felicia-cart-drawer')) return;
+
+    const drawerHtml = `
+      <div id="felicia-cart-drawer" class="felicia-drawer-overlay" onclick="handleDrawerOverlayClick(event)">
+        <div class="felicia-drawer-panel">
+          
+          <!-- Drawer Header -->
+          <div class="felicia-drawer-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; color: #141416;">
+                Shopping Bag (<span id="cart-drawer-count">0</span>)
+              </h3>
+            </div>
+            <button type="button" class="felicia-drawer-close" onclick="toggleCartDrawer(false)" aria-label="Close Bag">
+              &times;
+            </button>
+          </div>
+
+          <!-- Drawer Body / Items List -->
+          <div class="felicia-drawer-body" id="cart-drawer-items">
+            <!-- Dynamic items rendered here -->
+          </div>
+
+          <!-- Drawer Footer / Totals & Checkout -->
+          <div class="felicia-drawer-footer" id="cart-drawer-footer">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+              <span style="font-size: 0.92rem; color: #666; text-transform: uppercase; letter-spacing: 1px;">Estimated Total</span>
+              <span style="font-size: 1.4rem; font-weight: 700; color: #141416;" id="cart-drawer-subtotal">KSh 0</span>
+            </div>
+            <p style="margin: 0 0 18px 0; font-size: 0.8rem; color: #777;">
+              Taxes included. Fast rider delivery in Nairobi and courier shipping across Kenya.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- WhatsApp Checkout -->
+              <button type="button" class="felicia-btn-whatsapp" onclick="checkoutWhatsApp()" style="width: 100%; padding: 13px; font-size: 0.9rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.96L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.016-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.707 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                </svg>
+                Complete Order via WhatsApp
+              </button>
+
+              <!-- M-Pesa Checkout Button -->
+              <button type="button" class="felicia-btn-mpesa" onclick="openMpesaModal()" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700; background: #00A859; color: #FFF; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">
+                Pay with M-Pesa
+              </button>
+
+              <button type="button" onclick="toggleCartDrawer(false)" style="background: none; border: none; color: #888; font-size: 0.85rem; padding: 6px; cursor: pointer; text-decoration: underline;">
+                Continue Browsing
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', drawerHtml);
+  }
+
+  window.handleDrawerOverlayClick = function(e) {
+    if (e.target.id === 'felicia-cart-drawer') {
+      toggleCartDrawer(false);
+    }
+  };
+
+  window.toggleCartDrawer = function(open) {
+    const drawer = document.getElementById('felicia-cart-drawer');
+    if (!drawer) return;
+    if (open) {
+      updateCartUI();
+      drawer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    } else {
+      drawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  function updateCartUI() {
+    const cart = getCart();
+    const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    // Update Header Counter
+    document.querySelectorAll('.felicia-cart-counter').forEach(el => {
+      el.textContent = totalCount;
+      el.style.display = totalCount > 0 ? 'flex' : 'none';
+    });
+
+    const drawerCountEl = document.getElementById('cart-drawer-count');
+    if (drawerCountEl) drawerCountEl.textContent = totalCount;
+
+    const drawerSubtotalEl = document.getElementById('cart-drawer-subtotal');
+    if (drawerSubtotalEl) {
+      drawerSubtotalEl.textContent = 'KSh ' + subtotal.toLocaleString();
+    }
+
+    const drawerBody = document.getElementById('cart-drawer-items');
+    const drawerFooter = document.getElementById('cart-drawer-footer');
+
+    if (!drawerBody) return;
+
+    if (cart.length === 0) {
+      drawerBody.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px; color: #888;">
+          <div style="font-size: 3rem; margin-bottom: 16px; opacity: 0.4;">🛍️</div>
+          <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #141416; margin: 0 0 10px 0;">Your Bag is Empty</h4>
+          <p style="font-size: 0.88rem; color: #666; margin-bottom: 24px;">Discover our imported luxury handbags and curated essentials.</p>
+          <a href="handbags.html" class="felicia-btn-primary" onclick="toggleCartDrawer(false)" style="display: inline-block;">Shop Handbags</a>
+        </div>
+      `;
+      if (drawerFooter) drawerFooter.style.display = 'none';
+    } else {
+      if (drawerFooter) drawerFooter.style.display = 'block';
+
+      drawerBody.innerHTML = cart.map(item => `
+        <div class="felicia-drawer-item">
+          <div class="felicia-drawer-item-img">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="felicia-drawer-item-info">
+            <div style="font-size: 0.7rem; color: #C5A059; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">${item.category}</div>
+            <a href="javascript:void(0)" onclick="openProductModal(${item.id}); toggleCartDrawer(false);" style="font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 600; color: #141416; text-decoration: none; margin: 2px 0 6px 0; display: block; line-height: 1.3;">
+              ${item.name}
+            </a>
+            <div style="font-size: 1rem; font-weight: 700; color: #141416; margin-bottom: 8px;">
+              ${item.priceFormatted}
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="felicia-qty-control">
+                <button type="button" onclick="updateCartQty(${item.id}, -1)">&minus;</button>
+                <span>${item.qty}</span>
+                <button type="button" onclick="updateCartQty(${item.id}, 1)">&plus;</button>
+              </div>
+              <button type="button" onclick="removeFromCart(${item.id})" class="felicia-item-remove" title="Remove item">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // --- Product Details Modal ("when i click on that i can read about the product") ---
+  function injectProductModal() {
+    if (document.getElementById('felicia-product-modal')) return;
+
+    const modalHtml = `
+      <div id="felicia-product-modal" class="felicia-modal-overlay" onclick="handleModalOverlayClick(event)">
+        <div class="felicia-modal-container">
+          <button type="button" class="felicia-modal-close" onclick="closeProductModal()" aria-label="Close Product View">&times;</button>
+          
+          <div class="felicia-modal-grid">
+            <!-- Modal Image Gallery -->
+            <div class="felicia-modal-img-col">
+              <img id="modal-product-img" src="" alt="">
+              <span id="modal-product-badge" class="felicia-badge"></span>
+            </div>
+
+            <!-- Modal Product Details -->
+            <div class="felicia-modal-details-col">
+              <div id="modal-product-category" style="font-size: 0.75rem; color: #C5A059; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px;"></div>
+              <h2 id="modal-product-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; color: #141416; margin: 0 0 12px 0; line-height: 1.25;"></h2>
+              
+              <div id="modal-product-price" style="font-size: 1.5rem; font-weight: 700; color: #141416; margin-bottom: 16px;"></div>
+              
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 18px; font-size: 0.85rem; color: #2E7D32;">
+                <span style="width: 8px; height: 8px; background: #2E7D32; border-radius: 50%; display: inline-block;"></span>
+                <span>In Stock &bull; Nairobi Showroom Ready</span>
+              </div>
+
+              <div style="border-top: 1px solid #EFEFEF; border-bottom: 1px solid #EFEFEF; padding: 16px 0; margin-bottom: 20px;">
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #141416; margin: 0 0 8px 0;">Description</h4>
+                <p id="modal-product-desc" style="font-size: 0.92rem; color: #555; line-height: 1.7; margin: 0;"></p>
+              </div>
+
+              <!-- Product Specifications -->
+              <div style="margin-bottom: 24px;">
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #141416; margin: 0 0 8px 0;">Key Specifications</h4>
+                <ul id="modal-product-specs" style="margin: 0; padding-left: 20px; font-size: 0.88rem; color: #666; line-height: 1.6;">
+                </ul>
+              </div>
+
+              <!-- Quantity Selector & Actions -->
+              <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
+                <div class="felicia-qty-control" style="height: 46px;">
+                  <button type="button" onclick="adjustModalQty(-1)" style="font-size: 1.2rem; width: 36px;">&minus;</button>
+                  <span id="modal-qty" style="font-size: 1rem; width: 36px; text-align: center; font-weight: 600;">1</span>
+                  <button type="button" onclick="adjustModalQty(1)" style="font-size: 1.2rem; width: 36px;">&plus;</button>
+                </div>
+
+                <button type="button" class="felicia-btn-add-to-cart" id="modal-add-btn" onclick="addModalProductToCart()" style="flex-grow: 1; height: 46px; font-size: 0.92rem;">
+                  ADD TO CART
+                </button>
+              </div>
+
+              <!-- Fast Direct WhatsApp order -->
+              <a href="javascript:void(0)" id="modal-wa-btn" class="felicia-btn-whatsapp" target="_blank" rel="noopener" style="width: 100%; height: 44px;">
+                Instant Order via WhatsApp
+              </a>
+
+              <div style="margin-top: 18px; font-size: 0.8rem; color: #888; text-align: center;">
+                🚀 Fast delivery in Nairobi (Same/Next Day) &bull; Nationwide Kenya courier available
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+  }
+
+  let activeModalProductId = null;
+  let activeModalQty = 1;
+
+  window.openProductModal = function(productId) {
+    const p = feliciaGetProduct(productId);
+    if (!p) return;
+
+    activeModalProductId = p.id;
+    activeModalQty = 1;
+
+    document.getElementById('modal-product-img').src = p.image;
+    document.getElementById('modal-product-img').alt = p.name;
+    document.getElementById('modal-product-badge').textContent = p.badge;
+    document.getElementById('modal-product-category').textContent = p.category;
+    document.getElementById('modal-product-title').textContent = p.name;
+    document.getElementById('modal-product-price').textContent = p.priceFormatted;
+    document.getElementById('modal-product-desc').textContent = p.description;
+    document.getElementById('modal-qty').textContent = '1';
+
+    const specsList = document.getElementById('modal-product-specs');
+    if (specsList && p.specs) {
+      specsList.innerHTML = p.specs.map(s => `<li>${s}</li>`).join('');
+    }
+
+    const waBtn = document.getElementById('modal-wa-btn');
+    if (waBtn) {
+      waBtn.href = `https://wa.me/254700000000?text=${encodeURIComponent('Hello Felicia Collections, I would like to order: ' + p.name + ' (' + p.priceFormatted + ')')}`;
+    }
+
+    const modal = document.getElementById('felicia-product-modal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeProductModal = function() {
+    const modal = document.getElementById('felicia-product-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.handleModalOverlayClick = function(e) {
+    if (e.target.id === 'felicia-product-modal') {
+      closeProductModal();
+    }
+  };
+
+  window.adjustModalQty = function(delta) {
+    activeModalQty = Math.max(1, activeModalQty + delta);
+    document.getElementById('modal-qty').textContent = activeModalQty;
+  };
+
+  window.addModalProductToCart = function() {
+    if (!activeModalProductId) return;
+    addToCart(activeModalProductId, activeModalQty);
+    closeProductModal();
+  };
+
+  // --- Checkout Handlers ---
+  window.checkoutWhatsApp = function() {
+    const cart = getCart();
+    if (cart.length === 0) {
+      alert('Your shopping bag is empty.');
+      return;
+    }
+
+    let text = "Hello Felicia Collections, I would like to place an order from your website:\n\n";
+    let subtotal = 0;
+    cart.forEach((item, idx) => {
+      const itemTotal = item.price * item.qty;
+      subtotal += itemTotal;
+      text += `${idx + 1}. ${item.name} (${item.qty}x @ ${item.priceFormatted}) = KSh ${itemTotal.toLocaleString()}\n`;
+    });
+
+    text += `\nTotal: KSh ${subtotal.toLocaleString()}\n\nPlease confirm availability and arrange delivery to my location in Kenya.`;
+
+    const waUrl = `https://wa.me/254700000000?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+  };
+
+  window.openMpesaModal = function() {
+    const cart = getCart();
+    if (cart.length === 0) {
+      alert('Your bag is empty.');
+      return;
+    }
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    alert(`M-PESA CHECKOUT INSTRUCTIONS:\n\n1. Go to M-Pesa on your phone\n2. Select Lipa na M-Pesa -> Buy Goods and Services\n3. Enter Till Number: 554433 (Felicia Collections)\n4. Enter Amount: KSh ${subtotal.toLocaleString()}\n5. Enter your PIN and confirm\n\nOnce complete, please forward the confirmation SMS to WhatsApp (+254 700 000 000) with your delivery address.`);
+  };
+
+  // --- CSS Injection for Cart & Modal ---
+  function injectCartStyles() {
+    const style = document.createElement('style');
+    style.id = 'felicia-cart-engine-styles';
+    style.innerHTML = `
+      /* Cart Trigger in Header */
+      .felicia-cart-trigger {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+      }
+      .felicia-cart-counter {
+        position: absolute;
+        top: -4px;
+        right: -6px;
+        background: #C5A059;
+        color: #141416;
+        font-size: 0.72rem;
+        font-weight: 700;
+        min-width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      }
+
+      /* Card Title Link */
+      .felicia-product-title-link {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #1A1A1A;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: #0b66c2;
+        line-height: 1.35;
+        margin: 0 0 10px 0;
+        display: inline-block;
+        transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        cursor: pointer;
+      }
+      .felicia-product-title-link:hover {
+        color: #0b66c2;
+        text-decoration-color: #0b66c2;
+      }
+
+      /* ADD TO CART Button (Matches Reference Image) */
+      .felicia-btn-add-to-cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: #1E5631; /* Deep rich forest green as in user's image */
+        color: #FFFFFF !important;
+        padding: 12px 16px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        margin-top: auto;
+      }
+      .felicia-btn-add-to-cart:hover {
+        background: #144023;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(30, 86, 49, 0.35);
+      }
+      .felicia-btn-add-to-cart:active {
+        transform: translateY(0);
+      }
+
+      /* Slide-out Cart Drawer */
+      .felicia-drawer-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        backdrop-filter: blur(2px);
+      }
+      .felicia-drawer-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .felicia-drawer-panel {
+        position: absolute;
+        top: 0; right: -420px;
+        width: 100%;
+        max-width: 420px;
+        height: 100%;
+        background: #FFFFFF;
+        box-shadow: -4px 0 25px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .felicia-drawer-overlay.active .felicia-drawer-panel {
+        right: 0;
+      }
+      .felicia-drawer-header {
+        padding: 18px 24px;
+        border-bottom: 1px solid #EAEAEA;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #FAF9F6;
+      }
+      .felicia-drawer-close {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        line-height: 1;
+        color: #141416;
+        cursor: pointer;
+        padding: 0 4px;
+      }
+      .felicia-drawer-body {
+        padding: 20px 24px;
+        overflow-y: auto;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .felicia-drawer-footer {
+        padding: 20px 24px;
+        border-top: 1px solid #EAEAEA;
+        background: #FAF9F6;
+      }
+
+      .felicia-drawer-item {
+        display: flex;
+        gap: 14px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #F0F0F0;
+        align-items: center;
+      }
+      .felicia-drawer-item-img {
+        width: 72px;
+        height: 72px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #141416;
+      }
+      .felicia-drawer-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .felicia-drawer-item-info {
+        flex-grow: 1;
+      }
+      .felicia-qty-control {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #DDD;
+        border-radius: 4px;
+        background: #FFF;
+      }
+      .felicia-qty-control button {
+        background: none;
+        border: none;
+        padding: 4px 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        color: #333;
+      }
+      .felicia-qty-control span {
+        padding: 0 8px;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+      .felicia-item-remove {
+        background: none;
+        border: none;
+        color: #999;
+        font-size: 0.78rem;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0;
+      }
+      .felicia-item-remove:hover {
+        color: #C00;
+      }
+
+      /* Product Details Modal Overlay */
+      .felicia-modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(3px);
+      }
+      .felicia-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .felicia-modal-container {
+        position: relative;
+        background: #FFFFFF;
+        width: 100%;
+        max-width: 860px;
+        max-height: 90vh;
+        border-radius: 8px;
+        overflow-y: auto;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        animation: feliciaModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes feliciaModalIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      .felicia-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        font-size: 2rem;
+        line-height: 1;
+        color: #141416;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .felicia-modal-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 749px) {
+        .felicia-modal-grid { grid-template-columns: 1fr; }
+      }
+      .felicia-modal-img-col {
+        position: relative;
+        background: #141416;
+        min-height: 380px;
+      }
+      .felicia-modal-img-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .felicia-modal-details-col {
+        padding: 36px 30px;
+        display: flex;
+        flex-direction: column;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  
+  // Mobile Navigation Drawer Handlers
+  window.toggleMobileDrawer = function(open) {
+    const drawer = document.getElementById('felicia-mobile-drawer');
+    if (!drawer) return;
+    if (open) {
+      drawer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    } else {
+      drawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.handleMobileDrawerClick = function(e) {
+    if (e.target.id === 'felicia-mobile-drawer') {
+      toggleMobileDrawer(false);
+    }
+  };
+
+  // Init on DOM ready
+  function init() {
+    injectCartStyles();
+    injectCartDrawer();
+    injectProductModal();
+    updateCartUI();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
