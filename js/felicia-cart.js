@@ -601,6 +601,119 @@
         "Starting Price: KSh 2,000"
       ]
     },
+    {
+      id: 217,
+      name: "Quilted water proof pillow protector",
+      image: "images/Quilted water proof pillow protector.jpg",
+      images: [
+        "images/Quilted water proof pillow protector.jpg",
+        "images/Quilted water proof pillow protector 2.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 1200,
+      priceFormatted: "KSh 1,200",
+      badge: "Diamond Quilted",
+      description: "Quilted waterproof pillow protector featuring an elegant diamond stitch pattern and secure zippered closure. Breathable, ultra-soft, and cozy hypoallergenic shield protecting pillows from liquids, perspiration, and dust mites.",
+      specs: [
+        "Pattern: Elegant Diamond Stitch Quilted Pattern",
+        "Closure: Secure Concealed Zippered Enclosure",
+        "Texture: Ultra-Soft, Cozy & Breathable Hypoallergenic Shield",
+        "Protection: 100% Waterproof Barrier Against Liquids & Stains",
+        "Price: KSh 1,200"
+      ]
+    },
+    {
+      id: 218,
+      name: "Silk duvet",
+      image: "images/Silk duvet.jpg",
+      images: [
+        "images/Silk duvet.jpg",
+        "images/Silk duvet  2.jpg",
+        "images/Silk duvet  3.jpg",
+        "images/Silk duvet 4.jpg",
+        "images/Silk duvet  5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 4800,
+      priceFormatted: "KSh 4,800",
+      badge: "Tc Brand (6x7)",
+      description: "Luxury Tc Brand Silk Duvet ensemble in 6×7 size. Includes 1 pc premium silk duvet, 1 pc warm fleece bedsheet, 2 matching pillow cases, and 2 decorative throw pillow cases for an opulent master bedroom look.",
+      specs: [
+        "Brand: Authentic Tc Brand Luxury Bedding",
+        "Size: 6×7 Bed Dimensions",
+        "Set Includes: 1 pc Duvet + 1 pc Fleece Bedsheet + 2 Pillow Cases + 2 Throw Pillow Cases",
+        "Material: Spun Silk Sateen Shell with Ultra-Plush Thermal Filling",
+        "Price: KSh 4,800"
+      ]
+    },
+    {
+      id: 219,
+      name: "Plain fleece blanket",
+      image: "images/Plain fleece blanket.jpg",
+      images: [
+        "images/Plain fleece blanket.jpg",
+        "images/Plain fleece blanket  2.jpg",
+        "images/Plain fleece blanket 3.jpg",
+        "images/Plain fleece blanket 4.jpg",
+        "images/Plain fleece blanket 5.jpg"
+      ],
+      category: "Comforter & Jacquard Sets",
+      price: 1500,
+      priceFormatted: "KSh 1,500",
+      badge: "6x6 Soft Fleece",
+      description: "Ultra-soft cotton rich plain fleece blanket in 6x6 size. Lightweight yet delightfully warm, breathable, and lint-resistant for year-round cozy lounging and bedroom layering.",
+      specs: [
+        "Size: 6x6 Bed Size",
+        "Material: Ultra-Soft Breathable Cotton-Fleece Blend",
+        "Texture: Plush Lightweight Thermal Fleece",
+        "Care: Machine Washable, Fade & Pill Resistant",
+        "Price: KSh 1,500"
+      ]
+    },
+    {
+      id: 220,
+      name: "Fleece velvet",
+      image: "images/Fleece velvet.jpg",
+      images: [
+        "images/Fleece velvet.jpg",
+        "images/Fleece velvet 2.jpg",
+        "images/Fleece velvet 3.jpg",
+        "images/Fleece velvet 4.jpg"
+      ],
+      category: "Comforter & Jacquard Sets",
+      price: 1300,
+      priceFormatted: "From KSh 1,300",
+      badge: "From KSh 1,300",
+      description: "High-quality heavy fleece velvet luxury blanket in 6x6 size. Opulent velvety texture, heavy weight for chilly nights. Available in Plain 6x6 @ KSh 1,300 and Pure White 6x6 @ KSh 1,350.",
+      specs: [
+        "Weight & Quality: Heavyweight Premium Dense Pile Velvet Fleece",
+        "Options: Plain 6x6 @ KSh 1,300 | White 6x6 @ KSh 1,350",
+        "Dimensions: 6x6 Fit",
+        "Finish: High-Luster Velvet Sheen with Satin Edge Binding",
+        "Starting Price: KSh 1,300"
+      ]
+    },
+    {
+      id: 221,
+      name: "Pure white, cotton compressed pillow",
+      image: "images/Pure white, cotton compressed pillow.jpg",
+      images: [
+        "images/Pure white, cotton compressed pillow.jpg",
+        "images/Pure white, cotton compressed pillow 2.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 1200,
+      priceFormatted: "From KSh 1,200",
+      badge: "Pure Fibre @1,200",
+      description: "Pure white cotton compressed luxury pillow stuffed with 100% pure virgin micro-cluster fiber. Encased in a breathable 100% cotton percale shell for ergonomic neck support. Available in 750gm @ KSh 1,200 and 1000gm @ KSh 1,400.",
+      specs: [
+        "Filling: 100% Pure Virgin Micro-Cluster Fiber (Hypoallergenic)",
+        "Available Weights: 750gm @ KSh 1,200 | 1000gm @ KSh 1,400",
+        "Shell: 100% Breathable Crisp Cotton Percale",
+        "Packaging: Vacuum Compressed for Hygiene and Freshness",
+        "Starting Price: KSh 1,200"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
