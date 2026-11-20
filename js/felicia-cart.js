@@ -714,6 +714,119 @@
         "Starting Price: KSh 1,200"
       ]
     },
+    {
+      id: 222,
+      name: "Sharper fleece woolen blanket",
+      image: "images/Sharper fleece woolen blanket.jpg",
+      images: [
+        "images/Sharper fleece woolen blanket.jpg",
+        "images/Sharper fleece woolen blanket 2.jpg",
+        "images/Sharper fleece woolen blanket 3.jpg",
+        "images/Sharper fleece woolen blanket 4.jpg",
+        "images/Sharper fleece woolen blanket 5.jpg"
+      ],
+      category: "Comforter & Jacquard Sets",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "6x7 Woolen Fleece",
+      description: "Ultra-plush sharper fleece woolen luxury blanket in 6x7 size. Heavy thermal warmth, rich fluffy hand-feel, and enduring softness for master bedroom comfort.",
+      specs: [
+        "Size: 6x7 Bed Fit",
+        "Material: Heavy Sharper Woolen Fleece Blend",
+        "Features: Dual-Sided Extra Warm Sherpa Loft",
+        "Care: Machine Washable Gentle Cycle",
+        "Price: KSh 2,200"
+      ]
+    },
+    {
+      id: 223,
+      name: "Tufted duvet",
+      image: "images/Tufted duvet.jpg",
+      images: [
+        "images/Tufted duvet.jpg",
+        "images/Tufted duvet 2.jpg",
+        "images/Tufted duvet  3.jpg",
+        "images/Tufted duvet 4.jpg",
+        "images/Tufted duvet 5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 4200,
+      priceFormatted: "KSh 4,200",
+      badge: "6-Piece Set (6x7)",
+      description: "Opulent tufted duvet luxury bedding ensemble in 6x7 size. Complete 6-piece set including 1 high-loft tufted duvet, 1 matching bedsheet, and 4 coordinating pillow cases. Distinctive textured tufting adds regal boutique dimension to any bedroom.",
+      specs: [
+        "Dimensions: 6x7 Bed Size",
+        "Set: 6-Piece Set (1 Duvet + 1 Bedsheet + 4 Pillow Cases)",
+        "Craftsmanship: Geometric Pinch & Tufted Stitching",
+        "Material: Breathable Long-Staple Sateen Cotton Blend",
+        "Price: KSh 4,200"
+      ]
+    },
+    {
+      id: 224,
+      name: "Velvet duvet",
+      image: "images/Velvet duvet.jpg",
+      images: [
+        "images/Velvet duvet.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3900,
+      priceFormatted: "KSh 3,900",
+      badge: "TC Brand Corduroy",
+      description: "TC Brand luxury velvet duvet ensemble with distinctive corduroy ribbed texture. Features 1 pc velvet duvet, 1 pc warm fleece bedsheet, and 2 pcs matching pillow cases for sumptuous warmth and contemporary elegance.",
+      specs: [
+        "Brand: Authentic TC Brand Luxury Line",
+        "Texture: Corduroy Ribbed Velvet Texture",
+        "Set: Complete Bedding Set (1 Velvet Duvet + 1 Fleece Bedsheet + 2 Pillow Cases)",
+        "Fabric: High-Density Crushed Velvet with Fleece Lining",
+        "Price: KSh 3,900"
+      ]
+    },
+    {
+      id: 225,
+      name: "Foldable Clothes Storage Box",
+      image: "images/Foldable Clothes Storage Box.jpg",
+      images: [
+        "images/Foldable Clothes Storage Box.jpg",
+        "images/Foldable Clothes Storage Box 2.jpg",
+        "images/Foldable Clothes Storage Box 3.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 450,
+      priceFormatted: "KSh 450",
+      badge: "45x28x20cm @450",
+      description: "Foldable clothes storage box and wardrobe organizer for jeans, pants, sweaters, and linens. Structured compartments keep shelves and drawers neat and accessible. Dimensions: 45 cm by 28 cm by 20 cm.",
+      specs: [
+        "Dimensions: 45 cm by 28 cm by 20 cm",
+        "Functionality: Clothes Organizer for Jeans, Pants, Sweaters & Linens",
+        "Features: Collapsible / Foldable Structure with Reinforced Handles",
+        "Material: Eco-Friendly Breathable Non-Woven Fabric with Rigid Dividers",
+        "Price: KSh 450"
+      ]
+    },
+    {
+      id: 226,
+      name: "Foldable / Portable Clothes Drying And Hanging Rack",
+      image: "images/Portable Clothes Drying rack.jpg",
+      images: [
+        "images/Portable Clothes Drying rack.jpg",
+        "images/Portable Clothes Drying rack 2.jpg",
+        "images/Portable Clothes Drying rack 3.jpg",
+        "images/Portable Clothes Drying rack 4.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 2400,
+      priceFormatted: "KSh 2,400",
+      badge: "Available in 5 Colors",
+      description: "Foldable/portable clothes drying and hanging rack engineered with multi-tier drying bars and wing hangers. Available in Grey, Pink, Blue, Black, and Purple. Folds flat effortlessly for compact bedroom or balcony storage.",
+      specs: [
+        "Features: Heavy-Duty Multi-Tier Foldable Drying & Hanging Frame",
+        "Available Colours: Grey, Pink, Blue, Black, and Purple",
+        "Design: Space-Saving Fold-Flat Structure with Locking Joints",
+        "Material: Rust-Proof Coated Stainless Steel / High-Impact Polymer",
+        "Price: KSh 2,400"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
