@@ -357,8 +357,8 @@
       name: "The Starlight Celestial Navy & White Duvet Cover Set",
       image: "images/bedding-item-1.jpg",
       category: "Duvet Sets",
-      price: 11800,
-      priceFormatted: "KSh 11,800",
+      price: 4000,
+      priceFormatted: "KSh 4,000",
       badge: "Celestial Silk-Touch",
       description: "Whimsical yet sophisticated imported luxury duvet set in deep midnight navy and pure crisp white, adorned with constellation stars and shooting comets. Woven from breathable high-density microfiber with a silky sateen finish for cooling night-time comfort.",
       specs: ["Thread Count: 800TC Sateen Weave", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Cushion Cover", "Sizes: 6x6 Queen & 7x7 King Beds", "Closure: Hidden Zipper with Corner Ties", "Origin: Directly Imported Luxury Bedding"]
@@ -368,8 +368,8 @@
       name: "The Monochrome Ribbon Wave Luxury Bedding Set",
       image: "images/bedding-item-2.jpg",
       category: "Duvet Sets",
-      price: 12500,
-      priceFormatted: "KSh 12,500",
+      price: 4000,
+      priceFormatted: "KSh 4,000",
       badge: "Modern Atelier",
       description: "Contemporary graphic luxury duvet ensemble featuring fluid ribbon-like wave motions in charcoal grey, obsidian black, and brilliant white. Reversible solid black underside with matching tailored envelope pillow shams.",
       specs: ["Material: Ultra-Soft Double-Brushed Microfiber", "Pieces: 1 Duvet Cover + 4 Pillow Shams", "Sizes: 6x6 Queen & 7x7 King Fit", "Care: Machine Washable, Fade-Resistant", "Origin: Directly Imported Luxury Bedding"]
@@ -379,8 +379,8 @@
       name: "The Grand Chandelier Mocha Geometric Rings Duvet Set",
       image: "images/bedding-item-3.jpg",
       category: "Comforter Sets",
-      price: 14800,
-      priceFormatted: "KSh 14,800",
+      price: 4000,
+      priceFormatted: "KSh 4,000",
       badge: "Presidential Suite",
       description: "Five-star hotel suite luxury bedding crafted from high-luster Egyptian cotton blend. Features bold overlapping concentric rings in rich espresso mocha, warm caramel, and ivory on a crisp white ground, creating grand bedroom presence.",
       specs: ["Material: 1000TC Long-Staple Cotton Blend", "Pieces: 1 Grand Duvet Cover + 4 Pillowcases + 1 Breakfast Sham", "Sizes: 6x6 Queen & 7x7 King Beds", "Finish: Lustrous Silky Sheen", "Origin: Directly Imported Luxury Bedding"]
@@ -390,8 +390,8 @@
       name: "The Royale Emerald Confetti Sphere Luxury Duvet Set",
       image: "images/bedding-item-4.jpg",
       category: "Duvet Sets",
-      price: 13900,
-      priceFormatted: "KSh 13,900",
+      price: 4000,
+      priceFormatted: "KSh 4,000",
       badge: "Royal Emerald",
       description: "Deep jewel-toned bottle green luxury duvet set sprinkled with vibrant circular confetti spheres in gold, crimson, and ivory. Tailored for plush master bedrooms desiring rich color and opulent hotel-grade texture.",
       specs: ["Fabric: Heavy Cotton-Sateen Blend", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Bolster Case", "Sizes: 6x6 Queen & 7x7 King Beds", "Color: Deep Emerald Green with Gold Accents", "Origin: Directly Imported Luxury Bedding"]

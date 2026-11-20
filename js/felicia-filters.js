@@ -44,10 +44,10 @@
     110: { id: 110, price: 11200, color: 'tan', cat: 'midi', page: 'women-wear' },
 
     // --- Beddings (201-210) ---
-    201: { id: 201, price: 11800, color: 'white', cat: 'duvet', page: 'beddings' },
-    202: { id: 202, price: 12500, color: 'black', cat: 'duvet', page: 'beddings' },
-    203: { id: 203, price: 14800, color: 'tan', cat: 'comforter', page: 'beddings' },
-    204: { id: 204, price: 13900, color: 'cream', cat: 'duvet', page: 'beddings' },
+    201: { id: 201, price: 4000, color: 'white', cat: 'duvet', page: 'beddings' },
+    202: { id: 202, price: 4000, color: 'black', cat: 'duvet', page: 'beddings' },
+    203: { id: 203, price: 4000, color: 'tan', cat: 'comforter', page: 'beddings' },
+    204: { id: 204, price: 4000, color: 'cream', cat: 'duvet', page: 'beddings' },
     205: { id: 205, price: 11500, color: 'tan', cat: 'duvet', page: 'beddings' },
     206: { id: 206, price: 19800, color: 'gold', cat: 'comforter', page: 'beddings' },
     207: { id: 207, price: 8500, color: 'white', cat: 'sheets', page: 'beddings' },
