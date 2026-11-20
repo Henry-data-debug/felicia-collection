@@ -948,6 +948,123 @@
         "Price: From KSh 2,900"
       ]
     },
+    {
+      id: 232,
+      name: "Plain Double sided color Cotton Duvet cover set",
+      image: "images/Plain Double sided color Cotton Duvet.jpg",
+      images: [
+        "images/Plain Double sided color Cotton Duvet.jpg",
+        "images/Plain Double sided color Cotton Duvet 2.jpg",
+        "images/Plain Double sided color Cotton Duvet 3.jpg",
+        "images/Plain Double sided color Cotton Duvet 4.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 2600,
+      priceFormatted: "KSh 2,600",
+      badge: "Reversible Double-Sided",
+      description: "Plain double-sided color cotton duvet cover set. Features two coordinating solid tones on reverse sides, crafted from breathable cotton for versatile bedroom styling.",
+      specs: [
+        "Size: 6x6 & 5x6",
+        "Material: 100% Breathable Soft Cotton",
+        "Includes: 1 Duvet Cover, 1 Bedsheet, 2 Pillowcases",
+        "Design: Double-Sided Two-Tone Reversible Colorway",
+        "Price: KSh 2,600"
+      ]
+    },
+    {
+      id: 233,
+      name: "Knitted tassel throw blankets",
+      image: "images/Knitted tassel throw blankets.jpg",
+      images: [
+        "images/Knitted tassel throw blankets.jpg",
+        "images/Knitted tassel throw blankets 2.jpg",
+        "images/Knitted tassel throw blankets 4.jpg",
+        "images/Knitted tassel throw blankets 6.jpg"
+      ],
+      category: "Comforter & Jacquard",
+      price: 2400,
+      priceFormatted: "KSh 2,400",
+      badge: "Acrylic Cashmere",
+      description: "Knitted tassel throw blanket crafted from ultra-soft acrylic cashmere. Premium decorative sofa or bed throw and jacquard knitted shawl with delicate fringe tassels.",
+      specs: [
+        "Size: 163 x 183 cm + 12 cm Tassels",
+        "Material: Premium Acrylic Cashmere Jacquard Knit",
+        "Usage: Decorative Sofa Throw, Bed Coverlet, or Cozy Shawl",
+        "Features: Lightweight Warmth, Elegant Fringed Edging",
+        "Price: KSh 2,400"
+      ]
+    },
+    {
+      id: 234,
+      name: "Luxury Cotton Flat Stripped Bedsheet",
+      image: "images/Luxury Cotton Flat Stripped Bedsheet.jpg",
+      images: [
+        "images/Luxury Cotton Flat Stripped Bedsheet.jpg",
+        "images/Luxury Cotton Flat Stripped Bedsheet2.jpg",
+        "images/Luxury Cotton Flat Stripped Bedsheet 3.jpg",
+        "images/Luxury Cotton Flat Stripped Bedsheet 4.jpg"
+      ],
+      category: "Sheets & Linens",
+      price: 2700,
+      priceFormatted: "KSh 2,700",
+      badge: "Flat Sheet 6-Pc Set",
+      description: "Luxury cotton flat striped bedsheets tailored in generous 7x8 and 8x8 dimensions to fit all mattress sizes. Includes 2 flat bedsheets and 4 pillowcases with classic hotel satin stripes.",
+      specs: [
+        "Size: 7x8 / 8x8 (Generously Sized to Fit All Bed Sizes)",
+        "Material: High-Thread-Count Luxury Cotton Satin Stripe",
+        "Includes: 2 Flat Bedsheets, 4 Pillowcases",
+        "Pattern: Classic Five-Star Hotel Embossed Stripe",
+        "Price: KSh 2,700"
+      ]
+    },
+    {
+      id: 235,
+      name: "Themed Binded Cartoon Duvet",
+      image: "images/Themed Binded Cartoon Duvet.jpg",
+      images: [
+        "images/Themed Binded Cartoon Duvet.jpg",
+        "images/Themed Binded Cartoon Duvet 2.jpg",
+        "images/Themed Binded Cartoon Duvet 3.jpg",
+        "images/Themed Binded Cartoon Duvet 4.jpg",
+        "images/Themed Binded Cartoon Duvet 5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3400,
+      priceFormatted: "KSh 3,400",
+      badge: "Kids & Teens Edition",
+      description: "Themed binded cartoon duvet ensemble crafted in 4x6 single/twin size. Includes 1 plush padded duvet, coordinating bedsheet, and matching pillowcase with reinforced bound edges.",
+      specs: [
+        "Size: 4x6",
+        "Material: Soft Microfibre / Cotton with Bound Edge Hemming",
+        "Includes: 1 Duvet, 1 Bedsheet, 1 Pillowcase",
+        "Features: Playful Themed Character Prints, Bound Trim",
+        "Price: KSh 3,400"
+      ]
+    },
+    {
+      id: 236,
+      name: "6pc Luxury designs Velvet plush Fluffy Duvet set",
+      image: "images/6pc Luxury designs Velvet Duvet.jpg",
+      images: [
+        "images/6pc Luxury designs Velvet Duvet.jpg",
+        "images/6pc Luxury designs  Duvet.jpg",
+        "images/6pc Luxury designs  Duvet 2.jpg",
+        "images/6pc Luxury designs  Duvet 3.jpg",
+        "images/6pc Luxury designs  Duvet 4.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 4300,
+      priceFormatted: "KSh 4,300",
+      badge: "Velvet Plush Fluffy",
+      description: "6-Piece luxury designs velvet plush fluffy duvet set. Tailored in 6x6/6x7 sizes featuring ultra-cozy fluffy fleece duvet, matching fleece bedsheet, and 4 coordinating pillowcases.",
+      specs: [
+        "Size: 6x6 / 6x7",
+        "Material: Velvet Plush Fluffy Fleece Fabric",
+        "Includes: 1 Fluffy Fleece Duvet, 1 Fleece Bedsheet, 4 Pillowcases",
+        "Features: Thick High-Pile Fluffy Texture, Superior Heat Retention",
+        "Price: KSh 4,300"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
