@@ -320,7 +320,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
     flex-wrap: nowrap !important;
   }
   .felicia-nav-item {
@@ -413,7 +413,7 @@
     transition: background 0.25s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
     flex-shrink: 0;
   }
   .felicia-btn-whatsapp:hover {
@@ -439,7 +439,7 @@
     text-decoration: none !important;
     border-radius: 4px;
     transition: all 0.25s ease;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
     border: none;
     cursor: pointer;
   }
@@ -464,7 +464,7 @@
     border-radius: 4px;
     transition: all 0.25s ease;
     backdrop-filter: blur(8px);
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
     cursor: pointer;
   }
   .felicia-btn-outline:hover {
@@ -1096,7 +1096,7 @@
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
     pointer-events: none;
   }
 
@@ -1149,7 +1149,7 @@
     transition: all 0.25s ease;
     margin-top: auto;
     min-height: 42px;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
   }
   .felicia-card-btn:hover {
     background: #1A1A1A;
@@ -1207,7 +1207,7 @@
     transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     text-decoration: none !important;
     margin-top: auto;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
   }
   .felicia-btn-add-to-cart:hover {
     background: #144023;
@@ -1230,7 +1230,7 @@
     cursor: pointer;
     border-radius: 20px;
     transition: all 0.2s ease;
-    white-space: nowrap !important;
+    white-space: normal; line-height: 1.25;
   }
   .felicia-filter-btn.active, .felicia-filter-btn:hover {
     background: #1A1A1A;
@@ -1287,9 +1287,19 @@
       font-size: 0.82rem !important;
     }
     .felicia-card-btn {
-      min-height: 42px !important;
-      padding: 10px 14px !important;
-      font-size: 0.78rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      min-height: 36px !important;
+      padding: 8px 6px !important;
+      font-size: 0.68rem !important;
+      letter-spacing: 0.04em !important;
+      white-space: normal !important;
+      line-height: 1.25 !important;
+      text-align: center !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      word-break: normal !important;
     }
   }
 
@@ -1666,80 +1676,112 @@
   
     <!-- Luxury Brand Footer -->
     
-    <footer class="footer color-scheme-4 gradient" style="background: #141416; color: #FFFFFF; padding-top: 60px; padding-bottom: 30px; border-top: 1px solid rgba(197, 160, 89, 0.2);">
+    <!-- Luxury Brand Footer -->
+    <footer class="footer color-scheme-4 gradient felicia-luxury-footer">
       <div class="page-width">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        
+        <!-- Brand & Boutique Info + Showroom Card -->
+        <div class="felicia-footer-top">
           
-          <!-- Column 1: Brand Info -->
-          <div>
-            <div style="margin-bottom: 18px;">
-              <img src="images/felicia-collections-logo-white.svg" alt="Felicia Collections" width="240" height="48" class="footer-logo">
+          <!-- Column 1: Brand Mark & Socials -->
+          <div class="felicia-footer-brand">
+            <a href="index.html" class="felicia-footer-logo-link">
+              <img src="images/felicia-collections-logo-white.svg" alt="Felicia Collections" width="220" height="44" class="footer-logo">
+            </a>
+            <p class="felicia-footer-summary">
+              Nairobi's premier boutique for curated imported women's luxury handbags, high-fashion apparel, designer beddings, and modern kitchen essentials. Delivering elegance across Kenya.
+            </p>
+            <div class="felicia-footer-badges-pill">
+              <span class="felicia-pill-item">✦ Imported Luxury</span>
+              <span class="felicia-pill-item">✦ Nairobi, Kenya</span>
             </div>
-            <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px;">
-              Felicia Collections is Nairobi's premier boutique for curated imported women's luxury handbags, high-fashion apparel, designer beddings, and modern kitchen essentials. Delivering elegance across Kenya.
-            </p>
-            <div style="display: flex; gap: 10px;">
-              <span style="display: inline-block; padding: 4px 8px; background: #222; color: #C5A059; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px;">Imported Luxury</span>
-              <span style="display: inline-block; padding: 4px 8px; background: #222; color: #C5A059; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px;">Nairobi, Kenya</span>
+            <div class="felicia-footer-socials">
+              <a href="https://wa.me/254701721809" target="_blank" rel="noopener noreferrer" class="felicia-social-btn" aria-label="WhatsApp Concierge">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.073-.49-1.761-.726-2.884-2.518-2.973-2.636-.088-.117-.714-.951-.714-1.815 0-.865.452-1.291.614-1.467.161-.176.353-.22.47-.22.118 0 .236.002.339.007.108.005.253-.041.396.302.147.353.504 1.23.548 1.32.044.088.073.191.015.308-.059.118-.088.192-.176.294-.088.103-.186.23-.266.308-.088.089-.18.186-.077.363.103.176.458.756.984 1.225.678.605 1.25.792 1.427.88.176.089.279.074.382-.045.103-.117.441-.513.559-.69.117-.176.235-.147.396-.088.162.059 1.028.485 1.205.574.176.088.294.132.338.206.044.074.044.426-.1 1.006z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="felicia-social-btn" aria-label="Instagram">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="felicia-social-btn" aria-label="Facebook">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="felicia-social-btn" aria-label="TikTok">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
             </div>
           </div>
 
-          <!-- Column 2: Department Links -->
-          <div>
-            <h3 style="color: #C5A059; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;">COLLECTIONS</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
-              <li><a href="index.html" style="color: #DDD; text-decoration: none;">Home</a></li>
-              <li><a href="handbags.html" style="color: #DDD; text-decoration: none;">Handbags &amp; Totes</a></li>
-              <li><a href="women-wear.html" style="color: #DDD; text-decoration: none;">Women Wear &amp; Dresses</a></li>
-              <li><a href="beddings.html" style="color: #DDD; text-decoration: none;">Luxury Beddings</a></li>
-              <li><a href="kitchen-items.html" style="color: #DDD; text-decoration: none;">Kitchen Items &amp; Dining</a></li>
-              <li><a href="about-us.html" style="color: #DDD; text-decoration: none;">About Us</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Customer Care -->
-          <div>
-            <h3 style="color: #C5A059; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;">CUSTOMER CARE</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
-              <li><a href="contact-us.html" style="color: #DDD; text-decoration: none;">Contact Showroom</a></li>
-              <li><a href="https://wa.me/254701721809" style="color: #DDD; text-decoration: none;">WhatsApp Orders</a></li>
-              <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Delivery &amp; Shipping (Kenya)</a></li>
-              <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">M-Pesa &amp; Payment Options</a></li>
-              <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Care &amp; Storage Guide</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 4: Nairobi Showroom -->
-          <div>
-            <h3 style="color: #C5A059; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;">NAIROBI SHOWROOM</h3>
-            <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin-bottom: 12px;">
-              <strong>Boutique Location:</strong><br>
-              Nairobi, Kenya
-            </p>
-            <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin-bottom: 12px;">
-              <strong>Concierge / Orders:</strong><br>
-              <a href="tel:+254701721809" style="color: #FFF; text-decoration: none;">+254 701 721 809</a><br>
-              <a href="mailto:info@feliciacollections.co.ke" style="color: #FFF; text-decoration: none;">info@feliciacollections.co.ke</a>
-            </p>
-            <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin: 0;">
-              <strong>Opening Hours:</strong><br>
-              Mon - Sat: 9:00 AM – 7:00 PM<br>
-              Sunday: By Appointment
-            </p>
+          <!-- Column 2: Showroom Map Card -->
+          <div class="felicia-showroom-card">
+            <div class="felicia-showroom-badge">NAIROBI SHOWROOM</div>
+            <div class="felicia-showroom-body">
+              <div class="felicia-showroom-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+              </div>
+              <div class="felicia-showroom-info">
+                <strong>Boutique &amp; Concierge</strong>
+                <p>Nairobi, Kenya &bull; Mon–Sat 9AM–7PM</p>
+                <a href="tel:+254701721809" class="felicia-showroom-phone">+254 701 721 809</a>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Nairobi,+Kenya" target="_blank" rel="noopener noreferrer" class="felicia-btn-map">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              <span>Open in Google Maps</span>
+            </a>
           </div>
 
         </div>
 
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; font-size: 0.82rem; color: #888;">
-          <div>
-            &copy; 2026, Felicia Collections. All rights reserved. Nairobi, Kenya.
+        <!-- Compact 3-Column Link Grid on Mobile (Zero Right Clipping) -->
+        <div class="felicia-footer-links-grid">
+          
+          <!-- Column 1: Collections -->
+          <div class="felicia-footer-col">
+            <h4 class="felicia-footer-heading">COLLECTIONS</h4>
+            <ul class="felicia-footer-links">
+              <li><a href="handbags.html">Handbags</a></li>
+              <li><a href="women-wear.html">Women Wear</a></li>
+              <li><a href="beddings.html">Beddings</a></li>
+              <li><a href="kitchen-items.html">Kitchen Items</a></li>
+              <li><a href="index.html#bestsellers">Best Sellers</a></li>
+            </ul>
           </div>
-          <div style="display: flex; gap: 20px;">
-            <span>Imported Luxury</span>
-            <span>&bull;</span>
-            <span>Kenya Delivery</span>
-            <span>&bull;</span>
-            <span>M-Pesa Verified</span>
+
+          <!-- Column 2: Customer Care -->
+          <div class="felicia-footer-col">
+            <h4 class="felicia-footer-heading">CUSTOMER CARE</h4>
+            <ul class="felicia-footer-links">
+              <li><a href="https://wa.me/254701721809">WhatsApp</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+              <li><a href="contact-us.html#faq">Kenya Delivery</a></li>
+              <li><a href="contact-us.html#faq">M-Pesa Pay</a></li>
+              <li><a href="about-us.html">Showroom</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Quick Links / Policies -->
+          <div class="felicia-footer-col">
+            <h4 class="felicia-footer-heading">QUICK LINKS</h4>
+            <ul class="felicia-footer-links">
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="contact-us.html#faq">Care Guide</a></li>
+              <li><a href="contact-us.html#faq">Returns</a></li>
+              <li><a href="contact-us.html#faq">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Clean Bottom Copyright & Trust Badges -->
+        <div class="felicia-footer-bottom">
+          <div class="felicia-footer-copy">
+            &copy; 2026 Felicia Collections. All rights reserved. Nairobi, Kenya.
+          </div>
+          <div class="felicia-footer-badges">
+            <span>✦ Imported Luxury</span>
+            <span>✦ Kenya Delivery</span>
+            <span>✦ M-Pesa Verified</span>
           </div>
         </div>
 

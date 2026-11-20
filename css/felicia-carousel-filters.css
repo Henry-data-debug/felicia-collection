@@ -1,3 +1,9 @@
+/* Ensure zero horizontal scroll on mobile */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+
 /* ========================================================
    FELICIA COLLECTIONS - MOBILE 2-COLUMN CAROUSEL & FILTERS
    ======================================================== */
@@ -12,11 +18,11 @@
 /* Floating Navigation Arrows for Mobile Carousel */
 .felicia-carousel-arrow {
   position: absolute;
-  top: 40%;
+  top: 32%;
   transform: translateY(-50%);
   z-index: 8;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: rgba(20, 20, 22, 0.88);
   border: 1px solid rgba(212, 175, 55, 0.6);
@@ -30,7 +36,7 @@
   -webkit-backdrop-filter: blur(6px);
   transition: all 0.25s ease;
   user-select: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
 }
 .felicia-carousel-arrow:hover {
@@ -42,8 +48,8 @@
 .felicia-carousel-arrow:focus {
   outline: none;
 }
-.felicia-carousel-prev { left: -8px; }
-.felicia-carousel-next { right: -8px; }
+.felicia-carousel-prev { left: 4px; }
+.felicia-carousel-next { right: 4px; }
 
 /* Desktop Grid Standards (>= 768px) */
 @media screen and (min-width: 768px) {
@@ -56,9 +62,13 @@
 @media screen and (max-width: 767px) {
   .felicia-carousel-arrow {
     display: flex !important;
+    top: 32% !important; /* Vertically centered on the square image */
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1rem !important;
   }
-  .felicia-carousel-prev { left: 2px !important; }
-  .felicia-carousel-next { right: 2px !important; }
+  .felicia-carousel-prev { left: 4px !important; }
+  .felicia-carousel-next { right: 4px !important; }
 
   /* Apply to category grid & bestsellers / product grids */
   .felicia-category-grid,
@@ -97,7 +107,7 @@
     height: 0 !important;
   }
 
-  /* Exactly 2 cards side-by-side in viewport ("Two-Two") */
+    /* Exactly 2 cards side-by-side in viewport ("Two-Two") */
   .felicia-category-grid .felicia-product-card,
   .felicia-product-grid-carousel .felicia-product-card,
   #bestsellers-grid .felicia-product-card,
@@ -107,7 +117,7 @@
   #kitchen-grid .felicia-product-card {
     flex: 0 0 calc(50% - 6px) !important;
     width: calc(50% - 6px) !important;
-    min-width: calc(50% - 6px) !important;
+    min-width: 0 !important;
     max-width: calc(50% - 6px) !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
@@ -172,13 +182,26 @@
     margin-bottom: 8px !important;
     color: #141416 !important;
   }
-  .felicia-btn-add-to-cart,
-  .felicia-card-btn {
-    padding: 8px 6px !important;
-    font-size: 0.72rem !important;
-    min-height: 36px !important;
-    letter-spacing: 0.8px !important;
+    .felicia-btn-add-to-cart,
+  .felicia-card-btn,
+  .felicia-product-card .felicia-card-btn {
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 8px 6px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.04em !important;
+    min-height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    word-break: normal !important;
+    border-radius: 4px !important;
   }
 }
 
@@ -529,5 +552,297 @@
   .felicia-filter-grid-sections {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+}
+
+
+/* ========================================================
+   FELICIA COLLECTIONS - LUXURY RESPONSIVE FOOTER
+   ======================================================== */
+.felicia-luxury-footer {
+  background: #141416 !important;
+  color: #FFFFFF !important;
+  padding: 55px 0 25px 0 !important;
+  border-top: 1px solid rgba(197, 160, 89, 0.25) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: clip !important;
+}
+
+.felicia-footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 35px;
+}
+.felicia-footer-brand {
+  max-width: 520px;
+}
+.felicia-footer-logo-link {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.felicia-footer-summary {
+  color: #A0A0A5;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+.felicia-footer-badges-pill {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.felicia-pill-item {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #202024;
+  color: var(--felicia-gold, #C5A059);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+.felicia-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.felicia-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #202024;
+  color: var(--felicia-gold, #C5A059);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.felicia-social-btn:hover {
+  background: var(--felicia-gold, #C5A059);
+  color: #141416;
+  transform: translateY(-2px);
+}
+
+/* Showroom Location Map Card */
+.felicia-showroom-card {
+  background: #1C1C20;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+.felicia-showroom-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: var(--felicia-gold, #C5A059);
+  text-transform: uppercase;
+}
+.felicia-showroom-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.felicia-showroom-icon {
+  color: var(--felicia-gold, #C5A059);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.felicia-showroom-info strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+.felicia-showroom-info p {
+  font-size: 0.8rem;
+  color: #A0A0A5;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+.felicia-showroom-phone {
+  color: var(--felicia-gold, #C5A059);
+  font-size: 0.82rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.felicia-btn-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid var(--felicia-gold, #C5A059);
+  border-radius: 4px;
+  color: var(--felicia-gold, #C5A059);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.felicia-btn-map:hover {
+  background: var(--felicia-gold, #C5A059);
+  color: #141416;
+}
+
+/* 3-Column Links Grid (Mobile & Desktop) */
+.felicia-footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: 28px 0 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.felicia-footer-col {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.felicia-footer-heading {
+  color: var(--felicia-gold, #C5A059);
+  font-size: 0.82rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+}
+.felicia-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.felicia-footer-links li a {
+  color: #C0C0C4;
+  text-decoration: none;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+}
+.felicia-footer-links li a:hover {
+  color: var(--felicia-gold, #C5A059);
+  padding-left: 2px;
+}
+
+/* Footer Bottom */
+.felicia-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #888888;
+}
+.felicia-footer-badges {
+  display: flex;
+  gap: 16px;
+  color: var(--felicia-gold, #C5A059);
+  font-size: 0.74rem;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Overrides (<= 767px) */
+@media screen and (max-width: 767px) {
+  .felicia-luxury-footer {
+    padding: 32px 0 20px 0 !important;
+  }
+  .felicia-footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin-bottom: 20px !important;
+  }
+  .felicia-footer-brand {
+    text-align: left;
+  }
+  .felicia-footer-logo-link img {
+    max-width: 180px !important;
+    height: auto !important;
+  }
+  .felicia-footer-summary {
+    font-size: 0.78rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 12px !important;
+  }
+  .felicia-footer-badges-pill {
+    margin-bottom: 14px !important;
+  }
+  .felicia-pill-item {
+    font-size: 0.65rem !important;
+    padding: 3px 8px !important;
+  }
+  .felicia-footer-socials {
+    gap: 10px !important;
+  }
+  .felicia-social-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .felicia-showroom-card {
+    padding: 14px !important;
+    gap: 10px !important;
+  }
+  .felicia-showroom-info strong {
+    font-size: 0.82rem !important;
+  }
+  .felicia-showroom-info p {
+    font-size: 0.72rem !important;
+  }
+  .felicia-btn-map {
+    font-size: 0.72rem !important;
+    padding: 7px 10px !important;
+  }
+
+  /* Compact 3-Column Mobile Link Grid with zero clipping */
+  .felicia-footer-links-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 18px 0 20px 0 !important;
+  }
+  .felicia-footer-heading {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.6px !important;
+    margin-bottom: 8px !important;
+  }
+  .felicia-footer-links {
+    gap: 6px !important;
+  }
+  .felicia-footer-links li a {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Bottom Copyright Bar */
+  .felicia-footer-bottom {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    padding-top: 14px !important;
+    font-size: 0.72rem !important;
+  }
+  .felicia-footer-badges {
+    justify-content: center !important;
+    gap: 10px !important;
+    font-size: 0.66rem !important;
   }
 }

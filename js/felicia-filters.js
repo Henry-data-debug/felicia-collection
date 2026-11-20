@@ -170,17 +170,29 @@
 
       prevBtn.onclick = function(e) {
         e.preventDefault();
-        el.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft <= 15) {
+          el.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        } else {
+          const target = Math.max(el.scrollLeft - getScrollStep(), 0);
+          el.scrollTo({ left: target, behavior: 'smooth' });
+        }
         pauseAutoSlide();
       };
 
       nextBtn.onclick = function(e) {
         e.preventDefault();
-        el.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft >= maxScroll - 15) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          const target = Math.min(el.scrollLeft + getScrollStep(), maxScroll);
+          el.scrollTo({ left: target, behavior: 'smooth' });
+        }
         pauseAutoSlide();
       };
 
-      // Auto-slide state
+      // Auto-slide state with smooth looping
       let autoInterval = null;
       let isPaused = false;
       let pauseTimeout = null;
@@ -190,32 +202,38 @@
         clearTimeout(pauseTimeout);
         pauseTimeout = setTimeout(() => {
           isPaused = false;
-        }, 5000);
+        }, 4000);
       }
 
       function startAutoSlide() {
         if (autoInterval) clearInterval(autoInterval);
         autoInterval = setInterval(() => {
-          // Only auto-slide on mobile screens <= 767px
+          // Only auto-slide on mobile viewports <= 767px
           if (window.innerWidth > 767 || isPaused) return;
 
-          // Check if element is in viewport and visible
+          // Check if carousel element is visible in viewport
           const rect = el.getBoundingClientRect();
           if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
           const maxScroll = el.scrollWidth - el.clientWidth;
           if (maxScroll <= 10) return;
 
-          if (el.scrollLeft >= maxScroll - 15) {
-            // Reached end, loop back smoothly
+          // Smooth loop back to first slide when reaching end
+          if (el.scrollLeft >= maxScroll - 20) {
             el.scrollTo({ left: 0, behavior: 'smooth' });
           } else {
-            el.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            const nextPos = Math.min(el.scrollLeft + getScrollStep(), maxScroll);
+            el.scrollTo({ left: nextPos, behavior: 'smooth' });
           }
-        }, 3500); // 3.5s smooth auto-slide interval
+        }, 3500);
       }
 
       el.addEventListener('touchstart', pauseAutoSlide, { passive: true });
+      el.addEventListener('touchmove', pauseAutoSlide, { passive: true });
+      el.addEventListener('touchend', () => {
+        clearTimeout(pauseTimeout);
+        pauseTimeout = setTimeout(() => { isPaused = false; }, 3500);
+      }, { passive: true });
       el.addEventListener('mouseenter', pauseAutoSlide);
       el.addEventListener('mouseleave', () => { isPaused = false; });
 
