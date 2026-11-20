@@ -1504,18 +1504,18 @@
   window.changeModalImage = function(direction) {
     if (!modalCurrentImages || modalCurrentImages.length <= 1) return;
     modalActiveImgIdx = (modalActiveImgIdx + direction + modalCurrentImages.length) % modalCurrentImages.length;
-    setModalImage(modalActiveImgIdx);
+    setModalImage(modalActiveImgIdx, false, true);
     resetModalInterval();
   };
 
   window.selectModalImage = function(index) {
     if (!modalCurrentImages || index < 0 || index >= modalCurrentImages.length) return;
     modalActiveImgIdx = index;
-    setModalImage(modalActiveImgIdx);
+    setModalImage(modalActiveImgIdx, false, true);
     resetModalInterval();
   };
 
-  function setModalImage(idx, immediate = false) {
+  function setModalImage(idx, immediate = false, isManual = false) {
     const baseImg = document.getElementById('modal-product-img');
     const crossImg = document.getElementById('modal-product-crossfade-img');
     if (!baseImg || !modalCurrentImages[idx]) return;
@@ -1550,8 +1550,11 @@
 
       void crossImg.offsetWidth; // Force reflow
 
-      // Gentle luxury crossfade dissolve over 0.75s
-      crossImg.style.transition = 'opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1)';
+      // Ultra-slow imperceptible dissolve (2.4s) on auto-slideshow, responsive smooth (0.75s) on user manual clicks
+      const transitionDuration = isManual ? '0.75s' : '2.4s';
+      const timerDelay = isManual ? 780 : 2450;
+
+      crossImg.style.transition = `opacity ${transitionDuration} cubic-bezier(0.42, 0, 0.58, 1)`;
       crossImg.style.opacity = '1';
 
       modalTransitionTimer = setTimeout(() => {
@@ -1559,7 +1562,7 @@
         crossImg.style.transition = 'none';
         crossImg.style.opacity = '0';
         modalTransitionTimer = null;
-      }, 780);
+      }, timerDelay);
     };
     preloader.src = targetSrc;
   }
@@ -1569,8 +1572,8 @@
     if (modalCurrentImages && modalCurrentImages.length > 1) {
       modalSlideshowInterval = setInterval(() => {
         modalActiveImgIdx = (modalActiveImgIdx + 1) % modalCurrentImages.length;
-        setModalImage(modalActiveImgIdx);
-      }, 4000);
+        setModalImage(modalActiveImgIdx, false, false);
+      }, 6500);
     }
   }
 
@@ -2026,7 +2029,7 @@
         max-height: 440px;
         object-fit: contain;
         display: block;
-        transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 2.4s cubic-bezier(0.42, 0, 0.58, 1);
         will-change: opacity;
       }
       .felicia-modal-crossfade-img {
@@ -2041,7 +2044,7 @@
         pointer-events: none;
         opacity: 0;
         z-index: 2;
-        transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 2.4s cubic-bezier(0.42, 0, 0.58, 1);
         will-change: opacity;
       }
       .felicia-modal-img-wrap .felicia-badge {

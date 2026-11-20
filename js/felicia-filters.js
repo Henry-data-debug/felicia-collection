@@ -483,7 +483,7 @@
 
   /**
    * 4. Multi-Image Slideshow Rotators on Product Cards
-   * Luxury dual-layer crossfade system for buttery smooth, seamless image transitions
+   * Ultra-slow, imperceptible dual-layer cinematic crossfade dissolve
    */
   function initCardMultiImageRotators() {
     const cards = document.querySelectorAll('.felicia-product-card');
@@ -506,6 +506,10 @@
       const imgEl = imgWrapper ? imgWrapper.querySelector('img:not(.felicia-card-img-crossfade)') : null;
       if (!imgEl) return;
 
+      // Remove dots container if present to keep product photo pristine & unobstructed
+      const existingDots = imgWrapper.querySelector('.felicia-card-dots');
+      if (existingDots) existingDots.remove();
+
       // Preload all variant images in memory for zero-lag smooth dissolve
       images.forEach(src => {
         const cacheImg = new Image();
@@ -517,17 +521,6 @@
       let isPaused = false;
       let transitionTimer = null;
 
-      // Ensure dots container exists
-      let dotsWrap = imgWrapper.querySelector('.felicia-card-dots');
-      if (!dotsWrap) {
-        dotsWrap = document.createElement('div');
-        dotsWrap.className = 'felicia-card-dots';
-        dotsWrap.innerHTML = images.map((_, i) => `<span class="felicia-card-dot ${i === 0 ? 'active' : ''}" data-idx="${i}"></span>`).join('');
-        imgWrapper.appendChild(dotsWrap);
-      }
-
-      const dots = dotsWrap.querySelectorAll('.felicia-card-dot');
-
       // Create dual-layer crossfade overlay element
       let crossfadeImg = imgWrapper.querySelector('.felicia-card-img-crossfade');
       if (!crossfadeImg) {
@@ -536,16 +529,13 @@
         crossfadeImg.alt = imgEl.alt || '';
         crossfadeImg.setAttribute('aria-hidden', 'true');
         crossfadeImg.loading = 'eager';
-        imgWrapper.insertBefore(crossfadeImg, dotsWrap);
+        imgWrapper.appendChild(crossfadeImg);
       }
 
       function showCardImage(idx, immediate = false) {
         const targetIdx = (idx + images.length) % images.length;
         if (targetIdx === currentIdx && !immediate) return;
         currentIdx = targetIdx;
-
-        // Update active dot indicator smoothly
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
 
         const targetSrc = images[currentIdx];
 
@@ -569,8 +559,8 @@
           // Force reflow
           void crossfadeImg.offsetWidth;
 
-          // Perform smooth cinematic crossfade dissolve over 0.8s
-          crossfadeImg.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+          // Ultra-slow, dreamy imperceptible crossfade over 2.5 seconds
+          crossfadeImg.style.transition = 'opacity 2.5s cubic-bezier(0.42, 0, 0.58, 1)';
           crossfadeImg.style.opacity = '1';
 
           transitionTimer = setTimeout(() => {
@@ -578,17 +568,10 @@
             crossfadeImg.style.transition = 'none';
             crossfadeImg.style.opacity = '0';
             transitionTimer = null;
-          }, 820);
+          }, 2550);
         };
         preloader.src = targetSrc;
       }
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', (e) => {
-          e.stopPropagation();
-          showCardImage(i);
-        });
-      });
 
       function startTimer() {
         if (timer) clearInterval(timer);
@@ -596,14 +579,14 @@
           if (!isPaused) {
             showCardImage(currentIdx + 1);
           }
-        }, 3800);
+        }, 6500);
       }
 
       card.addEventListener('mouseenter', () => { isPaused = true; });
       card.addEventListener('mouseleave', () => { isPaused = false; });
       card.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
       card.addEventListener('touchend', () => {
-        setTimeout(() => { isPaused = false; }, 3000);
+        setTimeout(() => { isPaused = false; }, 4000);
       }, { passive: true });
 
       startTimer();

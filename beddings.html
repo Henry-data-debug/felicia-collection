@@ -119,7 +119,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease, opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transition: transform 0.4s ease, opacity 2.5s cubic-bezier(0.42, 0, 0.58, 1) !important;
         will-change: opacity, transform;
       }
       .felicia-product-card:hover .felicia-card-img-wrapper img {
@@ -1071,7 +1071,7 @@
     object-fit: contain !important;
     object-position: center center !important;
     display: block;
-    transition: transform 0.4s ease, opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: transform 0.4s ease, opacity 2.5s cubic-bezier(0.42, 0, 0.58, 1) !important;
     border: 0;
     padding: 12px;
     box-sizing: border-box;
@@ -1093,13 +1093,19 @@
     pointer-events: none !important;
     opacity: 0;
     z-index: 2 !important;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: opacity 2.5s cubic-bezier(0.42, 0, 0.58, 1) !important;
     will-change: opacity;
   }
   @media (max-width: 767px) {
     .felicia-card-img-crossfade {
       padding: 6px !important;
     }
+  }
+  .felicia-card-dots {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
   .felicia-product-card:hover .felicia-card-img-wrapper img {
     transform: scale(1.04);
@@ -1676,12 +1682,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(211)">
         <img src="images/Fluffy bedside mat.jpg" alt="Fluffy bedside mat" loading="lazy">
         <span class="felicia-card-badge">⚜️ 60x180cm</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Bedside Runners &amp; Mats</div>
@@ -1696,11 +1696,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(212)">
         <img src="images/High quality sleeping bag.jpg" alt="High quality sleeping bag" loading="lazy">
         <span class="felicia-card-badge">Envelope Style</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1715,13 +1710,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(213)">
         <img src="images/coloured binded duvets.jpg" alt="Coloured binded duvets" loading="lazy">
         <span class="felicia-card-badge">⚜️ 6x7 Set</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -1736,12 +1724,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(214)">
         <img src="images/6 Pc mix and match bedsheets.jpg" alt="6 Pc mix and match bedsheets" loading="lazy">
         <span class="felicia-card-badge">6-Piece Set (6x7)</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Sheets &amp; Linens</div>
@@ -1756,12 +1738,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(215)">
         <img src="images/Rail net mosquito net.jpg" alt="2 Stand Rail Net Mosquito Net" loading="lazy">
         <span class="felicia-card-badge">All Sizes @4,000</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1776,13 +1752,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(216)">
         <img src="images/Mattress protector.jpg" alt="Mattress protector" loading="lazy">
         <span class="felicia-card-badge">From KSh 2,000</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Sheets &amp; Linens</div>
@@ -1797,10 +1766,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(217)">
         <img src="images/Quilted water proof pillow protector.jpg" alt="Quilted water proof pillow protector" loading="lazy">
         <span class="felicia-card-badge">Diamond Quilted</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1815,13 +1780,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(218)">
         <img src="images/Silk duvet.jpg" alt="Silk duvet" loading="lazy">
         <span class="felicia-card-badge">Tc Brand (6x7)</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -1836,13 +1794,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(219)">
         <img src="images/Plain fleece blanket.jpg" alt="Plain fleece blanket" loading="lazy">
         <span class="felicia-card-badge">6x6 Soft Fleece</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Comforter &amp; Jacquard Sets</div>
@@ -1857,12 +1808,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(220)">
         <img src="images/Fleece velvet.jpg" alt="Fleece velvet" loading="lazy">
         <span class="felicia-card-badge">From KSh 1,300</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Comforter &amp; Jacquard Sets</div>
@@ -1877,10 +1822,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(221)">
         <img src="images/Pure white, cotton compressed pillow.jpg" alt="Pure white, cotton compressed pillow" loading="lazy">
         <span class="felicia-card-badge">Pure Fibre @1,200</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1895,13 +1836,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(222)">
         <img src="images/Sharper fleece woolen blanket.jpg" alt="Sharper fleece woolen blanket" loading="lazy">
         <span class="felicia-card-badge">6x7 Woolen Fleece</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Comforter &amp; Jacquard Sets</div>
@@ -1916,13 +1850,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(223)">
         <img src="images/Tufted duvet.jpg" alt="Tufted duvet" loading="lazy">
         <span class="felicia-card-badge">6-Piece Set (6x7)</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -1951,11 +1878,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(225)">
         <img src="images/Foldable Clothes Storage Box.jpg" alt="Foldable Clothes Storage Box" loading="lazy">
         <span class="felicia-card-badge">45x28x20cm @450</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1970,12 +1892,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(226)">
         <img src="images/Portable Clothes Drying rack.jpg" alt="Foldable / Portable Clothes Drying And Hanging Rack" loading="lazy">
         <span class="felicia-card-badge">Available in 5 Colors</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Pillows &amp; Accessories</div>
@@ -1990,13 +1906,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(227)">
         <img src="images/Pom Laced Design Duvet cover set.jpg" alt="Pom Laced Design Duvet cover set" loading="lazy">
         <span class="felicia-card-badge">Bohemian Microfibre</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2011,12 +1920,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(228)">
         <img src="images/Bowknot Tufted Duvet cover set.jpg" alt="Bowknot Tufted Duvet cover set" loading="lazy">
         <span class="felicia-card-badge">Tufted Bowknot</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2031,14 +1934,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(229)">
         <img src="images/Pinch Pleat Cross Pintuck Duvet Cover set.jpg" alt="Pinch Pleat Cross Pintuck Duvet Cover set" loading="lazy">
         <span class="felicia-card-badge">Cross Pintuck</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-          <span class="felicia-card-dot" data-idx="5"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2053,14 +1948,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(230)">
         <img src="images/Luxury  Mulberry Silk Duvet cover set.jpg" alt="Luxury Mulberry Silk Duvet cover set" loading="lazy">
         <span class="felicia-card-badge">100% Mulberry Silk</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-          <span class="felicia-card-dot" data-idx="5"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2075,13 +1962,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(231)">
         <img src="images/Luxury Cotton Satin Duvet cover.jpg" alt="Luxury Cotton Satin Striped Duvet cover set" loading="lazy">
         <span class="felicia-card-badge">Satin Stripe</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2096,12 +1976,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(232)">
         <img src="images/Plain Double sided color Cotton Duvet.jpg" alt="Plain Double sided color Cotton Duvet cover set" loading="lazy">
         <span class="felicia-card-badge">Reversible Double-Sided</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2116,12 +1990,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(233)">
         <img src="images/Knitted tassel throw blankets.jpg" alt="Knitted tassel throw blankets" loading="lazy">
         <span class="felicia-card-badge">Acrylic Cashmere</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Comforter &amp; Jacquard</div>
@@ -2136,12 +2004,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(234)">
         <img src="images/Luxury Cotton Flat Stripped Bedsheet.jpg" alt="Luxury Cotton Flat Stripped Bedsheet" loading="lazy">
         <span class="felicia-card-badge">Flat Sheet 6-Pc Set</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Sheets &amp; Linens</div>
@@ -2156,13 +2018,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(235)">
         <img src="images/Themed Binded Cartoon Duvet.jpg" alt="Themed Binded Cartoon Duvet" loading="lazy">
         <span class="felicia-card-badge">Kids &amp; Teens Edition</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
@@ -2177,13 +2032,6 @@
       <div class="felicia-card-img-wrapper" onclick="openProductModal(236)">
         <img src="images/6pc Luxury designs Velvet Duvet.jpg" alt="6pc Luxury designs Velvet plush Fluffy Duvet set" loading="lazy">
         <span class="felicia-card-badge">Velvet Plush Fluffy</span>
-        <div class="felicia-card-dots">
-          <span class="felicia-card-dot active" data-idx="0"></span>
-          <span class="felicia-card-dot" data-idx="1"></span>
-          <span class="felicia-card-dot" data-idx="2"></span>
-          <span class="felicia-card-dot" data-idx="3"></span>
-          <span class="felicia-card-dot" data-idx="4"></span>
-        </div>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Cover Sets</div>
