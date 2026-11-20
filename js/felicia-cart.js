@@ -1430,6 +1430,7 @@
             <div class="felicia-modal-img-col">
               <div class="felicia-modal-img-wrap">
                 <img id="modal-product-img" src="" alt="">
+                <img id="modal-product-crossfade-img" class="felicia-modal-crossfade-img" src="" alt="" aria-hidden="true">
                 <span id="modal-product-badge" class="felicia-badge"></span>
                 <button type="button" class="felicia-modal-gallery-arrow felicia-modal-gallery-prev" onclick="changeModalImage(-1)" aria-label="Previous view">&#10094;</button>
                 <button type="button" class="felicia-modal-gallery-arrow felicia-modal-gallery-next" onclick="changeModalImage(1)" aria-label="Next view">&#10095;</button>
@@ -1498,6 +1499,7 @@
   let modalSlideshowInterval = null;
   let modalActiveImgIdx = 0;
   let modalCurrentImages = [];
+  let modalTransitionTimer = null;
 
   window.changeModalImage = function(direction) {
     if (!modalCurrentImages || modalCurrentImages.length <= 1) return;
@@ -1513,17 +1515,53 @@
     resetModalInterval();
   };
 
-  function setModalImage(idx) {
-    const imgEl = document.getElementById('modal-product-img');
-    if (!imgEl || !modalCurrentImages[idx]) return;
-    imgEl.style.opacity = '0.3';
-    setTimeout(() => {
-      imgEl.src = modalCurrentImages[idx];
-      imgEl.style.opacity = '1';
-    }, 120);
+  function setModalImage(idx, immediate = false) {
+    const baseImg = document.getElementById('modal-product-img');
+    const crossImg = document.getElementById('modal-product-crossfade-img');
+    if (!baseImg || !modalCurrentImages[idx]) return;
+
+    const targetSrc = modalCurrentImages[idx];
+
+    // Highlight thumbnail immediately
     document.querySelectorAll('.felicia-modal-thumb-btn').forEach((btn, i) => {
       btn.classList.toggle('active', i === idx);
     });
+
+    if (immediate || !crossImg) {
+      if (modalTransitionTimer) clearTimeout(modalTransitionTimer);
+      baseImg.src = targetSrc;
+      if (crossImg) {
+        crossImg.style.transition = 'none';
+        crossImg.style.opacity = '0';
+        crossImg.src = targetSrc;
+      }
+      return;
+    }
+
+    // Preload for perfectly smooth crossfade
+    const preloader = new Image();
+    preloader.onload = () => {
+      if (modalTransitionTimer) clearTimeout(modalTransitionTimer);
+
+      crossImg.src = targetSrc;
+      crossImg.alt = baseImg.alt || '';
+      crossImg.style.transition = 'none';
+      crossImg.style.opacity = '0';
+
+      void crossImg.offsetWidth; // Force reflow
+
+      // Gentle luxury crossfade dissolve over 0.75s
+      crossImg.style.transition = 'opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1)';
+      crossImg.style.opacity = '1';
+
+      modalTransitionTimer = setTimeout(() => {
+        baseImg.src = targetSrc;
+        crossImg.style.transition = 'none';
+        crossImg.style.opacity = '0';
+        modalTransitionTimer = null;
+      }, 780);
+    };
+    preloader.src = targetSrc;
   }
 
   function resetModalInterval() {
@@ -1532,7 +1570,7 @@
       modalSlideshowInterval = setInterval(() => {
         modalActiveImgIdx = (modalActiveImgIdx + 1) % modalCurrentImages.length;
         setModalImage(modalActiveImgIdx);
-      }, 3500);
+      }, 4000);
     }
   }
 
@@ -1546,10 +1584,41 @@
     modalCurrentImages = (p.images && p.images.length > 0) ? p.images : [p.image];
     modalActiveImgIdx = 0;
 
+    // Preload all gallery images immediately
+    modalCurrentImages.forEach(src => {
+      const mImg = new Image();
+      mImg.src = src;
+    });
+
     const modalImg = document.getElementById('modal-product-img');
     modalImg.src = modalCurrentImages[0];
     modalImg.alt = p.name;
     modalImg.style.opacity = '1';
+
+    const crossImg = document.getElementById('modal-product-crossfade-img');
+    if (crossImg) {
+      crossImg.style.transition = 'none';
+      crossImg.style.opacity = '0';
+      crossImg.src = modalCurrentImages[0];
+    }
+
+    // Attach hover/touch pause handlers to modal image wrap
+    const modalImgWrap = document.querySelector('.felicia-modal-img-wrap');
+    if (modalImgWrap && !modalImgWrap.dataset.pauseAttached) {
+      modalImgWrap.dataset.pauseAttached = 'true';
+      modalImgWrap.addEventListener('mouseenter', () => {
+        if (modalSlideshowInterval) clearInterval(modalSlideshowInterval);
+      });
+      modalImgWrap.addEventListener('mouseleave', () => {
+        resetModalInterval();
+      });
+      modalImgWrap.addEventListener('touchstart', () => {
+        if (modalSlideshowInterval) clearInterval(modalSlideshowInterval);
+      }, { passive: true });
+      modalImgWrap.addEventListener('touchend', () => {
+        setTimeout(resetModalInterval, 3000);
+      }, { passive: true });
+    }
 
     document.getElementById('modal-product-badge').textContent = p.badge;
     document.getElementById('modal-product-category').textContent = p.category;
@@ -1957,7 +2026,26 @@
         max-height: 440px;
         object-fit: contain;
         display: block;
-        transition: opacity 0.25s ease;
+        transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity;
+      }
+      .felicia-modal-crossfade-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 440px;
+        object-fit: contain;
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity;
+      }
+      .felicia-modal-img-wrap .felicia-badge {
+        z-index: 6;
       }
       .felicia-modal-gallery-arrow {
         position: absolute;
@@ -1973,7 +2061,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        z-index: 6;
+        z-index: 7;
         font-size: 1rem;
         transition: all 0.2s ease;
         line-height: 1;

@@ -578,17 +578,68 @@ html, body {
   height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.45);
-  transition: all 0.25s ease;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   display: inline-block;
 }
 .felicia-card-dot.active {
   background: var(--felicia-gold, #C5A059);
-  width: 14px;
+  width: 16px;
   border-radius: 6px;
 }
+
+/* Multi-Image Cinematic Smooth Crossfade System */
+.felicia-card-img-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
 .felicia-card-img-wrapper img {
-  transition: opacity 0.22s ease;
+  transition: transform 0.4s ease, opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: opacity, transform;
+}
+
+.felicia-card-img-crossfade {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  border: 0 !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  opacity: 0;
+  z-index: 2 !important;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: opacity;
+}
+
+@media (max-width: 767px) {
+  .felicia-card-img-crossfade {
+    padding: 6px !important;
+  }
+}
+
+.felicia-card-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 5 !important;
+  pointer-events: auto;
+}
+
+.felicia-card-badge {
+  z-index: 6 !important;
 }
 
 /* ========================================================
