@@ -17,12 +17,12 @@
     <meta property="og:title" content="Luxury Beddings & Linens | Felicia Collections Nairobi">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Shop imported luxury beddings in Nairobi: 100% Egyptian cotton duvet sets, hotel-grade comforters, and silky sheet sets at Felicia Collections.">
-    <meta property="og:image" content="images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg">
+    <meta property="og:image" content="images/bedding-item-6.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Luxury Beddings & Linens | Felicia Collections Nairobi">
     <meta name="twitter:description" content="Shop imported luxury beddings in Nairobi: 100% Egyptian cotton duvet sets, hotel-grade comforters, and silky sheet sets at Felicia Collections.">
-    <meta name="twitter:image" content="images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg">
+    <meta name="twitter:image" content="images/bedding-item-6.jpg">
 
     <!-- CSS Assets -->
     <link href="css/base.css" rel="stylesheet" type="text/css" media="all">
@@ -207,10 +207,50 @@
     --felicia-cream: #FAF9F6;
   }
 
-  *, *::before, *::after { box-sizing: border-box; }
+  /* Global Resets & Horizontal Overflow Prevention */
+  html {
+    overflow-x: clip !important;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    overflow-x: clip !important;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  /* Base container mobile safety */
+  .page-width {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  @media screen and (max-width: 767px) {
+    .page-width {
+      padding: 0 16px !important;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    .page-width {
+      padding: 0 12px !important;
+    }
+  }
 
   /* ===================================================
-     1. SITE HEADER (Fixed height, no clipping, no wrapping)
+     1. SITE HEADER (Zero Clipping, 100% Mobile Viewport Fit)
      =================================================== */
   .felicia-site-header {
     position: sticky;
@@ -220,6 +260,7 @@
     border-bottom: 1px solid #ECECEC;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     width: 100%;
+    max-width: 100vw;
   }
   .felicia-header-inner {
     display: flex;
@@ -229,6 +270,8 @@
     padding: 0 1.5rem;
     max-width: 1360px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
   }
   .felicia-header-brand-wrap {
     display: flex;
@@ -242,8 +285,13 @@
     border: none;
     color: #141416;
     cursor: pointer;
-    padding: 6px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
   }
   .felicia-mobile-hamburger:hover {
     background: #F4F4F4;
@@ -253,6 +301,7 @@
     width: auto;
     object-fit: contain;
     display: block;
+    transition: max-height 0.2s ease, max-width 0.2s ease;
   }
 
   /* Desktop Nav */
@@ -274,7 +323,7 @@
     flex-wrap: nowrap !important;
   }
   .felicia-nav-item {
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 0.9rem;
     font-weight: 500;
     color: #222222;
@@ -303,16 +352,130 @@
   .felicia-header-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-shrink: 0;
+  }
+  .felicia-cart-trigger {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #141416;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+  .felicia-cart-trigger:hover {
+    background: #F4F4F4;
+  }
+  .felicia-cart-counter {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--felicia-gold);
+    color: #141416;
+    font-size: 0.72rem;
+    font-weight: 700;
+    min-width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  /* Header WhatsApp CTA Button */
+  .felicia-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: #FFFFFF !important;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: background 0.25s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap !important;
+    flex-shrink: 0;
+  }
+  .felicia-btn-whatsapp:hover {
+    background: #1EBE5D;
+    transform: translateY(-1px);
+  }
+  .felicia-btn-whatsapp svg {
+    flex-shrink: 0;
+  }
+
+  /* Primary & Outline buttons */
+  .felicia-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--felicia-gold);
+    color: #141416 !important;
+    padding: 13px 28px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    white-space: nowrap !important;
+    border: none;
+    cursor: pointer;
+  }
+  .felicia-btn-primary:hover {
+    background: var(--felicia-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
+  }
+  .felicia-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF !important;
+    padding: 13px 26px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    white-space: nowrap !important;
+    cursor: pointer;
+  }
+  .felicia-btn-outline:hover {
+    background: rgba(197, 160, 89, 0.25);
+    border-color: var(--felicia-gold);
+    color: var(--felicia-gold) !important;
   }
 
   /* Responsive Breakpoint for Mobile Nav (<= 1080px) */
   @media screen and (max-width: 1080px) {
     .felicia-mobile-hamburger {
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .felicia-desktop-nav {
       display: none !important;
@@ -326,30 +489,136 @@
     }
   }
 
-  /* Mobile Drawer */
+  /* Mobile Breakpoint (<= 767px) - Proportional, zero clipping, 42px tap targets */
+  @media screen and (max-width: 767px) {
+    .felicia-header-inner {
+      height: 60px;
+      padding: 0 12px;
+      gap: 8px;
+    }
+    .felicia-header-brand-wrap {
+      gap: 8px;
+      min-width: 0;
+    }
+    .felicia-mobile-hamburger {
+      min-width: 42px;
+      min-height: 42px;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+    }
+    .header__heading-logo {
+      max-height: 32px;
+      max-width: 135px;
+      width: auto;
+    }
+    .felicia-header-actions {
+      gap: 8px;
+    }
+    .felicia-cart-trigger {
+      min-width: 42px;
+      min-height: 42px;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+    }
+    .felicia-btn-whatsapp {
+      height: 42px;
+      min-height: 42px;
+      padding: 0 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      gap: 6px;
+      border-radius: 4px;
+    }
+    .felicia-btn-whatsapp svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  /* Narrow Smartphone Breakpoint (<= 380px, e.g. iPhone SE, Galaxy 320-375px) */
+  @media screen and (max-width: 380px) {
+    .felicia-header-inner {
+      height: 56px;
+      padding: 0 8px;
+      gap: 6px;
+    }
+    .felicia-header-brand-wrap {
+      gap: 6px;
+    }
+    .felicia-mobile-hamburger {
+      min-width: 40px;
+      min-height: 40px;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+    }
+    .header__heading-logo {
+      max-height: 28px;
+      max-width: 105px;
+    }
+    .felicia-header-actions {
+      gap: 6px;
+    }
+    .felicia-cart-trigger {
+      min-width: 40px;
+      min-height: 40px;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+    }
+    .felicia-btn-whatsapp {
+      height: 40px;
+      min-height: 40px;
+      padding: 0 9px;
+      font-size: 0.72rem;
+      gap: 4px;
+    }
+    .felicia-btn-whatsapp svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  /* Mobile Navigation Drawer */
+  .felicia-drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(3px);
+  }
+  .felicia-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
   .felicia-mobile-drawer-panel {
     position: absolute;
     top: 0;
     left: -320px;
-    width: 100%;
+    width: 85vw;
     max-width: 320px;
     height: 100%;
     background: #FFFFFF;
-    box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+    box-shadow: 4px 0 25px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10001;
   }
   .felicia-drawer-overlay.active .felicia-mobile-drawer-panel {
     left: 0;
   }
   .felicia-mobile-nav-link {
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1.05rem;
     font-weight: 500;
     color: #141416;
-    padding: 8px 0;
+    padding: 10px 0;
     display: block;
     transition: color 0.2s ease;
   }
@@ -359,7 +628,7 @@
   }
 
   /* ===================================================
-     2. HERO SECTIONS & TAGS (NEVER OVERLAP TITLE!)
+     2. HERO SECTIONS & SLIDESHOW
      =================================================== */
   .felicia-page-hero {
     background: #141416;
@@ -386,8 +655,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  /* Static, standalone hero pill tag (NEVER ABSOLUTE!) */
   .felicia-hero-tag {
     display: inline-block !important;
     position: static !important;
@@ -403,7 +670,6 @@
     margin: 0 auto 18px auto;
     width: fit-content;
   }
-
   .felicia-page-hero h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(2.1rem, 4vw, 3.2rem);
@@ -414,7 +680,6 @@
     line-height: 1.25;
     position: static !important;
   }
-
   .felicia-page-hero p {
     font-size: clamp(0.95rem, 1.8vw, 1.15rem);
     color: #D4AF37;
@@ -425,7 +690,305 @@
     position: static !important;
   }
 
-  /* Standalone section tag */
+  /* Hero Slideshow */
+  .felicia-hero-slider {
+    position: relative;
+    width: 100%;
+    min-height: 580px;
+    height: 78vh;
+    max-height: 720px;
+    overflow: hidden;
+    background: #1C1920;
+  }
+  .felicia-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s ease;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .felicia-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  .felicia-slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: scale(1.03);
+    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .felicia-slide.active .felicia-slide-bg {
+    transform: scale(1.0);
+  }
+  .felicia-slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(14, 11, 18, 0.60) 0%, 
+      rgba(14, 11, 18, 0.35) 45%, 
+      rgba(14, 11, 18, 0.10) 75%, 
+      transparent 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+  .felicia-slide .page-width {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .felicia-slide-content {
+    max-width: 640px;
+    padding: 38px 42px;
+    background: rgba(16, 13, 20, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    border-left: 4px solid var(--felicia-gold);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    box-sizing: border-box;
+  }
+  .felicia-slide.active .felicia-slide-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .felicia-slide-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(197, 160, 89, 0.18);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    color: #E5C378;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    margin-bottom: 18px;
+  }
+  .felicia-slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  .felicia-slide-desc {
+    font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+    color: #EDE8DF;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+    max-width: 580px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  }
+  .felicia-hero-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+    font-size: 0.84rem;
+    color: #D4AF37;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  }
+  .felicia-slide-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .felicia-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(20, 18, 24, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: #FFFFFF;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+  }
+  .felicia-slider-arrow:hover {
+    background: var(--felicia-gold);
+    color: #141416;
+    border-color: var(--felicia-gold);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .felicia-slider-prev { left: 24px; }
+  .felicia-slider-next { right: 24px; }
+  .felicia-slider-dots {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    background: rgba(18, 16, 22, 0.5);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .felicia-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .felicia-slider-dot.active {
+    width: 32px;
+    border-radius: 10px;
+    background: var(--felicia-gold);
+  }
+
+  /* Hero Mobile Breakpoint (<= 767px) */
+  @media screen and (max-width: 767px) {
+    .felicia-hero-slider {
+      min-height: 520px;
+      height: calc(100vh - 60px);
+      max-height: 620px;
+    }
+    .felicia-slide-overlay {
+      background: linear-gradient(180deg, 
+        rgba(14, 11, 18, 0.65) 0%, 
+        rgba(14, 11, 18, 0.40) 60%, 
+        rgba(14, 11, 18, 0.20) 100%
+      );
+    }
+    .felicia-slide .page-width {
+      padding: 0 16px;
+    }
+    .felicia-slide-content {
+      max-width: 100%;
+      width: 100%;
+      padding: 22px 18px;
+      margin: 0 auto;
+      background: rgba(16, 13, 20, 0.80);
+      border-radius: 8px;
+      border-left-width: 3px;
+    }
+    .felicia-slide-tag {
+      font-size: 0.68rem;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+      letter-spacing: 1.5px;
+    }
+    .felicia-slide-title {
+      font-size: clamp(1.45rem, 5.8vw, 1.95rem);
+      line-height: 1.25;
+      margin: 0 0 12px 0;
+    }
+    .felicia-slide-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0 0 16px 0;
+      color: #EDE8DF;
+    }
+    .felicia-hero-perks {
+      gap: 8px 12px;
+      margin-bottom: 20px;
+      font-size: 0.74rem;
+    }
+    .felicia-slide-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .felicia-slide-actions .felicia-btn-primary,
+    .felicia-slide-actions .felicia-btn-outline {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      min-height: 44px;
+    }
+    .felicia-slider-arrow {
+      width: 34px;
+      height: 34px;
+      opacity: 0.8;
+    }
+    .felicia-slider-prev { left: 8px; }
+    .felicia-slider-next { right: 8px; }
+    .felicia-slider-dots {
+      bottom: 14px;
+      padding: 4px 10px;
+      gap: 6px;
+    }
+    .felicia-slider-dot {
+      width: 8px;
+      height: 8px;
+    }
+    .felicia-slider-dot.active {
+      width: 24px;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    .felicia-hero-slider {
+      min-height: 480px;
+      max-height: 570px;
+    }
+    .felicia-slide-content {
+      padding: 18px 14px;
+    }
+    .felicia-slide-title {
+      font-size: clamp(1.3rem, 5.2vw, 1.65rem);
+    }
+    .felicia-slide-desc {
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .felicia-hero-perks {
+      font-size: 0.7rem;
+      gap: 6px 8px;
+    }
+  }
+
+  /* ===================================================
+     3. PRODUCT & CATEGORY CARDS (Crisp Framing, No Handle/Edge Cropping)
+     =================================================== */
   .felicia-section-tag {
     display: inline-block !important;
     position: static !important;
@@ -441,46 +1004,29 @@
     width: fit-content;
   }
 
-  /* Product Card Image Badge (ONLY on card images) */
-  .felicia-card-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 2;
-    padding: 5px 12px;
-    background: rgba(20, 20, 22, 0.92);
-    color: var(--felicia-gold);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  }
-
-  /* ===================================================
-     3. PRODUCT CARDS & GRID
-     =================================================== */
+  .felicia-category-grid,
   .felicia-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 28px;
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  @media screen and (max-width: 989px) {
+  @media screen and (max-width: 1080px) {
+    .felicia-category-grid,
     .felicia-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
   }
   @media screen and (max-width: 600px) {
-    .felicia-grid {
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .felicia-category-grid,
+    .felicia-grid,
+    #bestsellers-grid {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
     }
   }
 
@@ -504,11 +1050,14 @@
   .felicia-card-img-wrapper {
     position: relative;
     width: 100%;
-    height: 300px;
+    aspect-ratio: 1 / 1;
     overflow: hidden !important;
-    background: #141416;
-    display: block;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    box-sizing: border-box;
   }
   .felicia-card-img-wrapper img {
     position: absolute;
@@ -517,15 +1066,40 @@
     width: 100% !important;
     height: 100% !important;
     max-width: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
     border: 0;
+    padding: 12px;
+    box-sizing: border-box;
   }
   .felicia-product-card:hover .felicia-card-img-wrapper img {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
+  /* Image Badge */
+  .felicia-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 4px 10px;
+    background: rgba(20, 20, 22, 0.92);
+    color: var(--felicia-gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    white-space: nowrap !important;
+    pointer-events: none;
+  }
+
+  /* Card Content */
   .felicia-card-body {
     padding: 22px 20px;
     display: flex;
@@ -542,23 +1116,67 @@
     font-weight: 600;
     margin-bottom: 8px;
   }
-  .felicia-product-title-link {
+  .felicia-card-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #1A1A1A;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: #0b66c2;
+    margin: 0 0 8px 0;
+    line-height: 1.35;
+  }
+  .felicia-card-desc {
+    font-size: 0.86rem;
+    color: #666;
+    line-height: 1.55;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+  }
+  .felicia-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 11px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: 1px solid #1A1A1A;
+    color: #1A1A1A;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    margin-top: auto;
+    min-height: 42px;
+    white-space: nowrap !important;
+  }
+  .felicia-card-btn:hover {
+    background: #1A1A1A;
+    color: var(--felicia-gold);
+    border-color: #1A1A1A;
+  }
+
+  /* Best Sellers Product Title & Price */
+  .felicia-card-body a,
+  .felicia-product-title-link,
+  .felicia-product-title-link:hover,
+  .felicia-product-title-link:focus {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
     line-height: 1.35;
     margin: 0 0 10px 0;
     display: inline-block;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    transition: color 0.2s ease;
     cursor: pointer;
   }
+  .felicia-card-body a:hover,
   .felicia-product-title-link:hover {
-    color: #0b66c2;
-    text-decoration-color: #0b66c2;
+    color: var(--felicia-gold);
+    text-decoration: none !important;
   }
   .felicia-card-price {
     font-size: 1.15rem;
@@ -567,6 +1185,8 @@
     margin-bottom: 14px;
     letter-spacing: 0.5px;
   }
+
+  /* ADD TO CART Button */
   .felicia-btn-add-to-cart {
     display: flex;
     align-items: center;
@@ -575,17 +1195,18 @@
     background: #1E5631;
     color: #FFFFFF !important;
     padding: 12px 16px;
+    min-height: 44px;
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none !important;
     margin-top: auto;
+    white-space: nowrap !important;
   }
   .felicia-btn-add-to-cart:hover {
     background: #144023;
@@ -596,98 +1217,116 @@
     transform: translateY(0);
   }
 
-  /* WhatsApp & Action buttons */
-  .felicia-btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #25D366;
-    color: #FFFFFF !important;
-    padding: 10px 18px;
-    font-weight: 600;
-    font-size: 0.82rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.25s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .felicia-btn-whatsapp:hover {
-    background: #1EBE5D;
-    transform: translateY(-1px);
-  }
-
-  .felicia-btn-primary {
-    display: inline-block;
-    background: var(--felicia-gold);
-    color: #141416 !important;
-    padding: 13px 28px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-  }
-  .felicia-btn-primary:hover {
-    background: var(--felicia-gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
-  }
-
-  .felicia-card-btn {
-    display: block;
-    text-align: center;
-    padding: 11px 16px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border: 1px solid #1A1A1A;
+  /* Filter Buttons for Best Sellers */
+  .felicia-filter-btn {
+    padding: 8px 18px;
+    border: 1px solid #E5E5E5;
+    background: #FFFFFF;
     color: #1A1A1A;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    white-space: nowrap !important;
   }
-  .felicia-card-btn:hover {
+  .felicia-filter-btn.active, .felicia-filter-btn:hover {
     background: #1A1A1A;
     color: var(--felicia-gold);
     border-color: #1A1A1A;
   }
 
-  /* Cart Trigger & Counter */
-  .felicia-cart-trigger {
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: #141416;
-    padding: 6px;
+  /* Section Spacing & Mobile Scaling */
+  @media screen and (max-width: 767px) {
+    #explore-collections {
+      padding: 45px 0 32px 0 !important;
+    }
+    #bestsellers {
+      padding: 48px 0 36px 0 !important;
+    }
+    .felicia-section-tag {
+      font-size: 0.68rem !important;
+      padding: 4px 12px !important;
+      letter-spacing: 1.5px !important;
+      margin-bottom: 8px !important;
+    }
+    #explore-collections h2,
+    #bestsellers h2 {
+      font-size: clamp(1.65rem, 5.5vw, 2.1rem) !important;
+      margin-bottom: 8px !important;
+    }
+    #explore-collections p,
+    #bestsellers p {
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+      padding: 0 4px !important;
+    }
+    .felicia-filter-btn {
+      padding: 6px 13px !important;
+      font-size: 0.76rem !important;
+    }
   }
-  .felicia-cart-counter {
-    position: absolute;
-    top: -4px;
-    right: -6px;
-    background: var(--felicia-gold);
-    color: #141416;
-    font-size: 0.72rem;
-    font-weight: 700;
-    min-width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+
+  @media screen and (max-width: 600px) {
+    .felicia-card-body {
+      padding: 16px 14px !important;
+    }
+    .felicia-card-body a,
+    .felicia-product-title-link {
+      font-size: 1.05rem !important;
+    }
+    .felicia-card-price {
+      font-size: 1.15rem !important;
+      margin-bottom: 12px !important;
+    }
+    .felicia-btn-add-to-cart {
+      min-height: 44px !important;
+      padding: 12px 14px !important;
+      font-size: 0.82rem !important;
+    }
+    .felicia-card-btn {
+      min-height: 42px !important;
+      padding: 10px 14px !important;
+      font-size: 0.78rem !important;
+    }
+  }
+
+  /* Pillars Grid & Testimonial & Footer */
+  .felicia-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+  }
+  .felicia-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    .felicia-pillars-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .felicia-testimonial-card {
+      padding: 24px 18px !important;
+      margin: 0 8px !important;
+    }
+    .felicia-testimonial-card blockquote {
+      font-size: 1.12rem !important;
+      line-height: 1.55 !important;
+    }
+    .felicia-footer-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+      margin-bottom: 35px !important;
+    }
+    .felicia-footer-bottom {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 12px !important;
+    }
   }
 </style>
 </head>
@@ -730,8 +1369,9 @@
             <span class="felicia-cart-counter">0</span>
           </button>
           
-          <a href="https://wa.me/254700000000?text=Hello%20Felicia%20Collections,%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20products" class="felicia-btn-whatsapp" target="_blank" rel="noopener">
-            WhatsApp
+          <a href="https://wa.me/254701721809?text=Hello%20Felicia%20Collections,%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20products" class="felicia-btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Concierge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>WhatsApp</span>
           </a>
         </div>
 
@@ -755,7 +1395,7 @@
       <li><a href="contact-us.html" class="felicia-mobile-nav-link">Contact Us</a></li>
         </ul>
         <div style="padding: 20px; border-top: 1px solid #EEE; margin-top: auto;">
-          <a href="https://wa.me/254700000000" class="felicia-btn-whatsapp" style="width: 100%; text-align: center;">WhatsApp Concierge</a>
+          <a href="https://wa.me/254701721809" class="felicia-btn-whatsapp" style="width: 100%; text-align: center;">WhatsApp Concierge</a>
         </div>
       </div>
     </div>
@@ -764,136 +1404,195 @@
         <div class="felicia-page-hero-inner">
           <span class="felicia-hero-tag">Five-Star Hotel Comfort</span>
           <h1>Luxury Beddings &amp; Linens</h1>
-          <p>Directly imported 100% Egyptian cotton duvet sets, plush down comforters, and silky sateen sheets for the sweetest dreams in Nairobi.</p>
+          <p>Directly imported 100% Egyptian cotton duvet sets, royal spun-silk jacquard comforters, and silky satin-stripe sheets tailored for Nairobi homes.</p>
         </div>
       </section>
 
-      <section style="background: #FAF9F6; border-bottom: 1px solid #EFECE6; padding: 25px 0; text-align: center;">
-        <div class="page-width" style="max-width: 800px; margin: 0 auto;">
-          <p style="color: #666; font-size: 0.95rem; margin: 0;">
-            Available in <strong>6x6 (Queen)</strong> and <strong>7x7 (King)</strong> standard Kenyan mattress sizes. Same-day delivery across Nairobi!
-          </p>
+      <!-- Category Filter Bar -->
+      <section style="background: #F8F8F9; border-bottom: 1px solid #EAEAEA; padding: 20px 0;">
+        <div class="page-width" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+          <button class="felicia-filter-btn active" onclick="filterBeddings('all', this)">All Luxury Beddings (10)</button>
+          <button class="felicia-filter-btn" onclick="filterBeddings('duvet', this)">Duvet Sets (5)</button>
+          <button class="felicia-filter-btn" onclick="filterBeddings('comforter', this)">Comforter &amp; Jacquard (2)</button>
+          <button class="felicia-filter-btn" onclick="filterBeddings('sheets', this)">Sheets &amp; Linens (2)</button>
+          <button class="felicia-filter-btn" onclick="filterBeddings('pillows', this)">Pillows &amp; Accessories (1)</button>
         </div>
       </section>
 
       <section style="padding: 50px 0;">
         <div class="page-width">
-          <div id="beddings-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 12px;">
+            <p style="margin: 0; color: #666; font-size: 0.95rem;">Showing <span id="beddings-count" style="font-weight: 700; color: #141416;">10</span> imported luxury bedding sets &amp; linens</p>
+            <div style="font-size: 0.85rem; color: #888;">Standard Sizes: 6x6 (Queen) &amp; 7x7 (King) | Same-Day Nairobi Delivery</div>
+          </div>
+          <div id="beddings-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(201)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Imperial 1000TC Egyptian Cotton Duvet Set" loading="lazy">
-        <span class="felicia-card-badge">Hotel Grade</span>
+    <!-- Item 1: Starlight Celestial Navy & White Duvet Set -->
+    <div class="felicia-product-card" data-category="duvet">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(201)">
+        <img src="images/bedding-item-1.jpg" alt="The Starlight Celestial Navy &amp; White Duvet Cover Set" loading="lazy">
+        <span class="felicia-card-badge">Celestial Silk-Touch</span>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Sets</div>
-        <a href="javascript:void(0)" onclick="openProductModal(201)" class="felicia-product-title-link">Imperial 1000TC Egyptian Cotton Duvet Set</a>
-        <div class="felicia-card-price">KSh 12,500</div>
+        <a href="javascript:void(0)" onclick="openProductModal(201)" class="felicia-product-title-link">The Starlight Celestial Navy &amp; White Duvet Cover Set</a>
+        <div class="felicia-card-price">KSh 11,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(201)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(202)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="The Grand Suite 6-Piece Cloud Comforter Set" loading="lazy">
-        <span class="felicia-card-badge">Bestseller</span>
-      </div>
-      <div class="felicia-card-body">
-        <div class="felicia-card-category">Comforter Sets</div>
-        <a href="javascript:void(0)" onclick="openProductModal(202)" class="felicia-product-title-link">The Grand Suite 6-Piece Cloud Comforter Set</a>
-        <div class="felicia-card-price">KSh 14,800</div>
-        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(202)">ADD TO CART</button>
-      </div>
-    </div>
-  
-
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(203)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Hotel-Grade Pure White Sateen Sheet Set" loading="lazy">
-        <span class="felicia-card-badge">Luxury Import</span>
-      </div>
-      <div class="felicia-card-body">
-        <div class="felicia-card-category">Sheets & Linens</div>
-        <a href="javascript:void(0)" onclick="openProductModal(203)" class="felicia-product-title-link">Hotel-Grade Pure White Sateen Sheet Set</a>
-        <div class="felicia-card-price">KSh 8,500</div>
-        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(203)">ADD TO CART</button>
-      </div>
-    </div>
-  
-
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(204)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Royal Damask Jacquard Luxury Bed Set" loading="lazy">
-        <span class="felicia-card-badge">Royal Collection</span>
+    <!-- Item 2: Monochrome Ribbon Wave Luxury Bedding Set -->
+    <div class="felicia-product-card" data-category="duvet">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(202)">
+        <img src="images/bedding-item-2.jpg" alt="The Monochrome Ribbon Wave Luxury Bedding Set" loading="lazy">
+        <span class="felicia-card-badge">Modern Atelier</span>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Sets</div>
-        <a href="javascript:void(0)" onclick="openProductModal(204)" class="felicia-product-title-link">Royal Damask Jacquard Luxury Bed Set</a>
+        <a href="javascript:void(0)" onclick="openProductModal(202)" class="felicia-product-title-link">The Monochrome Ribbon Wave Luxury Bedding Set</a>
+        <div class="felicia-card-price">KSh 12,500</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(202)">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Item 3: Grand Chandelier Mocha Geometric Rings Duvet Set -->
+    <div class="felicia-product-card" data-category="comforter">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(203)">
+        <img src="images/bedding-item-3.jpg" alt="The Grand Chandelier Mocha Geometric Rings Duvet Set" loading="lazy">
+        <span class="felicia-card-badge">Presidential Suite</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Comforter &amp; Duvet Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(203)" class="felicia-product-title-link">The Grand Chandelier Mocha Geometric Rings Duvet Set</a>
+        <div class="felicia-card-price">KSh 14,800</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(203)">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Item 4: Royale Emerald Confetti Sphere Luxury Duvet Set -->
+    <div class="felicia-product-card" data-category="duvet">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(204)">
+        <img src="images/bedding-item-4.jpg" alt="The Royale Emerald Confetti Sphere Luxury Duvet Set" loading="lazy">
+        <span class="felicia-card-badge">Royal Emerald</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Duvet Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(204)" class="felicia-product-title-link">The Royale Emerald Confetti Sphere Luxury Duvet Set</a>
         <div class="felicia-card-price">KSh 13,900</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(204)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(205)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Silk-Touch Botanical Duvet Cover Set" loading="lazy">
-        <span class="felicia-card-badge">New Arrival</span>
+    <!-- Item 5: Nordic Cross Minimalist Caramel Bedding Set -->
+    <div class="felicia-product-card" data-category="duvet">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(205)">
+        <img src="images/bedding-item-5.jpg" alt="The Nordic Cross Minimalist Caramel Bedding Set" loading="lazy">
+        <span class="felicia-card-badge">Nordic Minimalist</span>
       </div>
       <div class="felicia-card-body">
         <div class="felicia-card-category">Duvet Sets</div>
-        <a href="javascript:void(0)" onclick="openProductModal(205)" class="felicia-product-title-link">Silk-Touch Botanical Duvet Cover Set</a>
+        <a href="javascript:void(0)" onclick="openProductModal(205)" class="felicia-product-title-link">The Nordic Cross Minimalist Caramel Bedding Set</a>
         <div class="felicia-card-price">KSh 11,500</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(205)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(206)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="All-Season Velvet Touch Quilted Bedspread" loading="lazy">
-        <span class="felicia-card-badge">Popular</span>
+    <!-- Item 6: Imperial Gold Botanical Ginkgo Jacquard Bed Set -->
+    <div class="felicia-product-card" data-category="comforter">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(206)">
+        <img src="images/bedding-item-6.jpg" alt="The Imperial Gold Botanical Ginkgo Jacquard Bed Set" loading="lazy">
+        <span class="felicia-card-badge">24K Gold Jacquard</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Bedspreads</div>
-        <a href="javascript:void(0)" onclick="openProductModal(206)" class="felicia-product-title-link">All-Season Velvet Touch Quilted Bedspread</a>
-        <div class="felicia-card-price">KSh 9,800</div>
+        <div class="felicia-card-category">Comforter &amp; Jacquard Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(206)" class="felicia-product-title-link">The Imperial Gold Botanical Ginkgo Jacquard Bed Set</a>
+        <div class="felicia-card-price">KSh 19,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(206)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(207)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Memory Foam & Goose Feather Pillow Pair" loading="lazy">
-        <span class="felicia-card-badge">Ergonomic</span>
+    <!-- Item 7: Hotel-Grade 1000TC Satin-Stripe Sheet Set -->
+    <div class="felicia-product-card" data-category="sheets">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(207)">
+        <img src="images/bedding-item-7.jpg" alt="Hotel-Grade 1000TC Satin-Stripe Sheet Set (4 Colorways)" loading="lazy">
+        <span class="felicia-card-badge">Hotel 1000TC</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Pillows & Throws</div>
-        <a href="javascript:void(0)" onclick="openProductModal(207)" class="felicia-product-title-link">Memory Foam & Goose Feather Pillow Pair</a>
-        <div class="felicia-card-price">KSh 6,500</div>
+        <div class="felicia-card-category">Sheets &amp; Linens</div>
+        <a href="javascript:void(0)" onclick="openProductModal(207)" class="felicia-product-title-link">Hotel-Grade 1000TC Satin-Stripe Sheet Set (4 Colorways)</a>
+        <div class="felicia-card-price">KSh 8,500</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(207)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(208)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-beddings.svg" alt="Cashmere-Feel Herringbone Bed Throw" loading="lazy">
-        <span class="felicia-card-badge">Chic Living</span>
+    <!-- Item 8: CloudComfort Hotel Plush Down-Alternative Pillow Set -->
+    <div class="felicia-product-card" data-category="pillows">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(208)">
+        <img src="images/bedding-item-8.jpg" alt="CloudComfort Hotel Plush Down-Alternative Pillow Set (Pack of 4)" loading="lazy">
+        <span class="felicia-card-badge">Pack of 4 Pillows</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Pillows & Throws</div>
-        <a href="javascript:void(0)" onclick="openProductModal(208)" class="felicia-product-title-link">Cashmere-Feel Herringbone Bed Throw</a>
-        <div class="felicia-card-price">KSh 5,200</div>
+        <div class="felicia-card-category">Pillows &amp; Accessories</div>
+        <a href="javascript:void(0)" onclick="openProductModal(208)" class="felicia-product-title-link">CloudComfort Hotel Plush Down-Alternative Pillow Set (Pack of 4)</a>
+        <div class="felicia-card-price">KSh 7,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(208)">ADD TO CART</button>
       </div>
     </div>
-  
+
+    <!-- Item 9: Kyoto Slate Circle Mosaic Fitted Bedspread Set -->
+    <div class="felicia-product-card" data-category="sheets">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(209)">
+        <img src="images/bedding-item-9.jpg" alt="The Kyoto Slate Circle Mosaic Fitted Bedspread Set" loading="lazy">
+        <span class="felicia-card-badge">Japandi Living</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Sheets &amp; Linens</div>
+        <a href="javascript:void(0)" onclick="openProductModal(209)" class="felicia-product-title-link">The Kyoto Slate Circle Mosaic Fitted Bedspread Set</a>
+        <div class="felicia-card-price">KSh 9,500</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(209)">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Item 10: Royal Sapphire Botanical Trellis Duvet Cover Set -->
+    <div class="felicia-product-card" data-category="duvet">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(210)">
+        <img src="images/bedding-item-10.jpg" alt="The Royal Sapphire Botanical Trellis Duvet Cover Set" loading="lazy">
+        <span class="felicia-card-badge">Royal Sapphire</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Duvet Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(210)" class="felicia-product-title-link">The Royal Sapphire Botanical Trellis Duvet Cover Set</a>
+        <div class="felicia-card-price">KSh 13,500</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(210)">ADD TO CART</button>
+      </div>
+    </div>
+
           </div>
         </div>
       </section>
+
+      <script>
+      function filterBeddings(category, btn) {
+        const buttons = document.querySelectorAll('.felicia-filter-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        const cards = document.querySelectorAll('#beddings-grid .felicia-product-card');
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (category === 'all' || cat === category) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        const countEl = document.getElementById('beddings-count');
+        if (countEl) countEl.textContent = visibleCount;
+      }
+      </script>
     </main>
   
     <!-- Luxury Brand Footer -->
@@ -934,7 +1633,7 @@
             <h3 style="color: #C5A059; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;">CUSTOMER CARE</h3>
             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
               <li><a href="contact-us.html" style="color: #DDD; text-decoration: none;">Contact Showroom</a></li>
-              <li><a href="https://wa.me/254700000000" style="color: #DDD; text-decoration: none;">WhatsApp Orders</a></li>
+              <li><a href="https://wa.me/254701721809" style="color: #DDD; text-decoration: none;">WhatsApp Orders</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Delivery &amp; Shipping (Kenya)</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">M-Pesa &amp; Payment Options</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Care &amp; Storage Guide</a></li>
@@ -950,7 +1649,7 @@
             </p>
             <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin-bottom: 12px;">
               <strong>Concierge / Orders:</strong><br>
-              <a href="tel:+254700000000" style="color: #FFF; text-decoration: none;">+254 700 000 000</a><br>
+              <a href="tel:+254701721809" style="color: #FFF; text-decoration: none;">+254 701 721 809</a><br>
               <a href="mailto:info@feliciacollections.co.ke" style="color: #FFF; text-decoration: none;">info@feliciacollections.co.ke</a>
             </p>
             <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin: 0;">

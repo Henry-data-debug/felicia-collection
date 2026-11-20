@@ -45,10 +45,50 @@
     --felicia-cream: #FAF9F6;
   }
 
-  *, *::before, *::after { box-sizing: border-box; }
+  /* Global Resets & Horizontal Overflow Prevention */
+  html {
+    overflow-x: clip !important;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    overflow-x: clip !important;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  /* Base container mobile safety */
+  .page-width {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  @media screen and (max-width: 767px) {
+    .page-width {
+      padding: 0 16px !important;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    .page-width {
+      padding: 0 12px !important;
+    }
+  }
 
   /* ===================================================
-     1. SITE HEADER (Fixed height, no clipping, no wrapping)
+     1. SITE HEADER (Zero Clipping, 100% Mobile Viewport Fit)
      =================================================== */
   .felicia-site-header {
     position: sticky;
@@ -58,6 +98,7 @@
     border-bottom: 1px solid #ECECEC;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     width: 100%;
+    max-width: 100vw;
   }
   .felicia-header-inner {
     display: flex;
@@ -67,6 +108,8 @@
     padding: 0 1.5rem;
     max-width: 1360px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
   }
   .felicia-header-brand-wrap {
     display: flex;
@@ -80,8 +123,13 @@
     border: none;
     color: #141416;
     cursor: pointer;
-    padding: 6px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
   }
   .felicia-mobile-hamburger:hover {
     background: #F4F4F4;
@@ -91,6 +139,7 @@
     width: auto;
     object-fit: contain;
     display: block;
+    transition: max-height 0.2s ease, max-width 0.2s ease;
   }
 
   /* Desktop Nav */
@@ -112,7 +161,7 @@
     flex-wrap: nowrap !important;
   }
   .felicia-nav-item {
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 0.9rem;
     font-weight: 500;
     color: #222222;
@@ -141,16 +190,130 @@
   .felicia-header-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-shrink: 0;
+  }
+  .felicia-cart-trigger {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #141416;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+  .felicia-cart-trigger:hover {
+    background: #F4F4F4;
+  }
+  .felicia-cart-counter {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--felicia-gold);
+    color: #141416;
+    font-size: 0.72rem;
+    font-weight: 700;
+    min-width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  /* Header WhatsApp CTA Button */
+  .felicia-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: #FFFFFF !important;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: background 0.25s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap !important;
+    flex-shrink: 0;
+  }
+  .felicia-btn-whatsapp:hover {
+    background: #1EBE5D;
+    transform: translateY(-1px);
+  }
+  .felicia-btn-whatsapp svg {
+    flex-shrink: 0;
+  }
+
+  /* Primary & Outline buttons */
+  .felicia-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--felicia-gold);
+    color: #141416 !important;
+    padding: 13px 28px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    white-space: nowrap !important;
+    border: none;
+    cursor: pointer;
+  }
+  .felicia-btn-primary:hover {
+    background: var(--felicia-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
+  }
+  .felicia-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF !important;
+    padding: 13px 26px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    white-space: nowrap !important;
+    cursor: pointer;
+  }
+  .felicia-btn-outline:hover {
+    background: rgba(197, 160, 89, 0.25);
+    border-color: var(--felicia-gold);
+    color: var(--felicia-gold) !important;
   }
 
   /* Responsive Breakpoint for Mobile Nav (<= 1080px) */
   @media screen and (max-width: 1080px) {
     .felicia-mobile-hamburger {
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .felicia-desktop-nav {
       display: none !important;
@@ -164,30 +327,136 @@
     }
   }
 
-  /* Mobile Drawer */
+  /* Mobile Breakpoint (<= 767px) - Proportional, zero clipping, 42px tap targets */
+  @media screen and (max-width: 767px) {
+    .felicia-header-inner {
+      height: 60px;
+      padding: 0 12px;
+      gap: 8px;
+    }
+    .felicia-header-brand-wrap {
+      gap: 8px;
+      min-width: 0;
+    }
+    .felicia-mobile-hamburger {
+      min-width: 42px;
+      min-height: 42px;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+    }
+    .header__heading-logo {
+      max-height: 32px;
+      max-width: 135px;
+      width: auto;
+    }
+    .felicia-header-actions {
+      gap: 8px;
+    }
+    .felicia-cart-trigger {
+      min-width: 42px;
+      min-height: 42px;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+    }
+    .felicia-btn-whatsapp {
+      height: 42px;
+      min-height: 42px;
+      padding: 0 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      gap: 6px;
+      border-radius: 4px;
+    }
+    .felicia-btn-whatsapp svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  /* Narrow Smartphone Breakpoint (<= 380px, e.g. iPhone SE, Galaxy 320-375px) */
+  @media screen and (max-width: 380px) {
+    .felicia-header-inner {
+      height: 56px;
+      padding: 0 8px;
+      gap: 6px;
+    }
+    .felicia-header-brand-wrap {
+      gap: 6px;
+    }
+    .felicia-mobile-hamburger {
+      min-width: 40px;
+      min-height: 40px;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+    }
+    .header__heading-logo {
+      max-height: 28px;
+      max-width: 105px;
+    }
+    .felicia-header-actions {
+      gap: 6px;
+    }
+    .felicia-cart-trigger {
+      min-width: 40px;
+      min-height: 40px;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+    }
+    .felicia-btn-whatsapp {
+      height: 40px;
+      min-height: 40px;
+      padding: 0 9px;
+      font-size: 0.72rem;
+      gap: 4px;
+    }
+    .felicia-btn-whatsapp svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  /* Mobile Navigation Drawer */
+  .felicia-drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(3px);
+  }
+  .felicia-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
   .felicia-mobile-drawer-panel {
     position: absolute;
     top: 0;
     left: -320px;
-    width: 100%;
+    width: 85vw;
     max-width: 320px;
     height: 100%;
     background: #FFFFFF;
-    box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+    box-shadow: 4px 0 25px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10001;
   }
   .felicia-drawer-overlay.active .felicia-mobile-drawer-panel {
     left: 0;
   }
   .felicia-mobile-nav-link {
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1.05rem;
     font-weight: 500;
     color: #141416;
-    padding: 8px 0;
+    padding: 10px 0;
     display: block;
     transition: color 0.2s ease;
   }
@@ -197,7 +466,7 @@
   }
 
   /* ===================================================
-     2. HERO SECTIONS & TAGS (NEVER OVERLAP TITLE!)
+     2. HERO SECTIONS & SLIDESHOW
      =================================================== */
   .felicia-page-hero {
     background: #141416;
@@ -224,8 +493,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  /* Static, standalone hero pill tag (NEVER ABSOLUTE!) */
   .felicia-hero-tag {
     display: inline-block !important;
     position: static !important;
@@ -241,7 +508,6 @@
     margin: 0 auto 18px auto;
     width: fit-content;
   }
-
   .felicia-page-hero h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(2.1rem, 4vw, 3.2rem);
@@ -252,7 +518,6 @@
     line-height: 1.25;
     position: static !important;
   }
-
   .felicia-page-hero p {
     font-size: clamp(0.95rem, 1.8vw, 1.15rem);
     color: #D4AF37;
@@ -263,7 +528,403 @@
     position: static !important;
   }
 
-  /* Standalone section tag */
+  /* Hero Slideshow */
+  .felicia-hero-slider {
+    position: relative;
+    width: 100%;
+    min-height: 540px;
+    height: 75vh;
+    max-height: 700px;
+    overflow-x: clip !important;
+    overflow-y: hidden;
+    background: transparent !important;
+  }
+  .felicia-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .felicia-slide.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  .felicia-slide-bg-img,
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 1;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+  }
+  .felicia-slide.active .felicia-slide-bg-img,
+  .felicia-slide.active .hero-bg {
+    transform: scale(1.0);
+  }
+
+  /* Dedicated Scrim Overlay (z-index: 2, between image and text) */
+  .felicia-slide-overlay,
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(14, 12, 11, 0.90) 0%, rgba(14, 12, 11, 0.72) 52%, rgba(14, 12, 11, 0.22) 100%);
+  }
+
+  /* Slide Alignment & Scrim Orientations */
+  .felicia-slide--left .felicia-slide-overlay,
+  .felicia-slide--left .hero-scrim {
+    background: linear-gradient(90deg, rgba(14, 12, 11, 0.90) 0%, rgba(14, 12, 11, 0.72) 52%, rgba(14, 12, 11, 0.22) 100%);
+  }
+  .felicia-slide--right .felicia-slide-overlay,
+  .felicia-slide--right .hero-scrim {
+    background: linear-gradient(270deg, rgba(14, 12, 11, 0.90) 0%, rgba(14, 12, 11, 0.72) 52%, rgba(14, 12, 11, 0.22) 100%);
+  }
+
+  .felicia-slide .page-width {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+  .felicia-slide-content {
+    max-width: 560px;
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    box-sizing: border-box;
+  }
+  .felicia-slide.active .felicia-slide-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Slide 1 & 3: Left Alignment */
+  .felicia-slide--left .felicia-slide-content {
+    margin-right: auto;
+    margin-left: 0;
+    text-align: left;
+    padding: 24px 0 24px 76px;
+  }
+
+  /* Slide 2: Right Alignment */
+  .felicia-slide--right .felicia-slide-content {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+    padding: 24px 76px 24px 0;
+  }
+
+  /* Slide 3: Compact Headline & Spacing */
+  .felicia-slide--compact .felicia-slide-content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .felicia-slide--compact .felicia-slide-title {
+    font-size: clamp(2.1rem, 3.6vw, 3.2rem) !important;
+    line-height: 1.12 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .felicia-slide-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(14, 12, 11, 0.88);
+    border: 1px solid rgba(245, 213, 122, 0.55);
+    color: #F5D57A;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .felicia-slide-tag .felicia-perk-icon {
+    color: #F5D57A !important;
+    font-size: 0.82rem;
+  }
+  .felicia-slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  }
+  .felicia-slide-desc {
+    font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+    color: #F7F4EE;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+    max-width: 540px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  }
+  .felicia-hero-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 28px;
+    font-size: 0.86rem;
+    color: #F7F4EE;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  }
+  .felicia-hero-perks span {
+    color: #F7F4EE;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .felicia-hero-perks .felicia-perk-icon {
+    color: #F5D57A !important;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+  .felicia-slide-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .felicia-slide-actions .felicia-btn-primary {
+    background: var(--felicia-gold);
+    color: #141416 !important;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  .felicia-slide-actions .felicia-btn-primary:hover {
+    background: var(--felicia-gold-light);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+  }
+  .felicia-slide-actions .felicia-btn-outline {
+    background: rgba(14, 12, 11, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .felicia-slide-actions .felicia-btn-outline:hover {
+    background: rgba(245, 213, 122, 0.25) !important;
+    border-color: #F5D57A !important;
+    color: #F5D57A !important;
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35) !important;
+  }
+  .felicia-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    background: rgba(14, 12, 11, 0.65);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    color: #FFFFFF;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+  .felicia-slider-arrow:hover {
+    background: var(--felicia-gold);
+    color: #141416;
+    border-color: var(--felicia-gold);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .felicia-slider-prev { left: 16px; }
+  .felicia-slider-next { right: 16px; }
+  .felicia-slider-dots {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+    background: rgba(14, 12, 11, 0.65);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .felicia-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .felicia-slider-dot.active {
+    width: 32px;
+    border-radius: 10px;
+    background: var(--felicia-gold);
+  }
+
+  /* Hero Mobile Breakpoint (<= 767px) */
+  @media screen and (max-width: 767px) {
+    .felicia-hero-slider {
+      min-height: 480px;
+      height: auto;
+      max-height: 560px;
+    }
+    .felicia-slide-overlay,
+    .hero-scrim,
+    .felicia-slide--left .felicia-slide-overlay,
+    .felicia-slide--left .hero-scrim,
+    .felicia-slide--right .felicia-slide-overlay,
+    .felicia-slide--right .hero-scrim {
+      background: linear-gradient(180deg, rgba(14, 12, 11, 0.85) 0%, rgba(14, 12, 11, 0.92) 100%) !important;
+    }
+    .felicia-slide .page-width {
+      padding: 0 16px !important;
+    }
+    .felicia-slide-content,
+    .felicia-slide--left .felicia-slide-content,
+    .felicia-slide--right .felicia-slide-content {
+      max-width: 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 48px 24px !important;
+      background: transparent !important;
+      border: none !important;
+    }
+    .felicia-slide-tag {
+      font-size: 0.68rem;
+      padding: 5px 14px;
+      margin-bottom: 12px;
+      letter-spacing: 1.5px;
+    }
+    .felicia-slide-title {
+      font-size: clamp(1.45rem, 5.8vw, 1.95rem) !important;
+      line-height: 1.25 !important;
+      margin: 0 0 12px 0 !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+    }
+    .felicia-slide-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0 0 16px 0;
+      color: #F7F4EE;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    .felicia-hero-perks {
+      gap: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 0.76rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    .felicia-slide-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .felicia-slide-actions .felicia-btn-primary,
+    .felicia-slide-actions .felicia-btn-outline {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      min-height: 44px;
+    }
+    .felicia-slider-arrow {
+      width: 36px;
+      height: 36px;
+      opacity: 0.9;
+    }
+    .felicia-slider-prev { left: 8px; }
+    .felicia-slider-next { right: 8px; }
+    .felicia-slider-dots {
+      bottom: 14px;
+      padding: 4px 10px;
+      gap: 6px;
+    }
+    .felicia-slider-dot {
+      width: 8px;
+      height: 8px;
+    }
+    .felicia-slider-dot.active {
+      width: 24px;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    .felicia-hero-slider {
+      min-height: 460px;
+      max-height: 520px;
+    }
+    .felicia-slide-content,
+    .felicia-slide--left .felicia-slide-content,
+    .felicia-slide--right .felicia-slide-content {
+      padding: 36px 18px !important;
+    }
+    .felicia-slide-title {
+      font-size: clamp(1.3rem, 5.2vw, 1.65rem) !important;
+    }
+    .felicia-slide-desc {
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .felicia-hero-perks {
+      font-size: 0.72rem;
+      gap: 6px 10px;
+    }
+    .felicia-slider-arrow {
+      width: 32px;
+      height: 32px;
+    }
+    .felicia-slider-prev { left: 5px; }
+    .felicia-slider-next { right: 5px; }
+  }
+
+  /* ===================================================
+     3. PRODUCT & CATEGORY CARDS (Crisp Framing, No Handle/Edge Cropping)
+     =================================================== */
   .felicia-section-tag {
     display: inline-block !important;
     position: static !important;
@@ -279,46 +940,29 @@
     width: fit-content;
   }
 
-  /* Product Card Image Badge (ONLY on card images) */
-  .felicia-card-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 2;
-    padding: 5px 12px;
-    background: rgba(20, 20, 22, 0.92);
-    color: var(--felicia-gold);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  }
-
-  /* ===================================================
-     3. PRODUCT CARDS & GRID
-     =================================================== */
+  .felicia-category-grid,
   .felicia-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 28px;
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  @media screen and (max-width: 989px) {
+  @media screen and (max-width: 1080px) {
+    .felicia-category-grid,
     .felicia-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
   }
   @media screen and (max-width: 600px) {
-    .felicia-grid {
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .felicia-category-grid,
+    .felicia-grid,
+    #bestsellers-grid {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
     }
   }
 
@@ -342,11 +986,14 @@
   .felicia-card-img-wrapper {
     position: relative;
     width: 100%;
-    height: 300px;
+    aspect-ratio: 1 / 1;
     overflow: hidden !important;
-    background: #141416;
-    display: block;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    box-sizing: border-box;
   }
   .felicia-card-img-wrapper img {
     position: absolute;
@@ -355,15 +1002,40 @@
     width: 100% !important;
     height: 100% !important;
     max-width: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
     border: 0;
+    padding: 12px;
+    box-sizing: border-box;
   }
   .felicia-product-card:hover .felicia-card-img-wrapper img {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
+  /* Image Badge */
+  .felicia-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 4px 10px;
+    background: rgba(20, 20, 22, 0.92);
+    color: var(--felicia-gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    white-space: nowrap !important;
+    pointer-events: none;
+  }
+
+  /* Card Content */
   .felicia-card-body {
     padding: 22px 20px;
     display: flex;
@@ -380,23 +1052,67 @@
     font-weight: 600;
     margin-bottom: 8px;
   }
-  .felicia-product-title-link {
+  .felicia-card-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #1A1A1A;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: #0b66c2;
+    margin: 0 0 8px 0;
+    line-height: 1.35;
+  }
+  .felicia-card-desc {
+    font-size: 0.86rem;
+    color: #666;
+    line-height: 1.55;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+  }
+  .felicia-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 11px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: 1px solid #1A1A1A;
+    color: #1A1A1A;
+    text-decoration: none !important;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    margin-top: auto;
+    min-height: 42px;
+    white-space: nowrap !important;
+  }
+  .felicia-card-btn:hover {
+    background: #1A1A1A;
+    color: var(--felicia-gold);
+    border-color: #1A1A1A;
+  }
+
+  /* Best Sellers Product Title & Price */
+  .felicia-card-body a,
+  .felicia-product-title-link,
+  .felicia-product-title-link:hover,
+  .felicia-product-title-link:focus {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
     line-height: 1.35;
     margin: 0 0 10px 0;
     display: inline-block;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    transition: color 0.2s ease;
     cursor: pointer;
   }
+  .felicia-card-body a:hover,
   .felicia-product-title-link:hover {
-    color: #0b66c2;
-    text-decoration-color: #0b66c2;
+    color: var(--felicia-gold);
+    text-decoration: none !important;
   }
   .felicia-card-price {
     font-size: 1.15rem;
@@ -405,6 +1121,8 @@
     margin-bottom: 14px;
     letter-spacing: 0.5px;
   }
+
+  /* ADD TO CART Button */
   .felicia-btn-add-to-cart {
     display: flex;
     align-items: center;
@@ -413,17 +1131,18 @@
     background: #1E5631;
     color: #FFFFFF !important;
     padding: 12px 16px;
+    min-height: 44px;
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none !important;
     margin-top: auto;
+    white-space: nowrap !important;
   }
   .felicia-btn-add-to-cart:hover {
     background: #144023;
@@ -434,98 +1153,116 @@
     transform: translateY(0);
   }
 
-  /* WhatsApp & Action buttons */
-  .felicia-btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #25D366;
-    color: #FFFFFF !important;
-    padding: 10px 18px;
-    font-weight: 600;
-    font-size: 0.82rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.25s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .felicia-btn-whatsapp:hover {
-    background: #1EBE5D;
-    transform: translateY(-1px);
-  }
-
-  .felicia-btn-primary {
-    display: inline-block;
-    background: var(--felicia-gold);
-    color: #141416 !important;
-    padding: 13px 28px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-  }
-  .felicia-btn-primary:hover {
-    background: var(--felicia-gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
-  }
-
-  .felicia-card-btn {
-    display: block;
-    text-align: center;
-    padding: 11px 16px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border: 1px solid #1A1A1A;
+  /* Filter Buttons for Best Sellers */
+  .felicia-filter-btn {
+    padding: 8px 18px;
+    border: 1px solid #E5E5E5;
+    background: #FFFFFF;
     color: #1A1A1A;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    white-space: nowrap !important;
   }
-  .felicia-card-btn:hover {
+  .felicia-filter-btn.active, .felicia-filter-btn:hover {
     background: #1A1A1A;
     color: var(--felicia-gold);
     border-color: #1A1A1A;
   }
 
-  /* Cart Trigger & Counter */
-  .felicia-cart-trigger {
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: #141416;
-    padding: 6px;
+  /* Section Spacing & Mobile Scaling */
+  @media screen and (max-width: 767px) {
+    #explore-collections {
+      padding: 45px 0 32px 0 !important;
+    }
+    #bestsellers {
+      padding: 48px 0 36px 0 !important;
+    }
+    .felicia-section-tag {
+      font-size: 0.68rem !important;
+      padding: 4px 12px !important;
+      letter-spacing: 1.5px !important;
+      margin-bottom: 8px !important;
+    }
+    #explore-collections h2,
+    #bestsellers h2 {
+      font-size: clamp(1.65rem, 5.5vw, 2.1rem) !important;
+      margin-bottom: 8px !important;
+    }
+    #explore-collections p,
+    #bestsellers p {
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+      padding: 0 4px !important;
+    }
+    .felicia-filter-btn {
+      padding: 6px 13px !important;
+      font-size: 0.76rem !important;
+    }
   }
-  .felicia-cart-counter {
-    position: absolute;
-    top: -4px;
-    right: -6px;
-    background: var(--felicia-gold);
-    color: #141416;
-    font-size: 0.72rem;
-    font-weight: 700;
-    min-width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+
+  @media screen and (max-width: 600px) {
+    .felicia-card-body {
+      padding: 16px 14px !important;
+    }
+    .felicia-card-body a,
+    .felicia-product-title-link {
+      font-size: 1.05rem !important;
+    }
+    .felicia-card-price {
+      font-size: 1.15rem !important;
+      margin-bottom: 12px !important;
+    }
+    .felicia-btn-add-to-cart {
+      min-height: 44px !important;
+      padding: 12px 14px !important;
+      font-size: 0.82rem !important;
+    }
+    .felicia-card-btn {
+      min-height: 42px !important;
+      padding: 10px 14px !important;
+      font-size: 0.78rem !important;
+    }
+  }
+
+  /* Pillars Grid & Testimonial & Footer */
+  .felicia-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+  }
+  .felicia-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    .felicia-pillars-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .felicia-testimonial-card {
+      padding: 24px 18px !important;
+      margin: 0 8px !important;
+    }
+    .felicia-testimonial-card blockquote {
+      font-size: 1.12rem !important;
+      line-height: 1.55 !important;
+    }
+    .felicia-footer-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+      margin-bottom: 35px !important;
+    }
+    .felicia-footer-bottom {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 12px !important;
+    }
   }
 </style>
 
@@ -569,8 +1306,9 @@
             <span class="felicia-cart-counter">0</span>
           </button>
           
-          <a href="https://wa.me/254700000000?text=Hello%20Felicia%20Collections,%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20products" class="felicia-btn-whatsapp" target="_blank" rel="noopener">
-            WhatsApp
+          <a href="https://wa.me/254701721809?text=Hello%20Felicia%20Collections,%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20products" class="felicia-btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Concierge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>WhatsApp</span>
           </a>
         </div>
 
@@ -594,84 +1332,82 @@
       <li><a href="contact-us.html" class="felicia-mobile-nav-link">Contact Us</a></li>
         </ul>
         <div style="padding: 20px; border-top: 1px solid #EEE; margin-top: auto;">
-          <a href="https://wa.me/254700000000" class="felicia-btn-whatsapp" style="width: 100%; text-align: center;">WhatsApp Concierge</a>
+          <a href="https://wa.me/254701721809" class="felicia-btn-whatsapp" style="width: 100%; text-align: center;">WhatsApp Concierge</a>
         </div>
       </div>
     </div>
 <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
 
-    <!-- Auto-Changing Hero Slideshow -->
+    <!-- Auto-Changing Hero Slideshow (3 Exact Curated Slides) -->
     <section class="felicia-hero-slider" id="felicia-hero-slider" aria-label="Hero Slideshow">
       
-      <!-- Slide 1 -->
-      <div class="felicia-slide active" data-slide="0">
-        <div class="felicia-slide-bg" style="background-image: url('images/275eecf5570e69c7487aad7771a700c2.jpg');"></div>
-        <div class="felicia-slide-overlay"></div>
-        <div class="page-width" style="height: 100%;">
+      <!-- Slide 1: Designer Handbags (Left Aligned) -->
+      <div class="felicia-slide felicia-slide--left active" data-slide="0" style="opacity: 1; visibility: visible;">
+        <img class="felicia-slide-bg-img hero-bg" src="images/hero-1.jpg" alt="Imported Luxury Handbags & Structured Totes" fetchpriority="high">
+        <div class="felicia-slide-overlay hero-scrim"></div>
+        <div class="page-width">
           <div class="felicia-slide-content">
-            <span class="felicia-slide-tag">IMPORTED LUXURY HOUSE</span>
-            <h2 class="felicia-slide-title">Premier Imported Women's Luxury Handbags &amp; Fashion in Nairobi.</h2>
-            <p class="felicia-slide-desc">Curated International Elegance for the Modern Kenyan Woman. Superior craftsmanship, statement hardware, and timeless silhouettes.</p>
+            <span class="felicia-slide-tag"><span class="felicia-perk-icon">✦</span> SIGNATURE COLLECTION</span>
+            <h1 class="felicia-slide-title">Imported Luxury Handbags &amp; Structured Totes</h1>
+            <p class="felicia-slide-desc">Directly imported from Milan and leading fashion capitals. Statement hardware, rich croc finishes, and timeless silhouettes curated for the cosmopolitan woman.</p>
+            <div class="felicia-hero-perks">
+              <span><span class="felicia-perk-icon">✦</span> Direct Global Import</span>
+              <span><span class="felicia-perk-icon">✦</span> Same-Day Nairobi Delivery</span>
+              <span><span class="felicia-perk-icon">✦</span> Verified Premium Quality</span>
+            </div>
             <div class="felicia-slide-actions">
-              <a href="handbags.html" class="felicia-btn-primary">Shop Handbags Collection</a>
-              <a href="contact-us.html" class="felicia-btn-outline">Showroom Concierge</a>
+              <a href="handbags.html" class="felicia-btn-primary">SHOP HANDBAGS</a>
+              <a href="handbags.html" class="felicia-btn-outline">EXPLORE NEW ARRIVALS</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="felicia-slide" data-slide="1">
-        <div class="felicia-slide-bg" style="background-image: url('images/ba971fbf79e3d92a002446cdb85b4d7f.jpg');"></div>
-        <div class="felicia-slide-overlay"></div>
-        <div class="page-width" style="height: 100%;">
+      <!-- Slide 2: Curated Fashion & Accessories (Right Aligned) -->
+      <div class="felicia-slide felicia-slide--right" data-slide="1">
+        <img class="felicia-slide-bg-img hero-bg" src="images/hero-2.jpg" alt="Chic Women's Fashion, Heels & Statement Pieces" loading="lazy">
+        <div class="felicia-slide-overlay hero-scrim"></div>
+        <div class="page-width">
           <div class="felicia-slide-content">
-            <span class="felicia-slide-tag">EXECUTIVE &amp; EVERYDAY SILHOUETTES</span>
-            <h2 class="felicia-slide-title">Curated Designer Handbags, Women's Wear, Beddings &amp; Kitchen Essentials.</h2>
-            <p class="felicia-slide-desc">Directly Imported from Leading Global Fashion Hubs with Statement Hardware and Exceptional Finishes.</p>
+            <span class="felicia-slide-tag"><span class="felicia-perk-icon">✦</span> CURATED LIFESTYLE</span>
+            <h2 class="felicia-slide-title">Chic Women's Fashion, Heels &amp; Statement Pieces</h2>
+            <p class="felicia-slide-desc">Couture-grade evening gowns and chic cocktail midi dresses imported for red carpet galas, luxury weddings, and sophisticated soirees across Nairobi.</p>
+            <div class="felicia-hero-perks">
+              <span><span class="felicia-perk-icon">✦</span> Imported Couture Cut</span>
+              <span><span class="felicia-perk-icon">✦</span> Ultra-Luxe Velvet &amp; Sateen</span>
+              <span><span class="felicia-perk-icon">✦</span> Complimentary Fitting Concierge</span>
+            </div>
             <div class="felicia-slide-actions">
-              <a href="handbags.html" class="felicia-btn-primary">Explore Collections</a>
-              <a href="https://wa.me/254700000000" class="felicia-btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
+              <a href="women-wear.html" class="felicia-btn-primary">EXPLORE FASHION</a>
+              <a href="women-wear.html" class="felicia-btn-outline">SHOP ACCESSORIES</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="felicia-slide" data-slide="2">
-        <div class="felicia-slide-bg" style="background-image: url('images/0b958184287aa3df7714433d45dcdc85.jpg');"></div>
-        <div class="felicia-slide-overlay"></div>
-        <div class="page-width" style="height: 100%;">
+      <!-- Slide 3: Presidential Suite Living (Left Aligned & Compact) -->
+      <div class="felicia-slide felicia-slide--left felicia-slide--compact" data-slide="2">
+        <img class="felicia-slide-bg-img hero-bg" src="images/hero-3.jpg" alt="100% Egyptian Cotton & Silk Jacquard Beddings" loading="lazy">
+        <div class="felicia-slide-overlay hero-scrim"></div>
+        <div class="page-width">
           <div class="felicia-slide-content">
-            <span class="felicia-slide-tag">TIMELESS CHIC</span>
-            <h2 class="felicia-slide-title">Crossbody Bags, Shoulder Purses &amp; Evening Minaudières.</h2>
-            <p class="felicia-slide-desc">Chic hands-free luxury tailored for cosmopolitan days and gala soirées across Nairobi.</p>
+            <span class="felicia-slide-tag"><span class="felicia-perk-icon">✦</span> PRESIDENTIAL SUITE LIVING</span>
+            <h2 class="felicia-slide-title">100% Egyptian Cotton &amp; Silk Jacquard Beddings</h2>
+            <p class="felicia-slide-desc">Transform your master bedroom into a five-star hotel sanctuary. Ultra-soft hotel duvet sets, silky sateen-stripe sheets, and plush cloud comforters imported for luxurious sleep.</p>
+            <div class="felicia-hero-perks">
+              <span><span class="felicia-perk-icon">✦</span> 1000 Thread Count Feel</span>
+              <span><span class="felicia-perk-icon">✦</span> Queen (6x6) &amp; King (7x7)</span>
+              <span><span class="felicia-perk-icon">✦</span> 100% Breathable Egyptian Cotton</span>
+            </div>
             <div class="felicia-slide-actions">
-              <a href="handbags.html" class="felicia-btn-primary">Shop Crossbody Bags</a>
-              <a href="handbags.html" class="felicia-btn-outline">View Catalog</a>
+              <a href="beddings.html" class="felicia-btn-primary">DISCOVER BEDDINGS</a>
+              <a href="beddings.html" class="felicia-btn-outline">VIEW BEDDING SIZES</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 4 -->
-      <div class="felicia-slide" data-slide="3">
-        <div class="felicia-slide-bg" style="background-image: url('images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg');"></div>
-        <div class="felicia-slide-overlay"></div>
-        <div class="page-width" style="height: 100%;">
-          <div class="felicia-slide-content">
-            <span class="felicia-slide-tag">ICONIC HERITAGE</span>
-            <h2 class="felicia-slide-title">The Felicia Signature Collection: Modern Luxury Delivered Across Kenya.</h2>
-            <p class="felicia-slide-desc">Same-day courier delivery in Nairobi &amp; reliable 24-48 hour nationwide shipping with white-glove customer care.</p>
-            <div class="felicia-slide-actions">
-              <a href="handbags.html" class="felicia-btn-primary">Discover the Collection</a>
-              <a href="contact-us.html" class="felicia-btn-outline">Contact Concierge</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Controls -->
+      <!-- Carousel Arrows -->
       <button class="felicia-slider-arrow felicia-slider-prev" onclick="changeHeroSlide(-1)" aria-label="Previous Slide">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="22" height="22" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
@@ -683,11 +1419,11 @@
         </svg>
       </button>
 
+      <!-- Carousel Pagination Dots (Exactly 3) -->
       <div class="felicia-slider-dots">
-        <div class="felicia-slider-dot active" onclick="jumpToHeroSlide(0)"></div>
-        <div class="felicia-slider-dot" onclick="jumpToHeroSlide(1)"></div>
-        <div class="felicia-slider-dot" onclick="jumpToHeroSlide(2)"></div>
-        <div class="felicia-slider-dot" onclick="jumpToHeroSlide(3)"></div>
+        <div class="felicia-slider-dot active" onclick="jumpToHeroSlide(0)" aria-label="Slide 1"></div>
+        <div class="felicia-slider-dot" onclick="jumpToHeroSlide(1)" aria-label="Slide 2"></div>
+        <div class="felicia-slider-dot" onclick="jumpToHeroSlide(2)" aria-label="Slide 3"></div>
       </div>
 
     </section>
@@ -700,11 +1436,15 @@
         const dots = document.querySelectorAll('.felicia-slider-dot');
         const totalSlides = slides.length;
         let slideInterval = null;
-        const intervalTime = 4500; // 4.5 seconds
+        const intervalTime = 5000; // 5.0 seconds smooth rotation
 
         function showSlide(index) {
           slides.forEach((s, i) => {
-            s.classList.toggle('active', i === index);
+            const isActive = (i === index);
+            s.classList.toggle('active', isActive);
+            s.style.opacity = isActive ? '1' : '0';
+            s.style.visibility = isActive ? 'visible' : 'hidden';
+            s.style.pointerEvents = isActive ? 'auto' : 'none';
           });
           dots.forEach((d, i) => {
             d.classList.toggle('active', i === index);
@@ -756,211 +1496,303 @@
       })();
     </script>
   
-    <section id="shopify-section-collection-list" class="shopify-section section section-collection-list" style="padding: 60px 0 40px 0; background: #FFFFFF;">
+    <!-- 1. EXPLORE COLLECTIONS SECTION -->
+    <section id="explore-collections" style="padding: 65px 0 50px 0; background: #FFFFFF;">
       <div class="page-width">
         
-        <div style="text-align: center; margin-bottom: 45px;">
-          <span style="display: inline-block; padding: 4px 12px; background: #141416; color: #C5A059; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; margin-bottom: 12px;">Curated Lifestyle</span>
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="felicia-section-tag">Curated Lifestyle</span>
           <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 3.5vw, 2.6rem); margin: 0 0 12px 0; color: #141416;">
             Explore Collections
           </h2>
           <p style="color: #666; max-width: 650px; margin: 0 auto; font-size: 0.98rem; line-height: 1.6;">
-            From imported designer handbags and chic dresses to five-star hotel beddings and modern kitchenware.
+            From imported designer handbags and chic dresses to five-star hotel beddings and modern kitchen essentials.
           </p>
         </div>
 
-        <div class="felicia-grid">
+        <div class="felicia-category-grid" style="gap: 28px;">
           
           <!-- Card 1: Handbags -->
           <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg" alt="Imported Luxury Handbags" loading="lazy">
-        <span class="felicia-card-badge">Featured (21 Items)</span>
+            <div class="felicia-card-img-wrapper" style="aspect-ratio: 1 / 1; background: #FBFBFA;">
+              <img src="images/05e25ad039e66492824b437e828571f6.jpg" alt="Imported Luxury Handbags" loading="lazy" style="object-fit: contain; padding: 12px;">
+              <span class="felicia-card-badge">21 Imported Bags</span>
             </div>
             <div class="felicia-card-body">
               <div class="felicia-card-category">HANDBAGS &amp; TOTES</div>
               <h3 class="felicia-card-title">Imported Luxury Handbags</h3>
-              <p class="felicia-card-desc">Chic totes, crossbody bags, and structured satchels directly imported from leading international fashion hubs.</p>
+              <p class="felicia-card-desc">Chic totes, crossbody bags, and structured satchels directly imported from leading international fashion capitals.</p>
               <a href="handbags.html" class="felicia-card-btn">Explore Handbags &rarr;</a>
             </div>
           </div>
 
           <!-- Card 2: Women Wear -->
           <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/women-dress-1.jpg" alt="Women Wear &amp; Dresses" loading="lazy">
-        <span class="felicia-card-badge">Featured (10 Dresses)</span>
+            <div class="felicia-card-img-wrapper" style="aspect-ratio: 1 / 1; background: #FAF9F8;">
+              <img src="images/women-dress-1.jpg" alt="Women Wear &amp; Designer Dresses" loading="lazy" style="object-fit: contain; padding: 12px;">
+              <span class="felicia-card-badge">10 Luxury Dresses</span>
             </div>
             <div class="felicia-card-body">
               <div class="felicia-card-category">FASHION APPAREL</div>
               <h3 class="felicia-card-title">Women Wear &amp; Dresses</h3>
-              <p class="felicia-card-desc">Designer evening dresses, elegant work midi dresses, and chic coordinated two-piece sets imported for modern style.</p>
+              <p class="felicia-card-desc">Designer gala evening gowns, body-contouring mermaid dresses, and chic pleated midi dresses imported for modern style.</p>
               <a href="women-wear.html" class="felicia-card-btn">Explore Women Wear &rarr;</a>
             </div>
           </div>
 
           <!-- Card 3: Beddings -->
           <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/placeholder-beddings.svg" alt="Luxury Beddings &amp; Linens" loading="lazy">
-        <span class="felicia-card-badge">Hotel Grade</span>
+            <div class="felicia-card-img-wrapper" style="aspect-ratio: 1 / 1; background: #FFFFFF;">
+              <img src="images/bedding-item-6.jpg" alt="Luxury Beddings &amp; Linens" loading="lazy" style="object-fit: contain; padding: 12px;">
+              <span class="felicia-card-badge">10 Bedding Sets</span>
             </div>
             <div class="felicia-card-body">
               <div class="felicia-card-category">BEDROOM LUXURY</div>
               <h3 class="felicia-card-title">Luxury Beddings &amp; Linens</h3>
-              <p class="felicia-card-desc">100% Egyptian cotton duvet cover sets, plush cloud comforters, and silky sateen sheets imported for luxurious sleep.</p>
+              <p class="felicia-card-desc">100% Egyptian cotton duvet cover sets, spun-silk jacquard comforters, and silky satin-stripe sheets for 6x6 Queen &amp; 7x7 King beds.</p>
               <a href="beddings.html" class="felicia-card-btn">Explore Beddings &rarr;</a>
             </div>
           </div>
 
           <!-- Card 4: Kitchen Items -->
           <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/kitchen-item-1.jpg" alt="Modern Kitchen Items &amp; Dining" loading="lazy">
-        <span class="felicia-card-badge">Modern Home</span>
+            <div class="felicia-card-img-wrapper" style="aspect-ratio: 1 / 1; background: #FFFFFF;">
+              <img src="images/kitchen-item-1.jpg" alt="Modern Kitchen Items &amp; Dining" loading="lazy" style="object-fit: contain; padding: 12px;">
+              <span class="felicia-card-badge">10 Kitchen Essentials</span>
             </div>
             <div class="felicia-card-body">
               <div class="felicia-card-category">KITCHEN &amp; DINING</div>
               <h3 class="felicia-card-title">Modern Kitchen Items</h3>
-              <p class="felicia-card-desc">German-grade non-stick cookware sets, 24K gold-rimmed porcelain dinnerware, and titanium cutlery.</p>
+              <p class="felicia-card-desc">Multi-ply stainless steel cookware sets, commercial high-speed blenders, and fine porcelain dinnerware sets.</p>
               <a href="kitchen-items.html" class="felicia-card-btn">Explore Kitchen &rarr;</a>
             </div>
           </div>
 
-          <!-- Card 5: Totes & Shoppers -->
-          <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/73338b9b9a82f2c5d7f2ec83f620b96f.jpg" alt="Executive Totes &amp; Shoppers" loading="lazy">
-        <span class="felicia-card-badge">Executive</span>
-            </div>
-            <div class="felicia-card-body">
-              <div class="felicia-card-category">HANDBAGS</div>
-              <h3 class="felicia-card-title">Totes &amp; Work Shoppers</h3>
-              <p class="felicia-card-desc">Generously proportioned luxury totes designed to carry laptops, documents, and daily essentials with effortless elegance.</p>
-              <a href="handbags.html" class="felicia-card-btn">View Totes &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Card 6: Crossbody Bags -->
-          <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/0b958184287aa3df7714433d45dcdc85.jpg" alt="Crossbody &amp; Shoulder Bags" loading="lazy">
-        <span class="felicia-card-badge">Versatile</span>
-            </div>
-            <div class="felicia-card-body">
-              <div class="felicia-card-category">HANDBAGS</div>
-              <h3 class="felicia-card-title">Crossbody &amp; Shoulder Bags</h3>
-              <p class="felicia-card-desc">Hands-free chic silhouettes with gleaming gold chain straps and signature turn-locks for everyday cosmopolitan wear.</p>
-              <a href="handbags.html" class="felicia-card-btn">View Crossbody &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Card 7: Evening Clutches -->
-          <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/4e9889b9004931b2709ec9929594050f.jpg" alt="Evening Clutches &amp; Wristlets" loading="lazy">
-        <span class="felicia-card-badge">Occasion</span>
-            </div>
-            <div class="felicia-card-body">
-              <div class="felicia-card-category">HANDBAGS</div>
-              <h3 class="felicia-card-title">Evening Clutches &amp; Wristlets</h3>
-              <p class="felicia-card-desc">Refined evening clutches, hard-shell minaudières, and wristlets designed to sparkle at galas, dinners, and celebrations.</p>
-              <a href="handbags.html" class="felicia-card-btn">View Clutches &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Card 8: Designer Satchels -->
-          <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-        <img src="images/115f1f995ab19e3888ed734284390042.jpg" alt="Designer Satchels" loading="lazy">
-        <span class="felicia-card-badge">Structured</span>
-            </div>
-            <div class="felicia-card-body">
-              <div class="felicia-card-category">HANDBAGS</div>
-              <h3 class="felicia-card-title">Designer Satchels</h3>
-              <p class="felicia-card-desc">Architectural top-handle bags and structured satchels that make a distinguished statement in any room.</p>
-              <a href="handbags.html" class="felicia-card-btn">View Satchels &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Card 9: About Us -->
-          <div class="felicia-product-card">
-            <div class="felicia-card-img-wrapper">
-              <img src="images/c99bbd4bd18112337aadeb8a9e01322e.jpg" alt="About Felicia Collections" loading="lazy">
-              <span class="felicia-section-tag">Our Story</span>
-            </div>
-            <div class="felicia-card-body">
-              <div class="felicia-card-category">ABOUT THE BRAND</div>
-              <h3 class="felicia-card-title">The Felicia Heritage</h3>
-              <p class="felicia-card-desc">Discover our mission to connect Nairobi with premier global luxury fashion houses, superior quality, and white-glove concierge care.</p>
-              <a href="about-us.html" class="felicia-card-btn">Read Our Story &rarr;</a>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
-  
-    <!-- Brand Story Rich Text -->
-    <section class="shopify-section section" style="padding: 60px 0; background: #FAF9F6; border-top: 1px solid #EFECE6; border-bottom: 1px solid #EFECE6;">
-      <div class="page-width" style="max-width: 840px; margin: 0 auto; text-align: center;">
-        <span style="display: inline-block; padding: 4px 12px; background: rgba(197, 160, 89, 0.2); border: 1px solid #C5A059; color: #C5A059; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; margin-bottom: 16px;">Curated Global House</span>
-        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.3rem; margin: 0 0 18px 0; color: #141416;">
-          The Pinnacle of Curated Luxury in Nairobi
-        </h2>
-        <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 26px;">
-          Felicia Collections is Nairobi's premier boutique for curated imported women's luxury fashion and lifestyle essentials. Sourced directly from renowned international fashion capitals, each handbag, dress, bedding set, and kitchen piece embodies superior quality, timeless sophistication, and international design excellence.
-        </p>
-        <a href="handbags.html" class="felicia-btn-primary" style="display: inline-block;">Explore Handbags Collection</a>
-      </div>
-    </section>
 
-    <!-- Image with Text 1 -->
-    <section class="shopify-section section" style="padding: 70px 0; background: #FFFFFF;">
+    <!-- 2. BEST SELLERS SECTION (3 From Each Category = 12 Total) -->
+    <section id="bestsellers" style="padding: 70px 0 60px 0; background: #FAF9F6; border-top: 1px solid #ECECEC; border-bottom: 1px solid #ECECEC;">
       <div class="page-width">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
-          <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,0.08); height: 440px; background: #141416;">
-            <img src="images/449db1f4fe9c0ad7899d9f6b4604804f.jpg" alt="Curated International Luxury" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          <div>
-            <span style="display: inline-block; padding: 4px 10px; background: #141416; color: #C5A059; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; margin-bottom: 12px;">Global Sourcing</span>
-            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #141416; margin: 0 0 16px 0; line-height: 1.25;">
-              Curated International Luxury
-            </h2>
-            <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
-              Every Felicia Collections handbag and fashion piece is directly imported from top global fashion hubs. Selected for superior materials, immaculate stitching, and statement hardware, each piece delivers world-class luxury directly to your wardrobe.
-            </p>
-            <a href="handbags.html" class="felicia-btn-primary" style="display: inline-block;">View Handbags</a>
-          </div>
+        
+        <div style="text-align: center; margin-bottom: 35px;">
+          <span class="felicia-section-tag">Most Coveted</span>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 3.5vw, 2.6rem); margin: 0 0 12px 0; color: #141416;">
+            Best Sellers
+          </h2>
+          <p style="color: #666; max-width: 650px; margin: 0 auto; font-size: 0.98rem; line-height: 1.6;">
+            Explore our most sought-after imported luxury pieces across Handbags, Women Wear, Beddings, and Kitchen essentials.
+          </p>
         </div>
+
+        <!-- Filter Tabs -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 35px;">
+          <button class="felicia-filter-btn active" onclick="filterBestsellers('all', this)">All Best Sellers (12)</button>
+          <button class="felicia-filter-btn" onclick="filterBestsellers('handbags', this)">Handbags (3)</button>
+          <button class="felicia-filter-btn" onclick="filterBestsellers('women-wear', this)">Women Wear (3)</button>
+          <button class="felicia-filter-btn" onclick="filterBestsellers('beddings', this)">Beddings (3)</button>
+          <button class="felicia-filter-btn" onclick="filterBestsellers('kitchen', this)">Kitchen Items (3)</button>
+        </div>
+
+        <!-- Best Sellers 12 Cards Grid -->
+        <div id="bestsellers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px;">
+
+          <!-- Handbag 1 -->
+          <div class="felicia-product-card" data-category="handbags">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(1)">
+              <img src="images/05e25ad039e66492824b437e828571f6.jpg" alt="The Victoria Quilted Shoulder Bag" loading="lazy">
+              <span class="felicia-card-badge">Bestseller</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Shoulder Bags</div>
+              <a href="javascript:void(0)" onclick="openProductModal(1)" class="felicia-product-title-link">The Victoria Quilted Shoulder Bag</a>
+              <div class="felicia-card-price">KSh 6,500</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(1)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Handbag 2 -->
+          <div class="felicia-product-card" data-category="handbags">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(2)">
+              <img src="images/0b958184287aa3df7714433d45dcdc85.jpg" alt="The Kensington Croc-Embossed Crossbody" loading="lazy">
+              <span class="felicia-card-badge">Imported Luxury</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Crossbody Bags</div>
+              <a href="javascript:void(0)" onclick="openProductModal(2)" class="felicia-product-title-link">The Kensington Croc-Embossed Crossbody</a>
+              <div class="felicia-card-price">KSh 5,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(2)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Handbag 3 -->
+          <div class="felicia-product-card" data-category="handbags">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(3)">
+              <img src="images/115f1f995ab19e3888ed734284390042.jpg" alt="The Milan Classic Structured Satchel" loading="lazy">
+              <span class="felicia-card-badge">Signature</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Designer Satchels</div>
+              <a href="javascript:void(0)" onclick="openProductModal(3)" class="felicia-product-title-link">The Milan Classic Structured Satchel</a>
+              <div class="felicia-card-price">KSh 7,200</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(3)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Women Wear 1 -->
+          <div class="felicia-product-card" data-category="women-wear">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(101)">
+              <img src="images/women-dress-1.jpg" alt="The Emerald Grecian Draped One-Shoulder Dress" loading="lazy">
+              <span class="felicia-card-badge">Bestseller</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Cocktail &amp; Evening</div>
+              <a href="javascript:void(0)" onclick="openProductModal(101)" class="felicia-product-title-link">The Emerald Grecian Draped One-Shoulder Dress</a>
+              <div class="felicia-card-price">KSh 8,500</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(101)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Women Wear 2 -->
+          <div class="felicia-product-card" data-category="women-wear">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(106)">
+              <img src="images/women-dress-6.jpg" alt="The Royal Burgundy Puff-Sleeve Gala Gown" loading="lazy">
+              <span class="felicia-card-badge">Grand Gala</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Evening &amp; Ballgowns</div>
+              <a href="javascript:void(0)" onclick="openProductModal(106)" class="felicia-product-title-link">The Royal Burgundy Puff-Sleeve Gala Gown</a>
+              <div class="felicia-card-price">KSh 17,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(106)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Women Wear 3 -->
+          <div class="felicia-product-card" data-category="women-wear">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(108)">
+              <img src="images/women-dress-8.jpg" alt="The Midnight Empress Cape Foyer Gown" loading="lazy">
+              <span class="felicia-card-badge">Royal Edition</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Gala &amp; Red Carpet</div>
+              <a href="javascript:void(0)" onclick="openProductModal(108)" class="felicia-product-title-link">The Midnight Empress Cape Foyer Gown</a>
+              <div class="felicia-card-price">KSh 19,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(108)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Bedding 1 -->
+          <div class="felicia-product-card" data-category="beddings">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(206)">
+              <img src="images/bedding-item-6.jpg" alt="The Imperial Gold Botanical Ginkgo Jacquard Bed Set" loading="lazy">
+              <span class="felicia-card-badge">24K Gold Jacquard</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Comforter &amp; Jacquard</div>
+              <a href="javascript:void(0)" onclick="openProductModal(206)" class="felicia-product-title-link">The Imperial Gold Botanical Ginkgo Jacquard Bed Set</a>
+              <div class="felicia-card-price">KSh 19,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(206)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Bedding 2 -->
+          <div class="felicia-product-card" data-category="beddings">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(201)">
+              <img src="images/bedding-item-1.jpg" alt="The Starlight Celestial Navy &amp; White Duvet Cover Set" loading="lazy">
+              <span class="felicia-card-badge">Celestial Silk-Touch</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Duvet Sets</div>
+              <a href="javascript:void(0)" onclick="openProductModal(201)" class="felicia-product-title-link">The Starlight Celestial Navy &amp; White Duvet Cover Set</a>
+              <div class="felicia-card-price">KSh 11,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(201)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Bedding 3 -->
+          <div class="felicia-product-card" data-category="beddings">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(207)">
+              <img src="images/bedding-item-7.jpg" alt="Hotel-Grade 1000TC Satin-Stripe Sheet Set" loading="lazy">
+              <span class="felicia-card-badge">Hotel 1000TC</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Sheets &amp; Linens</div>
+              <a href="javascript:void(0)" onclick="openProductModal(207)" class="felicia-product-title-link">Hotel-Grade 1000TC Satin-Stripe Sheet Set (4 Colors)</a>
+              <div class="felicia-card-price">KSh 8,500</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(207)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Kitchen 1 -->
+          <div class="felicia-product-card" data-category="kitchen">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(301)">
+              <img src="images/kitchen-item-1.jpg" alt="Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set" loading="lazy">
+              <span class="felicia-card-badge">Premium Multi-Ply</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Cookware Sets</div>
+              <a href="javascript:void(0)" onclick="openProductModal(301)" class="felicia-product-title-link">Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set</a>
+              <div class="felicia-card-price">KSh 18,500</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(301)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Kitchen 2 -->
+          <div class="felicia-product-card" data-category="kitchen">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(302)">
+              <img src="images/kitchen-item-2.jpg" alt="Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set" loading="lazy">
+              <span class="felicia-card-badge">Bestseller Set</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Cookware Sets</div>
+              <a href="javascript:void(0)" onclick="openProductModal(302)" class="felicia-product-title-link">Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set</a>
+              <div class="felicia-card-price">KSh 16,800</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(302)">ADD TO CART</button>
+            </div>
+          </div>
+
+          <!-- Kitchen 3 -->
+          <div class="felicia-product-card" data-category="kitchen">
+            <div class="felicia-card-img-wrapper" onclick="openProductModal(303)">
+              <img src="images/kitchen-item-3.jpg" alt="Maxkon Pro-Grade 2200W Commercial High-Speed Blender" loading="lazy">
+              <span class="felicia-card-badge">Commercial 2200W</span>
+            </div>
+            <div class="felicia-card-body">
+              <div class="felicia-card-category">Kitchen Appliances</div>
+              <a href="javascript:void(0)" onclick="openProductModal(303)" class="felicia-product-title-link">Maxkon Pro-Grade 2200W Commercial High-Speed Blender</a>
+              <div class="felicia-card-price">KSh 14,500</div>
+              <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(303)">ADD TO CART</button>
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
+      <script>
+      function filterBestsellers(category, btn) {
+        const buttons = document.querySelectorAll('#bestsellers .felicia-filter-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        const cards = document.querySelectorAll('#bestsellers-grid .felicia-product-card');
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (category === 'all' || cat === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+      </script>
     </section>
 
-    <!-- Image with Text 2 (Reversed) -->
-    <section class="shopify-section section" style="padding: 70px 0; background: #FAF9F6; border-top: 1px solid #EAEAEA;">
-      <div class="page-width">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
-          <div>
-            <span style="display: inline-block; padding: 4px 10px; background: #141416; color: #C5A059; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; margin-bottom: 12px;">Prestige &amp; Grace</span>
-            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #141416; margin: 0 0 16px 0; line-height: 1.25;">
-              Nairobi Elegance, Global Prestige
-            </h2>
-            <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
-              From Nairobi high-fashion galas to international jet-set travel, Felicia Collections delivers premier imported handbags, chic women's wear, luxury bedding sets, and refined kitchenware that reflect your sophisticated lifestyle.
-            </p>
-            <a href="handbags.html" class="felicia-btn-primary" style="display: inline-block;">Explore Collections</a>
-          </div>
-          <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,0.08); height: 440px; background: #141416;">
-            <img src="images/5e3fce41b1cb3e6c554e3b3a06c3fe3a.jpg" alt="Nairobi Elegance" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Multicolumn 4 Pillars -->
+    <!-- 3. FOUR VALUE-PROP PILLARS & TESTIMONIAL (As shown in Image 2) -->
     <section class="shopify-section section" style="padding: 60px 0; background: #FFFFFF; border-top: 1px solid #EAEAEA;">
       <div class="page-width">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px;">
+        <div class="felicia-pillars-grid">
           
           <div style="text-align: center; padding: 24px 16px; border: 1px solid #EAEAEA; border-radius: 6px;">
             <div style="width: 52px; height: 52px; margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center; background: #FAF7F0; border-radius: 50%;">
@@ -998,9 +1830,9 @@
       </div>
     </section>
 
-    <!-- Testimonial Section -->
+    <!-- Testimonial Section (Image 2) -->
     <section class="shopify-section section" style="padding: 60px 0; background: #FAF9F6; border-top: 1px solid #EAEAEA; text-align: center;">
-      <div class="page-width" style="max-width: 760px; margin: 0 auto; padding: 40px 30px; background: #FFFFFF; border: 1px solid #EFECE6; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.03);">
+      <div class="page-width felicia-testimonial-card" style="max-width: 760px; margin: 0 auto; padding: 40px 30px; background: #FFFFFF; border: 1px solid #EFECE6; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.03);">
         <div style="color: #C5A059; font-size: 1.25rem; letter-spacing: 5px; margin-bottom: 16px;">★★★★★</div>
         <blockquote style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-style: italic; line-height: 1.6; color: #141416; margin: 0 0 20px 0;">
           "My Felicia Collections imported designer handbag is an absolute masterpiece. The quality of materials, chic finishes, and attention to detail rival the world's most prestigious luxury fashion houses."
@@ -1008,29 +1840,12 @@
         <cite style="font-size: 0.92rem; font-weight: 600; color: #C5A059; letter-spacing: 1px; font-style: normal;">— Wangari M., Nairobi</cite>
       </div>
     </section>
-
-    <!-- Newsletter Section -->
-    <section class="shopify-section section" style="padding: 60px 0; background: #141416; color: #FFFFFF; text-align: center;">
-      <div class="page-width" style="max-width: 650px; margin: 0 auto;">
-        <span class="felicia-slide-tag" style="margin-bottom: 12px;">VIP Privileges</span>
-        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #FFFFFF; margin: 0 0 12px 0;">
-          Join the Felicia Collections Circle
-        </h2>
-        <p style="color: #A0A0A5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-          Be the first to know when new international luxury handbag shipments arrive in Nairobi. Receive private previews and exclusive concierge offers.
-        </p>
-        <form style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;" onsubmit="alert('Thank you for subscribing to Felicia Collections!'); return false;">
-          <input type="email" required placeholder="Enter your email address" style="padding: 13px 18px; border-radius: 4px; border: 1px solid #333; background: #222; color: #FFF; width: 320px; font-size: 0.9rem;">
-          <button type="submit" class="felicia-btn-primary" style="cursor: pointer; border: none;">Subscribe</button>
-        </form>
-      </div>
-    </section>
   
 </main>
 
     <footer class="footer color-scheme-4 gradient" style="background: #141416; color: #FFFFFF; padding-top: 60px; padding-bottom: 30px; border-top: 1px solid rgba(197, 160, 89, 0.2);">
       <div class="page-width">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        <div class="felicia-footer-grid">
           
           <!-- Column 1: Brand Info -->
           <div>
@@ -1064,7 +1879,7 @@
             <h3 style="color: #C5A059; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;">CUSTOMER CARE</h3>
             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
               <li><a href="contact-us.html" style="color: #DDD; text-decoration: none;">Contact Showroom</a></li>
-              <li><a href="https://wa.me/254700000000" style="color: #DDD; text-decoration: none;">WhatsApp Orders</a></li>
+              <li><a href="https://wa.me/254701721809" style="color: #DDD; text-decoration: none;">WhatsApp Orders</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Delivery &amp; Shipping (Kenya)</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">M-Pesa &amp; Payment Options</a></li>
               <li><a href="contact-us.html#faq" style="color: #DDD; text-decoration: none;">Care &amp; Storage Guide</a></li>
@@ -1080,7 +1895,7 @@
             </p>
             <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin-bottom: 12px;">
               <strong>Concierge / Orders:</strong><br>
-              <a href="tel:+254700000000" style="color: #FFF; text-decoration: none;">+254 700 000 000</a><br>
+              <a href="tel:+254701721809" style="color: #FFF; text-decoration: none;">+254 701 721 809</a><br>
               <a href="mailto:info@feliciacollections.co.ke" style="color: #FFF; text-decoration: none;">info@feliciacollections.co.ke</a>
             </p>
             <p style="color: #A0A0A5; font-size: 0.88rem; line-height: 1.6; margin: 0;">
@@ -1092,7 +1907,7 @@
 
         </div>
 
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; font-size: 0.82rem; color: #888;">
+        <div class="felicia-footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; font-size: 0.82rem; color: #888;">
           <div>
             &copy; 2026, Felicia Collections. All rights reserved. Nairobi, Kenya.
           </div>

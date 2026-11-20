@@ -351,94 +351,116 @@
       specs: ["Material: Fine Double-Knit Crepe", "Details: Pussy-Bow Tie & Covered Buttons", "Sleeves: Victorian Puff with Cuffs", "Length: Elegant Tea-Length Midi (125cm)", "Origin: Imported Luxury"]
     },
 
-    // --- Beddings (201-208) ---
+    // --- Beddings (201-210) ---
     {
       id: 201,
-      name: "Imperial 1000TC Egyptian Cotton Duvet Set",
-      image: "images/placeholder-beddings.svg",
+      name: "The Starlight Celestial Navy & White Duvet Cover Set",
+      image: "images/bedding-item-1.jpg",
       category: "Duvet Sets",
-      price: 12500,
-      priceFormatted: "KSh 12,500",
-      badge: "Hotel Grade",
-      description: "Imported 1000-thread-count long-staple Egyptian cotton with subtle satin stripe finish. Includes duvet cover and 4 pillowcases for Kenyan 6x6 Queen and 7x7 King beds.",
-      specs: ["Thread Count: 1000 TC Long Staple", "Sizes: 6x6 Queen / 7x7 King", "Set: 1 Duvet Cover + 4 Pillowcases", "Origin: Imported Egyptian Cotton"]
+      price: 11800,
+      priceFormatted: "KSh 11,800",
+      badge: "Celestial Silk-Touch",
+      description: "Whimsical yet sophisticated imported luxury duvet set in deep midnight navy and pure crisp white, adorned with constellation stars and shooting comets. Woven from breathable high-density microfiber with a silky sateen finish for cooling night-time comfort.",
+      specs: ["Thread Count: 800TC Sateen Weave", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Cushion Cover", "Sizes: 6x6 Queen & 7x7 King Beds", "Closure: Hidden Zipper with Corner Ties", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 202,
-      name: "The Grand Suite 6-Piece Cloud Comforter Set",
-      image: "images/placeholder-beddings.svg",
-      category: "Comforter Sets",
-      price: 14800,
-      priceFormatted: "KSh 14,800",
-      badge: "Bestseller",
-      description: "Plush microfiber down-alternative comforter, fitted sheet, flat sheet, and coordinating embroidered pillow shams for five-star hotel comfort.",
-      specs: ["Set: 6 Pieces Complete", "Filling: 350 GSM Microfiber Cloud Down", "Origin: Imported Turkey"]
+      name: "The Monochrome Ribbon Wave Luxury Bedding Set",
+      image: "images/bedding-item-2.jpg",
+      category: "Duvet Sets",
+      price: 12500,
+      priceFormatted: "KSh 12,500",
+      badge: "Modern Atelier",
+      description: "Contemporary graphic luxury duvet ensemble featuring fluid ribbon-like wave motions in charcoal grey, obsidian black, and brilliant white. Reversible solid black underside with matching tailored envelope pillow shams.",
+      specs: ["Material: Ultra-Soft Double-Brushed Microfiber", "Pieces: 1 Duvet Cover + 4 Pillow Shams", "Sizes: 6x6 Queen & 7x7 King Fit", "Care: Machine Washable, Fade-Resistant", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 203,
-      name: "Hotel-Grade Pure White Sateen Sheet Set",
-      image: "images/placeholder-beddings.svg",
-      category: "Sheets & Linens",
-      price: 8500,
-      priceFormatted: "KSh 8,500",
-      badge: "Luxury Import",
-      description: "Ultra-breathable cooling sateen weave designed for Nairobi's climate. Deep pocket fitted sheets fit up to 16-inch mattress thickness.",
-      specs: ["Weave: Silky Sateen", "Pockets: 16\" Extra Deep Fit", "Set: 1 Fitted + 1 Flat + 2 Pillowcases"]
+      name: "The Grand Chandelier Mocha Geometric Rings Duvet Set",
+      image: "images/bedding-item-3.jpg",
+      category: "Comforter Sets",
+      price: 14800,
+      priceFormatted: "KSh 14,800",
+      badge: "Presidential Suite",
+      description: "Five-star hotel suite luxury bedding crafted from high-luster Egyptian cotton blend. Features bold overlapping concentric rings in rich espresso mocha, warm caramel, and ivory on a crisp white ground, creating grand bedroom presence.",
+      specs: ["Material: 1000TC Long-Staple Cotton Blend", "Pieces: 1 Grand Duvet Cover + 4 Pillowcases + 1 Breakfast Sham", "Sizes: 6x6 Queen & 7x7 King Beds", "Finish: Lustrous Silky Sheen", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 204,
-      name: "Royal Damask Jacquard Luxury Bed Set",
-      image: "images/placeholder-beddings.svg",
+      name: "The Royale Emerald Confetti Sphere Luxury Duvet Set",
+      image: "images/bedding-item-4.jpg",
       category: "Duvet Sets",
       price: 13900,
       priceFormatted: "KSh 13,900",
-      badge: "Royal Collection",
-      description: "Regal imported woven jacquard damask duvet cover with piped edging and matching bolster covers.",
-      specs: ["Material: Woven Jacquard Damask", "Set: Duvet + 4 Shams + 1 Bolster", "Origin: Imported Luxury Linens"]
+      badge: "Royal Emerald",
+      description: "Deep jewel-toned bottle green luxury duvet set sprinkled with vibrant circular confetti spheres in gold, crimson, and ivory. Tailored for plush master bedrooms desiring rich color and opulent hotel-grade texture.",
+      specs: ["Fabric: Heavy Cotton-Sateen Blend", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Bolster Case", "Sizes: 6x6 Queen & 7x7 King Beds", "Color: Deep Emerald Green with Gold Accents", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 205,
-      name: "Silk-Touch Botanical Duvet Cover Set",
-      image: "images/placeholder-beddings.svg",
+      name: "The Nordic Cross Minimalist Caramel Bedding Set",
+      image: "images/bedding-item-5.jpg",
       category: "Duvet Sets",
       price: 11500,
       priceFormatted: "KSh 11,500",
-      badge: "New Arrival",
-      description: "Soft-washed botanical floral duvet set imported from Turkey. Hypoallergenic, fade-resistant, and silky to the touch.",
-      specs: ["Material: Microfiber Sateen", "Hypoallergenic: Yes", "Origin: Imported Turkey"]
+      badge: "Nordic Minimalist",
+      description: "Warm minimalist Scandinavian-inspired bed set in earthy chocolate caramel with crisp white and mustard cross-hatch grid accents. Tailored from pre-washed breathable cotton sateen for relaxed elegance.",
+      specs: ["Material: Washed Cotton Sateen (Breathable)", "Pieces: 1 Duvet Cover + 4 Pillowcases", "Sizes: 6x6 Queen & 7x7 King", "Hypoallergenic: Dust-Mite Resistant Weave", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 206,
-      name: "All-Season Velvet Touch Quilted Bedspread",
-      image: "images/placeholder-beddings.svg",
-      category: "Bedspreads",
-      price: 9800,
-      priceFormatted: "KSh 9,800",
-      badge: "Popular",
-      description: "Lightweight quilted embossed coverlet in rich champagne gold and charcoal tones.",
-      specs: ["Material: Embossed Velvet Touch", "Care: Machine Washable"]
+      name: "The Imperial Gold Botanical Ginkgo Jacquard Bed Set",
+      image: "images/bedding-item-6.jpg",
+      category: "Comforter Sets",
+      price: 19800,
+      priceFormatted: "KSh 19,800",
+      badge: "24K Gold Jacquard",
+      description: "The crown jewel of bedroom opulence. Woven on precision jacquard looms in shimmering spun champagne gold silk-sateen, featuring delicate botanical ginkgo leaf motifs that catch bedroom chandelier light from every angle.",
+      specs: ["Fabric: Spun Silk & Long-Staple Sateen Jacquard", "Pieces: 1 Duvet Cover + 4 Oxford Flanged Pillowcases + 1 Accent Cushion", "Sizes: 6x6 Queen & 7x7 King", "Finish: High-Shine Metallic Gold Lustre", "Origin: Directly Imported Luxury Bedding"]
     },
     {
       id: 207,
-      name: "Memory Foam & Goose Feather Pillow Pair",
-      image: "images/placeholder-beddings.svg",
-      category: "Pillows & Throws",
-      price: 6500,
-      priceFormatted: "KSh 6,500",
-      badge: "Ergonomic",
-      description: "Ergonomic dual-chamber support pillows wrapped in 100% cotton percale shells.",
-      specs: ["Set: 2 Luxury Pillows", "Support: Dual-Chamber Orthopedic"]
+      name: "Hotel-Grade 1000TC Satin-Stripe Sheet Set (4 Colorways)",
+      image: "images/bedding-item-7.jpg",
+      category: "Sheets & Linens",
+      price: 8500,
+      priceFormatted: "KSh 8,500",
+      badge: "Hotel 1000TC",
+      description: "Genuine 1000-thread-count long-staple cotton luxury hotel sheet set with distinctive alternating damask sateen stripes. Available in Charcoal Grey, Mauve Rose, Crisp Cream White, and Imperial Burgundy.",
+      specs: ["Weave: 1000TC Egyptian Cotton Damask Stripe", "Set Includes: 1 Deep-Pocket Fitted Sheet + 1 Flat Sheet + 4 Pillowcases", "Mattress Fit: Extra-Deep 16\" (40cm) Elasticized Skirt", "Colors: Charcoal, Mauve, Cream, Burgundy", "Origin: Directly Imported Hotel Linens"]
     },
     {
       id: 208,
-      name: "Cashmere-Feel Herringbone Bed Throw",
-      image: "images/placeholder-beddings.svg",
-      category: "Pillows & Throws",
-      price: 5200,
-      priceFormatted: "KSh 5,200",
-      badge: "Chic Living",
-      description: "Cozy fringed luxury accent throw for foot-of-bed elegance or living room styling.",
-      specs: ["Material: Super-Soft Acrylic Cashmere Feel", "Dimensions: 150cm x 200cm"]
+      name: "CloudComfort Hotel Plush Down-Alternative Pillow Set (Pack of 4)",
+      image: "images/bedding-item-8.jpg",
+      category: "Pillows & Accessories",
+      price: 7800,
+      priceFormatted: "KSh 7,800",
+      badge: "Pack of 4 Pillows",
+      description: "Four plush, high-resilience pillows filled with hypoallergenic micro-cluster down-alternative fibers. Wrapped in 300-thread-count breathable 100% cotton shells with double-stitched piped cord edges for neck and spinal support.",
+      specs: ["Includes: 4 Full-Size Luxury Pillows (50x75cm)", "Filling: 1200g Cloud Down-Alternative Fiber", "Shell: 100% Breathable Cotton Percale", "Support: Medium-Firm Ergonomic Alignment", "Origin: Directly Imported Luxury Bedding"]
+    },
+    {
+      id: 209,
+      name: "The Kyoto Slate Circle Mosaic Fitted Bedspread Set",
+      image: "images/bedding-item-9.jpg",
+      category: "Sheets & Linens",
+      price: 9500,
+      priceFormatted: "KSh 9,500",
+      badge: "Japandi Living",
+      description: "Zen Japandi-inspired luxury bedspread and fitted sheet collection in heather slate grey, accented with circular ink-wash mosaic stones and modern linear strokes. Includes coordinating bolster covers and tailored shams.",
+      specs: ["Fabric: Brushed Peach-Skin Microfiber Crepe", "Pieces: 1 Fitted Bedspread + 2 Pillow Shams + 2 Accent Cushion Cases", "Sizes: 6x6 Queen & 7x7 King Fit", "Care: Non-Iron, Anti-Wrinkle & Color-Lock", "Origin: Directly Imported Luxury Bedding"]
+    },
+    {
+      id: 210,
+      name: "The Royal Sapphire Botanical Trellis Duvet Cover Set",
+      image: "images/bedding-item-10.jpg",
+      category: "Duvet Sets",
+      price: 13500,
+      priceFormatted: "KSh 13,500",
+      badge: "Royal Sapphire",
+      description: "Classic majestic bedroom collection in rich sapphire navy and snow white. Features an intricate floral branch trellis center flanked by horizontal striped navy borders and Oxford-flanged pillowcases.",
+      specs: ["Material: 100% High-Density Long-Staple Sateen", "Pieces: 1 Duvet Cover + 4 Pillowcases + 1 Bolster Sham", "Sizes: 6x6 Queen & 7x7 King Beds", "Details: Royal Navy Contrast Border Panels", "Origin: Directly Imported Luxury Bedding"]
     },
 
     // --- Kitchen Items (301-310) ---
@@ -692,7 +714,7 @@
                 Pay with M-Pesa
               </button>
 
-              <button type="button" onclick="toggleCartDrawer(false)" style="background: none; border: none; color: #888; font-size: 0.85rem; padding: 6px; cursor: pointer; text-decoration: underline;">
+              <button type="button" onclick="toggleCartDrawer(false)" style="background: none; border: none; color: #888; font-size: 0.85rem; padding: 6px; cursor: pointer; text-decoration: none;">
                 Continue Browsing
               </button>
             </div>
@@ -889,7 +911,7 @@
 
     const waBtn = document.getElementById('modal-wa-btn');
     if (waBtn) {
-      waBtn.href = `https://wa.me/254700000000?text=${encodeURIComponent('Hello Felicia Collections, I would like to order: ' + p.name + ' (' + p.priceFormatted + ')')}`;
+      waBtn.href = `https://wa.me/254701721809?text=${encodeURIComponent('Hello Felicia Collections, I would like to order: ' + p.name + ' (' + p.priceFormatted + ')')}`;
     }
 
     const modal = document.getElementById('felicia-product-modal');
@@ -942,7 +964,7 @@
 
     text += `\nTotal: KSh ${subtotal.toLocaleString()}\n\nPlease confirm availability and arrange delivery to my location in Kenya.`;
 
-    const waUrl = `https://wa.me/254700000000?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/254701721809?text=${encodeURIComponent(text)}`;
     window.open(waUrl, '_blank');
   };
 
@@ -954,7 +976,7 @@
     }
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-    alert(`M-PESA CHECKOUT INSTRUCTIONS:\n\n1. Go to M-Pesa on your phone\n2. Select Lipa na M-Pesa -> Buy Goods and Services\n3. Enter Till Number: 554433 (Felicia Collections)\n4. Enter Amount: KSh ${subtotal.toLocaleString()}\n5. Enter your PIN and confirm\n\nOnce complete, please forward the confirmation SMS to WhatsApp (+254 700 000 000) with your delivery address.`);
+    alert(`M-PESA CHECKOUT INSTRUCTIONS:\n\n1. Go to M-Pesa on your phone\n2. Select Lipa na M-Pesa -> Buy Goods and Services\n3. Enter Till Number: 554433 (Felicia Collections)\n4. Enter Amount: KSh ${subtotal.toLocaleString()}\n5. Enter your PIN and confirm\n\nOnce complete, please forward the confirmation SMS to WhatsApp (+254 701 721 809) with your delivery address.`);
   };
 
   // --- CSS Injection for Cart & Modal ---
@@ -994,9 +1016,7 @@
         font-size: 1.15rem;
         font-weight: 600;
         color: #1A1A1A;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        text-decoration-color: #0b66c2;
+        text-decoration: none !important;
         line-height: 1.35;
         margin: 0 0 10px 0;
         display: inline-block;
@@ -1025,8 +1045,7 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-        text-decoration: underline;
-        text-underline-offset: 3px;
+        text-decoration: none !important;
         margin-top: auto;
       }
       .felicia-btn-add-to-cart:hover {
@@ -1147,7 +1166,7 @@
         border: none;
         color: #999;
         font-size: 0.78rem;
-        text-decoration: underline;
+        text-decoration: none !important;
         cursor: pointer;
         padding: 0;
       }
@@ -1212,7 +1231,19 @@
         grid-template-columns: 1fr 1fr;
       }
       @media (max-width: 749px) {
-        .felicia-modal-grid { grid-template-columns: 1fr; }
+        .felicia-modal-container {
+          max-width: 95% !important;
+          max-height: 92vh !important;
+          margin: 10px auto !important;
+        }
+        .felicia-modal-grid { grid-template-columns: 1fr !important; }
+        .felicia-modal-img-col {
+          min-height: 240px !important;
+          max-height: 290px !important;
+        }
+        .felicia-modal-details-col {
+          padding: 20px 18px !important;
+        }
       }
       .felicia-modal-img-col {
         position: relative;
