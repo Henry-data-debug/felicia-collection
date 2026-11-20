@@ -485,6 +485,122 @@
         "Origin: Directly Imported Luxury Bedding"
       ]
     },
+    {
+      id: 212,
+      name: "High quality sleeping bag",
+      image: "images/High quality sleeping bag.jpg",
+      images: [
+        "images/High quality sleeping bag.jpg",
+        "images/High quality sleeping bag 2.jpg",
+        "images/High quality sleeping bag 3.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 2500,
+      priceFormatted: "KSh 2,500",
+      badge: "Envelope Style",
+      description: "Generic envelope style high quality sleeping bag designed with an attached comfort hood and all-round dual-slider zipper. Features premium insulated thermal lining for cozy warmth during outdoor travel, camping, or relaxed indoor lounging.",
+      specs: [
+        "Style: Generic Envelope Style Cut",
+        "Features: Attached Comfort Hood",
+        "Zipper: Heavy-Duty All-Round Dual Zipper",
+        "Material: Water-Resistant Ripstop Nylon Outer Shell",
+        "Price: KSh 2,500"
+      ]
+    },
+    {
+      id: 213,
+      name: "Coloured binded duvets",
+      image: "images/coloured binded duvets.jpg",
+      images: [
+        "images/coloured binded duvets.jpg",
+        "images/coloured binded duvets 2.jpg",
+        "images/coloured binded duvets 3.jpg",
+        "images/coloured binded duvets 4.jpg",
+        "images/coloured binded duvets 5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3400,
+      priceFormatted: "KSh 3,400",
+      badge: "⚜️ 6x7 Set",
+      description: "🔅🔅 Coloured binded duvets set in Honey G design. Includes 1 pc high-loft duvet, 1 pc coordinating bedsheet, and 2 pcs matching pillow cases tailored for ⚜️ 6x7 beds. Finished with durable bound edge binding.",
+      specs: [
+        "Dimensions: ⚜️ 6x7 Bed Size",
+        "Set Includes: 1 pc Duvet + 1 pc Bedsheet + 2 pcs Pillow Cases",
+        "Pattern: Honey G Coloured Bound Piping",
+        "Fabric: Ultra-Soft Breathable Cotton-Microfiber Blend",
+        "Price: KSh 3,400"
+      ]
+    },
+    {
+      id: 214,
+      name: "6 Pc mix and match bedsheets",
+      image: "images/6 Pc mix and match bedsheets.jpg",
+      images: [
+        "images/6 Pc mix and match bedsheets.jpg",
+        "images/6 Pc mix and match bedsheets 2.jpg",
+        "images/6 Pc mix and match bedsheets 3.jpg",
+        "images/6 Pc mix and match bedsheets 4.jpg"
+      ],
+      category: "Sheets & Linens",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "6-Piece Set (6x7)",
+      description: "6 Pc mix and match bedsheets luxury ensemble. Carefully coordinated set featuring 1 pc elegant pattern bedsheet, 1 pc solid plain fitted bedsheet with deep elasticized corners, and 4 pcs matching pillow cases in 6x7 size.",
+      specs: [
+        "Size: 6x7 Bed Fit",
+        "Total Pieces: 6-Piece Mix & Match Complete Set",
+        "Includes: 1 pc Pattern Bedsheet + 1 pc Plain Fitted Bedsheet + 4 pcs Pillow Cases",
+        "Material: Breathable High-Density Cotton Percale",
+        "Price: KSh 2,200"
+      ]
+    },
+    {
+      id: 215,
+      name: "2 Stand Rail Net Mosquito Net",
+      image: "images/Rail net mosquito net.jpg",
+      images: [
+        "images/Rail net mosquito net.jpg",
+        "images/Rail net mosquito net 2.jpg",
+        "images/Rail net mosquito net 3.jpg",
+        "images/Rail net mosquito net 4.jpg"
+      ],
+      category: "Pillows & Accessories",
+      price: 4000,
+      priceFormatted: "KSh 4,000",
+      badge: "All Sizes @4,000",
+      description: "2 stand/Rail net mosquito net for master bedrooms. Engineered with smooth-sliding rail gliders. Available for 4x6, 5x6, and 6x6 bed sizes in Pink, Purple, Cream, and White. ☀️ All sizes and all colours available at the same price of KSh 4,000.",
+      specs: [
+        "Sizes Supported: 4x6, 5x6, and 6x6 (All sizes same price)",
+        "Colours: Pink, Purple, Cream, and White",
+        "Mechanism: Dual-Track Stainless Steel Smooth-Glide Rails",
+        "Mesh: High-Density Tear-Resistant Micro-Knit",
+        "Price: KSh 4,000"
+      ]
+    },
+    {
+      id: 216,
+      name: "Mattress protector",
+      image: "images/Mattress protector.jpg",
+      images: [
+        "images/Mattress protector.jpg",
+        "images/Mattress protector  2.jpg",
+        "images/Mattress protector 3.jpg",
+        "images/Mattress protector 4.jpg",
+        "images/Mattress protector 5.jpg"
+      ],
+      category: "Sheets & Linens",
+      price: 2000,
+      priceFormatted: "From KSh 2,000",
+      badge: "From KSh 2,000",
+      description: "Quilted waterproof & dust-mite repellent mattress protector. Protects your mattress from spills, stains, and daily wear. Available in White, Blue, Beige & Grey. Sizing: 4×6 @ KSh 2,000 | 5×6 @ KSh 2,100 | 6×6 @ KSh 2,200.",
+      specs: [
+        "Pricing by Size: 4×6 @ KSh 2,000 | 5×6 @ KSh 2,100 | 6×6 @ KSh 2,200",
+        "Available Colours: White, Blue, Beige & Grey",
+        "Barrier: 100% Waterproof & Breathable Hypoallergenic TPU Membrane",
+        "Skirt: 360° Elasticized Deep-Pocket Snug Fit",
+        "Starting Price: KSh 2,000"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
