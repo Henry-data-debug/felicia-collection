@@ -33,6 +33,7 @@
     <link href="css/component-card.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/section-footer.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/component-list-social.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/felicia-carousel-filters.css" rel="stylesheet" type="text/css" media="all">
 
     <style>
       :root {
@@ -1408,26 +1409,93 @@
         </div>
       </section>
 
-      <!-- Category Filter Bar -->
-      <section style="background: #F8F8F9; border-bottom: 1px solid #EAEAEA; padding: 20px 0;">
-        <div class="page-width" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-          <button class="felicia-filter-btn active" onclick="filterKitchen('all', this)">All Kitchen Essentials (10)</button>
-          <button class="felicia-filter-btn" onclick="filterKitchen('appliances', this)">Kitchen Appliances (5)</button>
-          <button class="felicia-filter-btn" onclick="filterKitchen('dinnerware', this)">Dinnerware &amp; Porcelain (3)</button>
-          <button class="felicia-filter-btn" onclick="filterKitchen('cookware', this)">Cookware Sets (2)</button>
-        </div>
-      </section>
-
-      <section style="padding: 50px 0;">
+      <section style="padding: 40px 0 60px 0;">
         <div class="page-width">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 12px;">
-            <p style="margin: 0; color: #666; font-size: 0.95rem;">Showing <span id="kitchen-count" style="font-weight: 700; color: #141416;">10</span> imported luxury kitchen &amp; dining essentials</p>
-            <div style="font-size: 0.85rem; color: #888;">Nairobi Delivery: Same / Next Day | Fast Secure Courier Across Kenya</div>
+          <div class="felicia-filter-toolbar" data-target-grid="kitchen-grid">
+        <div class="felicia-filter-topbar">
+          <div class="felicia-category-chips">
+            <button type="button" class="felicia-chip active" data-category="all">All Kitchen Essentials (10)</button>
+          <button type="button" class="felicia-chip" data-category="appliances">Kitchen Appliances</button>
+          <button type="button" class="felicia-chip" data-category="dinnerware">Dinnerware & Porcelain</button>
+          <button type="button" class="felicia-chip" data-category="cookware">Cookware Sets</button>
           </div>
-          <div id="kitchen-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+          <div class="felicia-filter-controls">
+            <span class="felicia-items-count">Showing <strong>10</strong> items</span>
+            <button type="button" class="felicia-filter-toggle-btn" aria-label="Filter and Sort Options">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+              <span>Filter &amp; Sort</span>
+              <span class="felicia-filter-badge" style="display: none;">0</span>
+            </button>
+            <select class="felicia-sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Collapsible Filter Drawer -->
+        <div class="felicia-filter-drawer">
+          <div class="felicia-filter-grid-sections">
+            
+            <!-- Group 1: Color Swatch -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Color Swatch</div>
+              <div class="felicia-color-swatches">
+                <button type="button" class="felicia-color-swatch active" data-color="all">All Colors</button>
+                <button type="button" class="felicia-color-swatch" data-color="black"><span class="felicia-color-dot" style="background: #141416;"></span>Black</button>
+                <button type="button" class="felicia-color-swatch" data-color="cream"><span class="felicia-color-dot" style="background: #FFFDD0;"></span>Cream / Ivory</button>
+                <button type="button" class="felicia-color-swatch" data-color="tan"><span class="felicia-color-dot" style="background: #C19A6B;"></span>Tan / Brown</button>
+                <button type="button" class="felicia-color-swatch" data-color="burgundy"><span class="felicia-color-dot" style="background: #800020;"></span>Burgundy</button>
+                <button type="button" class="felicia-color-swatch" data-color="pink"><span class="felicia-color-dot" style="background: #FFB6C1;"></span>Blush Pink</button>
+                <button type="button" class="felicia-color-swatch" data-color="gold"><span class="felicia-color-dot" style="background: #D4AF37;"></span>Gold / Champagne</button>
+                <button type="button" class="felicia-color-swatch" data-color="white"><span class="felicia-color-dot" style="background: #FFFFFF; border: 1px solid #CCC;"></span>White</button>
+              </div>
+            </div>
+
+            <!-- Group 2: Price Brackets -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Price Range (KSh)</div>
+              <div class="felicia-price-brackets">
+                <button type="button" class="felicia-price-pill active" data-price-bracket="all">All Prices</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="under-3000">Under KSh 3,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="3000-6000">KSh 3,000 – KSh 6,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="6000-12000">KSh 6,000 – KSh 12,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="above-12000">Above KSh 12,000</button>
+              </div>
+            </div>
+
+            <!-- Group 3: Max Price Slider -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Max Price Slider</div>
+              <div class="felicia-price-slider-wrap">
+                <input type="range" class="felicia-price-slider" min="3000" max="35000" step="500" value="35000" aria-label="Filter by maximum price">
+                <div class="felicia-price-slider-val">
+                  <span>Min: KSh 3,000</span>
+                  <span class="felicia-slider-val-num" style="font-weight: 700; color: #C5A059;">KSh 35,000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Filter Actions -->
+          <div class="felicia-filter-actions">
+            <button type="button" class="felicia-btn-reset-filters">Reset All Filters</button>
+            <button type="button" class="felicia-btn-apply-filters">Done</button>
+          </div>
+        </div>
+      </div>
+          
+          </div>
+          <div class="felicia-carousel-wrapper">
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-prev" aria-label="Previous Kitchen Items">&#10094;</button>
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-next" aria-label="Next Kitchen Items">&#10095;</button>
+            <div id="kitchen-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
 
     <!-- Item 1: Stainless Steel Cookware Set -->
-    <div class="felicia-product-card" data-category="cookware">
+    <div class="felicia-product-card" data-id="301" data-category="cookware" data-color="gold" data-price="18500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(301)">
         <img src="images/kitchen-item-1.jpg" alt="Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set" loading="lazy">
         <span class="felicia-card-badge">Premium Multi-Ply</span>
@@ -1441,7 +1509,7 @@
     </div>
 
     <!-- Item 2: Teal Non-Stick Cookware Set -->
-    <div class="felicia-product-card" data-category="cookware">
+    <div class="felicia-product-card" data-id="302" data-category="cookware" data-color="cream" data-price="16800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(302)">
         <img src="images/kitchen-item-2.jpg" alt="Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set" loading="lazy">
         <span class="felicia-card-badge">Bestseller Set</span>
@@ -1455,7 +1523,7 @@
     </div>
 
     <!-- Item 3: Commercial Blender -->
-    <div class="felicia-product-card" data-category="appliances">
+    <div class="felicia-product-card" data-id="303" data-category="appliances" data-color="black" data-price="14500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(303)">
         <img src="images/kitchen-item-3.jpg" alt="Maxkon Pro-Grade 2200W Commercial High-Speed Blender" loading="lazy">
         <span class="felicia-card-badge">Commercial 2200W</span>
@@ -1469,7 +1537,7 @@
     </div>
 
     <!-- Item 4: Electric Convection Oven -->
-    <div class="felicia-product-card" data-category="appliances">
+    <div class="felicia-product-card" data-id="304" data-category="appliances" data-color="black" data-price="15200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(304)">
         <img src="images/kitchen-item-4.jpg" alt="Deluxe Multi-Function Electric Countertop Convection &amp; Baking Oven" loading="lazy">
         <span class="felicia-card-badge">Chef Convection</span>
@@ -1483,7 +1551,7 @@
     </div>
 
     <!-- Item 5: Gas Stove -->
-    <div class="felicia-product-card" data-category="appliances">
+    <div class="felicia-product-card" data-id="305" data-category="appliances" data-color="black" data-price="9800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(305)">
         <img src="images/kitchen-item-5.jpg" alt="Dual-Burner Shatterproof Tempered Glass Auto-Ignition Gas Cooker" loading="lazy">
         <span class="felicia-card-badge">Auto-Ignition</span>
@@ -1497,7 +1565,7 @@
     </div>
 
     <!-- Item 6: Electric Deep Fryer -->
-    <div class="felicia-product-card" data-category="appliances">
+    <div class="felicia-product-card" data-id="306" data-category="appliances" data-color="white" data-price="10500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(306)">
         <img src="images/kitchen-item-6.jpg" alt="ChefGrade Stainless Steel Temperature-Controlled Electric Deep Fryer" loading="lazy">
         <span class="felicia-card-badge">ChefGrade 3.5L</span>
@@ -1511,7 +1579,7 @@
     </div>
 
     <!-- Item 7: Hand Mixer Set -->
-    <div class="felicia-product-card" data-category="appliances">
+    <div class="felicia-product-card" data-id="307" data-category="appliances" data-color="white" data-price="7200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(307)">
         <img src="images/kitchen-item-7.jpg" alt="Elite Multi-Speed Turbo Electric Hand &amp; Stand Mixer Set" loading="lazy">
         <span class="felicia-card-badge">5-Speed Turbo</span>
@@ -1525,7 +1593,7 @@
     </div>
 
     <!-- Item 8: Asian Soup Bowls -->
-    <div class="felicia-product-card" data-category="dinnerware">
+    <div class="felicia-product-card" data-id="308" data-category="dinnerware" data-color="burgundy" data-price="5800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(308)">
         <img src="images/kitchen-item-8.jpg" alt="Kyoto Two-Tone Crimson &amp; Obsidian Ramen Bowl &amp; Spoon Set" loading="lazy">
         <span class="felicia-card-badge">Asian Tableware</span>
@@ -1539,7 +1607,7 @@
     </div>
 
     <!-- Item 9: Scarlet Shallow Pasta Bowls -->
-    <div class="felicia-product-card" data-category="dinnerware">
+    <div class="felicia-product-card" data-id="309" data-category="dinnerware" data-color="burgundy" data-price="8900">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(309)">
         <img src="images/kitchen-item-9.jpg" alt="Tuscan Scarlet Porcelain Shallow Pasta &amp; Salad Bowl Set (Set of 7)" loading="lazy">
         <span class="felicia-card-badge">Scarlet Glaze</span>
@@ -1553,7 +1621,7 @@
     </div>
 
     <!-- Item 10: 60-Piece Porcelain Dinner Set -->
-    <div class="felicia-product-card" data-category="dinnerware">
+    <div class="felicia-product-card" data-id="310" data-category="dinnerware" data-color="gold" data-price="28500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(310)">
         <img src="images/kitchen-item-10.jpg" alt="Royal Auburn Swirl 60-Piece Fine Porcelain Dinner &amp; Tea Service Set" loading="lazy">
         <span class="felicia-card-badge">Banquet 60-Piece</span>
@@ -1566,6 +1634,7 @@
       </div>
     </div>
 
+          </div>
           </div>
         </div>
       </section>
@@ -1676,5 +1745,6 @@
       </div>
     </footer>
   <script src="js/felicia-cart.js" defer></script>
+<script src="js/felicia-filters.js" defer></script>
 </body>
 </html>

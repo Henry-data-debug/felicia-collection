@@ -1,0 +1,533 @@
+/* ========================================================
+   FELICIA COLLECTIONS - MOBILE 2-COLUMN CAROUSEL & FILTERS
+   ======================================================== */
+
+/* Carousel Container Wrapper */
+.felicia-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Floating Navigation Arrows for Mobile Carousel */
+.felicia-carousel-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 8;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(20, 20, 22, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: #FFFFFF;
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+  user-select: none;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.felicia-carousel-arrow:hover {
+  background: var(--felicia-gold, #C5A059);
+  color: #141416;
+  border-color: var(--felicia-gold, #C5A059);
+  transform: translateY(-50%) scale(1.08);
+}
+.felicia-carousel-arrow:focus {
+  outline: none;
+}
+.felicia-carousel-prev { left: -8px; }
+.felicia-carousel-next { right: -8px; }
+
+/* Desktop Grid Standards (>= 768px) */
+@media screen and (min-width: 768px) {
+  .felicia-carousel-arrow {
+    display: none !important;
+  }
+}
+
+/* Mobile 2-Column Auto-Carousel (<= 767px) */
+@media screen and (max-width: 767px) {
+  .felicia-carousel-arrow {
+    display: flex !important;
+  }
+  .felicia-carousel-prev { left: 2px !important; }
+  .felicia-carousel-next { right: 2px !important; }
+
+  /* Apply to category grid & bestsellers / product grids */
+  .felicia-category-grid,
+  .felicia-product-grid-carousel,
+  #bestsellers-grid,
+  #handbag-grid,
+  #apparel-grid,
+  #beddings-grid,
+  #kitchen-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-behavior: smooth !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important;
+    gap: 12px !important;
+    padding: 8px 14px 20px 14px !important;
+    margin: 0 -16px !important;
+    width: calc(100% + 32px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .felicia-category-grid::-webkit-scrollbar,
+  .felicia-product-grid-carousel::-webkit-scrollbar,
+  #bestsellers-grid::-webkit-scrollbar,
+  #handbag-grid::-webkit-scrollbar,
+  #apparel-grid::-webkit-scrollbar,
+  #beddings-grid::-webkit-scrollbar,
+  #kitchen-grid::-webkit-scrollbar {
+    display: none !important; /* Chrome / Safari / Edge */
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Exactly 2 cards side-by-side in viewport ("Two-Two") */
+  .felicia-category-grid .felicia-product-card,
+  .felicia-product-grid-carousel .felicia-product-card,
+  #bestsellers-grid .felicia-product-card,
+  #handbag-grid .felicia-product-card,
+  #apparel-grid .felicia-product-card,
+  #beddings-grid .felicia-product-card,
+  #kitchen-grid .felicia-product-card {
+    flex: 0 0 calc(50% - 6px) !important;
+    width: calc(50% - 6px) !important;
+    min-width: calc(50% - 6px) !important;
+    max-width: calc(50% - 6px) !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  /* Compact Boutique Card Styling */
+  .felicia-product-card {
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+  }
+  .felicia-card-img-wrapper {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 145px !important;
+    background: #FAF9F6 !important;
+    padding: 6px !important;
+    position: relative !important;
+  }
+  .felicia-card-img-wrapper img {
+    object-fit: contain !important;
+    object-position: center center !important;
+    padding: 6px !important;
+  }
+  .felicia-card-body {
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+  }
+  .felicia-card-badge {
+    font-size: 0.6rem !important;
+    padding: 2px 6px !important;
+    top: 6px !important;
+    left: 6px !important;
+    letter-spacing: 0.8px !important;
+  }
+  .felicia-card-category {
+    font-size: 0.64rem !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 4px !important;
+  }
+  .felicia-card-title,
+  .felicia-product-title-link {
+    font-size: 0.86rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 2.25em !important;
+  }
+  .felicia-card-desc {
+    display: none !important; /* Clean symmetry */
+  }
+  .felicia-card-price {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    color: #141416 !important;
+  }
+  .felicia-btn-add-to-cart,
+  .felicia-card-btn {
+    padding: 8px 6px !important;
+    font-size: 0.72rem !important;
+    min-height: 36px !important;
+    letter-spacing: 0.8px !important;
+    width: 100% !important;
+  }
+}
+
+/* ========================================================
+   INTERACTIVE PRODUCT FILTER & SORT TOOLBAR
+   ======================================================== */
+.felicia-filter-toolbar {
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.felicia-filter-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Category Quick Filter Chips */
+.felicia-category-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.felicia-category-chips::-webkit-scrollbar {
+  display: none;
+}
+.felicia-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: #F7F7F7;
+  color: #333333;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid #E0E0E0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.felicia-chip:hover {
+  background: #EEEEEE;
+  border-color: #CCCCCC;
+}
+.felicia-chip.active {
+  background: #141416;
+  color: var(--felicia-gold, #C5A059);
+  border-color: #141416;
+  font-weight: 600;
+}
+
+/* Toolbar Controls */
+.felicia-filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+.felicia-items-count {
+  font-size: 0.84rem;
+  color: #666;
+  white-space: nowrap;
+}
+.felicia-items-count strong {
+  color: #141416;
+}
+
+/* Toggle Filter Drawer Button */
+.felicia-filter-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  color: #141416;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.felicia-filter-toggle-btn:hover,
+.felicia-filter-toggle-btn.active {
+  background: #141416;
+  color: #FFFFFF;
+  border-color: #141416;
+}
+.felicia-filter-badge {
+  background: var(--felicia-gold, #C5A059);
+  color: #141416;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+  line-height: 1.2;
+}
+
+/* Sort Select Dropdown */
+.felicia-sort-select {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #D5D5D5;
+  background: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #141416;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.felicia-sort-select:focus {
+  border-color: var(--felicia-gold, #C5A059);
+}
+
+/* Collapsible Filter Panel */
+.felicia-filter-drawer {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ECECEC;
+  animation: feliciaFadeIn 0.25s ease;
+}
+.felicia-filter-drawer.open {
+  display: block;
+}
+@keyframes feliciaFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.felicia-filter-grid-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 24px;
+}
+.felicia-filter-group-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #141416;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Color Swatches Grid */
+.felicia-color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.felicia-color-swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #E0E0E0;
+  background: #FFFFFF;
+  font-size: 0.78rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.felicia-color-swatch:hover {
+  border-color: #999;
+}
+.felicia-color-swatch.active {
+  border-color: #141416;
+  background: #141416;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.felicia-color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+/* Price Range Options */
+.felicia-price-brackets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.felicia-price-pill {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #E5E5E5;
+  background: #FAF9F6;
+  font-size: 0.8rem;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+.felicia-price-pill:hover {
+  border-color: #AAA;
+}
+.felicia-price-pill.active {
+  background: #141416;
+  color: var(--felicia-gold, #C5A059);
+  border-color: #141416;
+  font-weight: 600;
+}
+
+/* Price Range Slider */
+.felicia-price-slider-wrap {
+  margin-top: 10px;
+}
+.felicia-price-slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: var(--felicia-gold, #C5A059);
+}
+.felicia-price-slider-val {
+  font-size: 0.82rem;
+  color: #555;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Filter Actions */
+.felicia-filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #ECECEC;
+}
+.felicia-btn-reset-filters {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+.felicia-btn-reset-filters:hover {
+  color: #141416;
+}
+.felicia-btn-apply-filters {
+  background: #141416;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.felicia-btn-apply-filters:hover {
+  background: #333333;
+}
+
+/* No Results Notification */
+.felicia-no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  background: #FFFFFF;
+  border: 1px dashed #DDD;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.felicia-no-results h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: #141416;
+  margin: 0 0 8px 0;
+}
+.felicia-no-results p {
+  color: #666;
+  font-size: 0.92rem;
+  margin: 0 0 16px 0;
+}
+.felicia-no-results button {
+  background: var(--felicia-gold, #C5A059);
+  color: #141416;
+  border: none;
+  padding: 10px 22px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mobile specific styling for filter toolbar */
+@media screen and (max-width: 767px) {
+  .felicia-filter-toolbar {
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+  .felicia-filter-topbar {
+    gap: 10px;
+  }
+  .felicia-category-chips {
+    width: 100%;
+    order: 2;
+    padding-bottom: 4px;
+  }
+  .felicia-filter-controls {
+    width: 100%;
+    order: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 6px 0;
+  }
+  .felicia-filter-toggle-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+  .felicia-sort-select {
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    max-width: 150px;
+  }
+  .felicia-items-count {
+    font-size: 0.78rem;
+  }
+  .felicia-filter-grid-sections {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}

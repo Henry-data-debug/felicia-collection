@@ -33,6 +33,7 @@
     <link href="css/component-card.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/section-footer.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/component-list-social.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/felicia-carousel-filters.css" rel="stylesheet" type="text/css" media="all">
 
     <style>
       :root {
@@ -1410,28 +1411,95 @@
         </div>
       </section>
 
-      <!-- Category Filter Bar -->
-      <section style="background: #F8F8F9; border-bottom: 1px solid #EAEAEA; padding: 20px 0;">
-        <div class="page-width" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-          <button class="felicia-filter-btn active" onclick="filterHandbags('all', this)">All Handbags (21)</button>
-          <button class="felicia-filter-btn" onclick="filterHandbags('totes', this)">Totes &amp; Shoppers</button>
-          <button class="felicia-filter-btn" onclick="filterHandbags('crossbody', this)">Crossbody Bags</button>
-          <button class="felicia-filter-btn" onclick="filterHandbags('shoulder', this)">Shoulder Bags</button>
-          <button class="felicia-filter-btn" onclick="filterHandbags('satchels', this)">Designer Satchels</button>
-          <button class="felicia-filter-btn" onclick="filterHandbags('clutches', this)">Evening Clutches</button>
-        </div>
-      </section>
-
       <!-- Product Grid -->
-      <section style="padding: 50px 0;">
+      <section style="padding: 40px 0 60px 0;">
         <div class="page-width">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-            <p style="margin: 0; color: #666; font-size: 0.95rem;">Showing <span id="product-count">21</span> imported luxury handbags</p>
-            <div style="font-size: 0.85rem; color: #888;">Nairobi Delivery: Same / Next Day</div>
+          <div class="felicia-filter-toolbar" data-target-grid="handbag-grid">
+        <div class="felicia-filter-topbar">
+          <div class="felicia-category-chips">
+            <button type="button" class="felicia-chip active" data-category="all">All Handbags (21)</button>
+          <button type="button" class="felicia-chip" data-category="totes">Totes & Shoppers</button>
+          <button type="button" class="felicia-chip" data-category="crossbody">Crossbody Bags</button>
+          <button type="button" class="felicia-chip" data-category="shoulder">Shoulder Bags</button>
+          <button type="button" class="felicia-chip" data-category="satchels">Designer Satchels</button>
+          <button type="button" class="felicia-chip" data-category="clutches">Evening Clutches</button>
           </div>
-          <div id="handbag-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px;">
+          <div class="felicia-filter-controls">
+            <span class="felicia-items-count">Showing <strong>21</strong> items</span>
+            <button type="button" class="felicia-filter-toggle-btn" aria-label="Filter and Sort Options">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+              <span>Filter &amp; Sort</span>
+              <span class="felicia-filter-badge" style="display: none;">0</span>
+            </button>
+            <select class="felicia-sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
 
-    <div class="felicia-product-card" data-category="shoulder">
+        <!-- Collapsible Filter Drawer -->
+        <div class="felicia-filter-drawer">
+          <div class="felicia-filter-grid-sections">
+            
+            <!-- Group 1: Color Swatch -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Color Swatch</div>
+              <div class="felicia-color-swatches">
+                <button type="button" class="felicia-color-swatch active" data-color="all">All Colors</button>
+                <button type="button" class="felicia-color-swatch" data-color="black"><span class="felicia-color-dot" style="background: #141416;"></span>Black</button>
+                <button type="button" class="felicia-color-swatch" data-color="cream"><span class="felicia-color-dot" style="background: #FFFDD0;"></span>Cream / Ivory</button>
+                <button type="button" class="felicia-color-swatch" data-color="tan"><span class="felicia-color-dot" style="background: #C19A6B;"></span>Tan / Brown</button>
+                <button type="button" class="felicia-color-swatch" data-color="burgundy"><span class="felicia-color-dot" style="background: #800020;"></span>Burgundy</button>
+                <button type="button" class="felicia-color-swatch" data-color="pink"><span class="felicia-color-dot" style="background: #FFB6C1;"></span>Blush Pink</button>
+                <button type="button" class="felicia-color-swatch" data-color="gold"><span class="felicia-color-dot" style="background: #D4AF37;"></span>Gold / Champagne</button>
+                <button type="button" class="felicia-color-swatch" data-color="white"><span class="felicia-color-dot" style="background: #FFFFFF; border: 1px solid #CCC;"></span>White</button>
+              </div>
+            </div>
+
+            <!-- Group 2: Price Brackets -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Price Range (KSh)</div>
+              <div class="felicia-price-brackets">
+                <button type="button" class="felicia-price-pill active" data-price-bracket="all">All Prices</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="under-3000">Under KSh 3,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="3000-6000">KSh 3,000 – KSh 6,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="6000-12000">KSh 6,000 – KSh 12,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="above-12000">Above KSh 12,000</button>
+              </div>
+            </div>
+
+            <!-- Group 3: Max Price Slider -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Max Price Slider</div>
+              <div class="felicia-price-slider-wrap">
+                <input type="range" class="felicia-price-slider" min="3000" max="15000" step="500" value="15000" aria-label="Filter by maximum price">
+                <div class="felicia-price-slider-val">
+                  <span>Min: KSh 3,000</span>
+                  <span class="felicia-slider-val-num" style="font-weight: 700; color: #C5A059;">KSh 15,000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Filter Actions -->
+          <div class="felicia-filter-actions">
+            <button type="button" class="felicia-btn-reset-filters">Reset All Filters</button>
+            <button type="button" class="felicia-btn-apply-filters">Done</button>
+          </div>
+        </div>
+      </div>
+          
+          </div>
+          <div class="felicia-carousel-wrapper">
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-prev" aria-label="Previous Handbags">&#10094;</button>
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-next" aria-label="Next Handbags">&#10095;</button>
+            <div id="handbag-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px;">
+
+    <div class="felicia-product-card" data-id="1" data-category="shoulder" data-color="black" data-price="6500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(1)" style="cursor: pointer;">
         <img src="images/05e25ad039e66492824b437e828571f6.jpg" alt="The Victoria Quilted Shoulder Bag" loading="lazy">
         <span class="felicia-card-badge">Bestseller</span>
@@ -1445,7 +1513,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="2" data-category="crossbody" data-color="cream" data-price="5800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(2)" style="cursor: pointer;">
         <img src="images/0b958184287aa3df7714433d45dcdc85.jpg" alt="The Kensington Croc-Embossed Crossbody" loading="lazy">
         <span class="felicia-card-badge">Imported Luxury</span>
@@ -1459,7 +1527,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="satchels">
+    <div class="felicia-product-card" data-id="3" data-category="satchels" data-color="tan" data-price="7200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(3)" style="cursor: pointer;">
         <img src="images/115f1f995ab19e3888ed734284390042.jpg" alt="The Milan Classic Structured Satchel" loading="lazy">
         <span class="felicia-card-badge">Signature</span>
@@ -1473,7 +1541,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="clutches">
+    <div class="felicia-product-card" data-id="4" data-category="clutches" data-color="black" data-price="4500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(4)" style="cursor: pointer;">
         <img src="images/160609fca8ee891a797d82502d29b693.jpg" alt="The Riviera Petite Evening Clutch" loading="lazy">
         <span class="felicia-card-badge">New Arrival</span>
@@ -1487,7 +1555,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="5" data-category="crossbody" data-color="burgundy" data-price="6200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(5)" style="cursor: pointer;">
         <img src="images/1d4d63b91374edd54220bb9ed2acd576.jpg" alt="The Florence Chain-Strap Crossbody" loading="lazy">
         <span class="felicia-card-badge">Popular</span>
@@ -1501,7 +1569,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="totes">
+    <div class="felicia-product-card" data-id="6" data-category="totes" data-color="black" data-price="8500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(6)" style="cursor: pointer;">
         <img src="images/275eecf5570e69c7487aad7771a700c2.jpg" alt="The Sovereign Executive Luxury Tote" loading="lazy">
         <span class="felicia-card-badge">Bestseller</span>
@@ -1515,7 +1583,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="satchels">
+    <div class="felicia-product-card" data-id="7" data-category="satchels" data-color="tan" data-price="7800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(7)" style="cursor: pointer;">
         <img src="images/449db1f4fe9c0ad7899d9f6b4604804f.jpg" alt="The Monte Carlo Structured Handbag" loading="lazy">
         <span class="felicia-card-badge">Imported Luxury</span>
@@ -1529,7 +1597,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="shoulder">
+    <div class="felicia-product-card" data-id="8" data-category="shoulder" data-color="tan" data-price="6900">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(8)" style="cursor: pointer;">
         <img src="images/4e9889b9004931b2709ec9929594050f.jpg" alt="The Bellagio Monogram Flap Bag" loading="lazy">
         <span class="felicia-card-badge">New Arrival</span>
@@ -1543,7 +1611,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="9" data-category="crossbody" data-color="pink" data-price="5500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(9)" style="cursor: pointer;">
         <img src="images/5e3fce41b1cb3e6c554e3b3a06c3fe3a.jpg" alt="The Duchess Quilted Crossbody" loading="lazy">
         <span class="felicia-card-badge">Bestseller</span>
@@ -1557,7 +1625,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="totes">
+    <div class="felicia-product-card" data-id="10" data-category="totes" data-color="black" data-price="8900">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(10)" style="cursor: pointer;">
         <img src="images/73338b9b9a82f2c5d7f2ec83f620b96f.jpg" alt="The Grand Palais Everyday Tote" loading="lazy">
         <span class="felicia-card-badge">Premium</span>
@@ -1571,7 +1639,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="shoulder">
+    <div class="felicia-product-card" data-id="11" data-category="shoulder" data-color="gold" data-price="6800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(11)" style="cursor: pointer;">
         <img src="images/85da2d04d264cf4d048b2a5e83ce491c.jpg" alt="The Elysée Gold-Hardware Shoulder Bag" loading="lazy">
         <span class="felicia-card-badge">Imported Luxury</span>
@@ -1585,7 +1653,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="12" data-category="crossbody" data-color="white" data-price="5200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(12)" style="cursor: pointer;">
         <img src="images/8eb70be5a7f6d72e6b8251fa7c7d5155.jpg" alt="The Capri Minimalist Crossbody" loading="lazy">
         <span class="felicia-card-badge">Trending</span>
@@ -1599,7 +1667,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="satchels">
+    <div class="felicia-product-card" data-id="13" data-category="satchels" data-color="burgundy" data-price="7500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(13)" style="cursor: pointer;">
         <img src="images/9f517df911942a3c68060df0414422ac.jpg" alt="The Versailles Convertible Satchel" loading="lazy">
         <span class="felicia-card-badge">Signature</span>
@@ -1613,7 +1681,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="totes">
+    <div class="felicia-product-card" data-id="14" data-category="totes" data-color="tan" data-price="8200">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(14)" style="cursor: pointer;">
         <img src="images/ba971fbf79e3d92a002446cdb85b4d7f.jpg" alt="The Chelsea Everyday Luxury Shopper" loading="lazy">
         <span class="felicia-card-badge">Bestseller</span>
@@ -1627,7 +1695,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="shoulder">
+    <div class="felicia-product-card" data-id="15" data-category="shoulder" data-color="cream" data-price="6400">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(15)" style="cursor: pointer;">
         <img src="images/bbdcc8862a2ebff276d6936aca9a2d38.jpg" alt="The St. Tropez Lock-Flap Bag" loading="lazy">
         <span class="felicia-card-badge">New Arrival</span>
@@ -1641,7 +1709,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="satchels">
+    <div class="felicia-product-card" data-id="16" data-category="satchels" data-color="black" data-price="7900">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(16)" style="cursor: pointer;">
         <img src="images/c550d390c03a1f46efee391ec4519b4e.jpg" alt="The Manhattan Dual-Tone Satchel" loading="lazy">
         <span class="felicia-card-badge">Imported Luxury</span>
@@ -1655,7 +1723,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="clutches">
+    <div class="felicia-product-card" data-id="17" data-category="clutches" data-color="gold" data-price="4800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(17)" style="cursor: pointer;">
         <img src="images/c98dc4843efe9af4e792de2e2dcba7f4.jpg" alt="The Mayfair Evening Wristlet Clutch" loading="lazy">
         <span class="felicia-card-badge">Signature</span>
@@ -1669,7 +1737,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="18" data-category="crossbody" data-color="pink" data-price="6100">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(18)" style="cursor: pointer;">
         <img src="images/c99bbd4bd18112337aadeb8a9e01322e.jpg" alt="The Parisian Chic Envelope Bag" loading="lazy">
         <span class="felicia-card-badge">Bestseller</span>
@@ -1683,7 +1751,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="totes">
+    <div class="felicia-product-card" data-id="19" data-category="totes" data-color="tan" data-price="9500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(19)" style="cursor: pointer;">
         <img src="images/d9ea7b0f924a6059c04134fa5bf24ef8.jpg" alt="The Felicia Signature Heritage Tote" loading="lazy">
         <span class="felicia-card-badge">Iconic</span>
@@ -1697,7 +1765,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="clutches">
+    <div class="felicia-product-card" data-id="20" data-category="clutches" data-color="gold" data-price="5600">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(20)" style="cursor: pointer;">
         <img src="images/e6c63cc0fdbcc779d3d45ad49b31d897.jpg" alt="The Monaco Chain Minaudière Clutch" loading="lazy">
         <span class="felicia-card-badge">Luxury Import</span>
@@ -1711,7 +1779,7 @@
     </div>
   
 
-    <div class="felicia-product-card" data-category="crossbody">
+    <div class="felicia-product-card" data-id="21" data-category="crossbody" data-color="white" data-price="4950">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(21)" style="cursor: pointer;">
         <img src="images/eaa4d1f38caedceb167e5dafd2e0016b.jpg" alt="The Verona Compact Crossbody" loading="lazy">
         <span class="felicia-card-badge">New Arrival</span>
@@ -1724,6 +1792,7 @@
       </div>
     </div>
   
+          </div>
           </div>
         </div>
       </section>
@@ -1844,5 +1913,6 @@
       </div>
     </footer>
   <script src="js/felicia-cart.js" defer></script>
+<script src="js/felicia-filters.js" defer></script>
 </body>
 </html>

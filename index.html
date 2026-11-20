@@ -33,6 +33,7 @@
     <link href="css/component-card.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/section-footer.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/component-list-social.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/felicia-carousel-filters.css" rel="stylesheet" type="text/css" media="all">
 
     
 <style id="felicia-master-ui-styles">
@@ -1365,7 +1366,7 @@
 
       <!-- Slide 2: Curated Fashion & Accessories (Right Aligned) -->
       <div class="felicia-slide felicia-slide--right" data-slide="1">
-        <img class="felicia-slide-bg-img hero-bg" src="images/hero-2.jpg" alt="Chic Women's Fashion, Heels & Statement Pieces" loading="lazy">
+        <img class="felicia-slide-bg-img hero-bg" src="images/hero-2.jpg" alt="Chic Women's Fashion, Heels & Statement Pieces" loading="eager">
         <div class="felicia-slide-overlay hero-scrim"></div>
         <div class="page-width">
           <div class="felicia-slide-content">
@@ -1387,7 +1388,7 @@
 
       <!-- Slide 3: Presidential Suite Living (Left Aligned & Compact) -->
       <div class="felicia-slide felicia-slide--left felicia-slide--compact" data-slide="2">
-        <img class="felicia-slide-bg-img hero-bg" src="images/hero-3.jpg" alt="100% Egyptian Cotton & Silk Jacquard Beddings" loading="lazy">
+        <img class="felicia-slide-bg-img hero-bg" src="images/hero-3.jpg" alt="100% Egyptian Cotton & Silk Jacquard Beddings" loading="eager">
         <div class="felicia-slide-overlay hero-scrim"></div>
         <div class="page-width">
           <div class="felicia-slide-content">
@@ -1510,7 +1511,10 @@
           </p>
         </div>
 
-        <div class="felicia-category-grid" style="gap: 28px;">
+        <div class="felicia-carousel-wrapper">
+          <button type="button" class="felicia-carousel-arrow felicia-carousel-prev" aria-label="Previous categories">&#10094;</button>
+          <button type="button" class="felicia-carousel-arrow felicia-carousel-next" aria-label="Next categories">&#10095;</button>
+          <div class="felicia-category-grid" style="gap: 28px;">
           
           <!-- Card 1: Handbags -->
           <div class="felicia-product-card">
@@ -1569,6 +1573,7 @@
           </div>
 
         </div>
+        </div>
       </div>
     </section>
 
@@ -1586,20 +1591,92 @@
           </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 35px;">
-          <button class="felicia-filter-btn active" onclick="filterBestsellers('all', this)">All Best Sellers (12)</button>
-          <button class="felicia-filter-btn" onclick="filterBestsellers('handbags', this)">Handbags (3)</button>
-          <button class="felicia-filter-btn" onclick="filterBestsellers('women-wear', this)">Women Wear (3)</button>
-          <button class="felicia-filter-btn" onclick="filterBestsellers('beddings', this)">Beddings (3)</button>
-          <button class="felicia-filter-btn" onclick="filterBestsellers('kitchen', this)">Kitchen Items (3)</button>
+        <div class="felicia-filter-toolbar" data-target-grid="bestsellers-grid">
+        <div class="felicia-filter-topbar">
+          <div class="felicia-category-chips">
+            <button type="button" class="felicia-chip active" data-category="all">All Best Sellers (12)</button>
+          <button type="button" class="felicia-chip" data-category="handbags">Handbags (3)</button>
+          <button type="button" class="felicia-chip" data-category="women-wear">Women Wear (3)</button>
+          <button type="button" class="felicia-chip" data-category="beddings">Beddings (3)</button>
+          <button type="button" class="felicia-chip" data-category="kitchen">Kitchen Items (3)</button>
+          </div>
+          <div class="felicia-filter-controls">
+            <span class="felicia-items-count">Showing <strong>12</strong> items</span>
+            <button type="button" class="felicia-filter-toggle-btn" aria-label="Filter and Sort Options">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+              <span>Filter &amp; Sort</span>
+              <span class="felicia-filter-badge" style="display: none;">0</span>
+            </button>
+            <select class="felicia-sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
         </div>
 
+        <!-- Collapsible Filter Drawer -->
+        <div class="felicia-filter-drawer">
+          <div class="felicia-filter-grid-sections">
+            
+            <!-- Group 1: Color Swatch -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Color Swatch</div>
+              <div class="felicia-color-swatches">
+                <button type="button" class="felicia-color-swatch active" data-color="all">All Colors</button>
+                <button type="button" class="felicia-color-swatch" data-color="black"><span class="felicia-color-dot" style="background: #141416;"></span>Black</button>
+                <button type="button" class="felicia-color-swatch" data-color="cream"><span class="felicia-color-dot" style="background: #FFFDD0;"></span>Cream / Ivory</button>
+                <button type="button" class="felicia-color-swatch" data-color="tan"><span class="felicia-color-dot" style="background: #C19A6B;"></span>Tan / Brown</button>
+                <button type="button" class="felicia-color-swatch" data-color="burgundy"><span class="felicia-color-dot" style="background: #800020;"></span>Burgundy</button>
+                <button type="button" class="felicia-color-swatch" data-color="pink"><span class="felicia-color-dot" style="background: #FFB6C1;"></span>Blush Pink</button>
+                <button type="button" class="felicia-color-swatch" data-color="gold"><span class="felicia-color-dot" style="background: #D4AF37;"></span>Gold / Champagne</button>
+                <button type="button" class="felicia-color-swatch" data-color="white"><span class="felicia-color-dot" style="background: #FFFFFF; border: 1px solid #CCC;"></span>White</button>
+              </div>
+            </div>
+
+            <!-- Group 2: Price Brackets -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Price Range (KSh)</div>
+              <div class="felicia-price-brackets">
+                <button type="button" class="felicia-price-pill active" data-price-bracket="all">All Prices</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="under-3000">Under KSh 3,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="3000-6000">KSh 3,000 – KSh 6,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="6000-12000">KSh 6,000 – KSh 12,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="above-12000">Above KSh 12,000</button>
+              </div>
+            </div>
+
+            <!-- Group 3: Max Price Slider -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Max Price Slider</div>
+              <div class="felicia-price-slider-wrap">
+                <input type="range" class="felicia-price-slider" min="3000" max="25000" step="500" value="25000" aria-label="Filter by maximum price">
+                <div class="felicia-price-slider-val">
+                  <span>Min: KSh 3,000</span>
+                  <span class="felicia-slider-val-num" style="font-weight: 700; color: #C5A059;">KSh 25,000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Filter Actions -->
+          <div class="felicia-filter-actions">
+            <button type="button" class="felicia-btn-reset-filters">Reset All Filters</button>
+            <button type="button" class="felicia-btn-apply-filters">Done</button>
+          </div>
+        </div>
+      </div>
+
         <!-- Best Sellers 12 Cards Grid -->
-        <div id="bestsellers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px;">
+        <div class="felicia-carousel-wrapper">
+          <button type="button" class="felicia-carousel-arrow felicia-carousel-prev" aria-label="Previous best sellers">&#10094;</button>
+          <button type="button" class="felicia-carousel-arrow felicia-carousel-next" aria-label="Next best sellers">&#10095;</button>
+          <div id="bestsellers-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px;">
 
           <!-- Handbag 1 -->
-          <div class="felicia-product-card" data-category="handbags">
+          <div class="felicia-product-card" data-id="1" data-category="handbags" data-color="black" data-price="6500">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(1)">
               <img src="images/05e25ad039e66492824b437e828571f6.jpg" alt="The Victoria Quilted Shoulder Bag" loading="lazy">
               <span class="felicia-card-badge">Bestseller</span>
@@ -1613,7 +1690,7 @@
           </div>
 
           <!-- Handbag 2 -->
-          <div class="felicia-product-card" data-category="handbags">
+          <div class="felicia-product-card" data-id="2" data-category="handbags" data-color="cream" data-price="5800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(2)">
               <img src="images/0b958184287aa3df7714433d45dcdc85.jpg" alt="The Kensington Croc-Embossed Crossbody" loading="lazy">
               <span class="felicia-card-badge">Imported Luxury</span>
@@ -1627,7 +1704,7 @@
           </div>
 
           <!-- Handbag 3 -->
-          <div class="felicia-product-card" data-category="handbags">
+          <div class="felicia-product-card" data-id="3" data-category="handbags" data-color="tan" data-price="7200">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(3)">
               <img src="images/115f1f995ab19e3888ed734284390042.jpg" alt="The Milan Classic Structured Satchel" loading="lazy">
               <span class="felicia-card-badge">Signature</span>
@@ -1641,7 +1718,7 @@
           </div>
 
           <!-- Women Wear 1 -->
-          <div class="felicia-product-card" data-category="women-wear">
+          <div class="felicia-product-card" data-id="101" data-category="women-wear" data-color="black" data-price="8500">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(101)">
               <img src="images/women-dress-1.jpg" alt="The Emerald Grecian Draped One-Shoulder Dress" loading="lazy">
               <span class="felicia-card-badge">Bestseller</span>
@@ -1655,7 +1732,7 @@
           </div>
 
           <!-- Women Wear 2 -->
-          <div class="felicia-product-card" data-category="women-wear">
+          <div class="felicia-product-card" data-id="106" data-category="women-wear" data-color="burgundy" data-price="17800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(106)">
               <img src="images/women-dress-6.jpg" alt="The Royal Burgundy Puff-Sleeve Gala Gown" loading="lazy">
               <span class="felicia-card-badge">Grand Gala</span>
@@ -1669,7 +1746,7 @@
           </div>
 
           <!-- Women Wear 3 -->
-          <div class="felicia-product-card" data-category="women-wear">
+          <div class="felicia-product-card" data-id="108" data-category="women-wear" data-color="black" data-price="19800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(108)">
               <img src="images/women-dress-8.jpg" alt="The Midnight Empress Cape Foyer Gown" loading="lazy">
               <span class="felicia-card-badge">Royal Edition</span>
@@ -1683,7 +1760,7 @@
           </div>
 
           <!-- Bedding 1 -->
-          <div class="felicia-product-card" data-category="beddings">
+          <div class="felicia-product-card" data-id="206" data-category="beddings" data-color="gold" data-price="19800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(206)">
               <img src="images/bedding-item-6.jpg" alt="The Imperial Gold Botanical Ginkgo Jacquard Bed Set" loading="lazy">
               <span class="felicia-card-badge">24K Gold Jacquard</span>
@@ -1697,7 +1774,7 @@
           </div>
 
           <!-- Bedding 2 -->
-          <div class="felicia-product-card" data-category="beddings">
+          <div class="felicia-product-card" data-id="201" data-category="beddings" data-color="white" data-price="11800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(201)">
               <img src="images/bedding-item-1.jpg" alt="The Starlight Celestial Navy &amp; White Duvet Cover Set" loading="lazy">
               <span class="felicia-card-badge">Celestial Silk-Touch</span>
@@ -1711,7 +1788,7 @@
           </div>
 
           <!-- Bedding 3 -->
-          <div class="felicia-product-card" data-category="beddings">
+          <div class="felicia-product-card" data-id="207" data-category="beddings" data-color="white" data-price="8500">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(207)">
               <img src="images/bedding-item-7.jpg" alt="Hotel-Grade 1000TC Satin-Stripe Sheet Set" loading="lazy">
               <span class="felicia-card-badge">Hotel 1000TC</span>
@@ -1725,7 +1802,7 @@
           </div>
 
           <!-- Kitchen 1 -->
-          <div class="felicia-product-card" data-category="kitchen">
+          <div class="felicia-product-card" data-id="301" data-category="kitchen" data-color="gold" data-price="18500">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(301)">
               <img src="images/kitchen-item-1.jpg" alt="Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set" loading="lazy">
               <span class="felicia-card-badge">Premium Multi-Ply</span>
@@ -1739,7 +1816,7 @@
           </div>
 
           <!-- Kitchen 2 -->
-          <div class="felicia-product-card" data-category="kitchen">
+          <div class="felicia-product-card" data-id="302" data-category="kitchen" data-color="cream" data-price="16800">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(302)">
               <img src="images/kitchen-item-2.jpg" alt="Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set" loading="lazy">
               <span class="felicia-card-badge">Bestseller Set</span>
@@ -1753,7 +1830,7 @@
           </div>
 
           <!-- Kitchen 3 -->
-          <div class="felicia-product-card" data-category="kitchen">
+          <div class="felicia-product-card" data-id="303" data-category="kitchen" data-color="black" data-price="14500">
             <div class="felicia-card-img-wrapper" onclick="openProductModal(303)">
               <img src="images/kitchen-item-3.jpg" alt="Maxkon Pro-Grade 2200W Commercial High-Speed Blender" loading="lazy">
               <span class="felicia-card-badge">Commercial 2200W</span>
@@ -1767,9 +1844,8 @@
           </div>
 
         </div>
-
+        </div>
       </div>
-
       <script>
       function filterBestsellers(category, btn) {
         const buttons = document.querySelectorAll('#bestsellers .felicia-filter-btn');
@@ -1924,4 +2000,5 @@
     </footer>
   
 <script src="js/felicia-cart.js" defer></script>
+<script src="js/felicia-filters.js" defer></script>
 </body></html>

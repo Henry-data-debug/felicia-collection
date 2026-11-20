@@ -33,6 +33,7 @@
     <link href="css/component-card.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/section-footer.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/component-list-social.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/felicia-carousel-filters.css" rel="stylesheet" type="text/css" media="all">
 
     <style>
       :root {
@@ -1408,27 +1409,94 @@
         </div>
       </section>
 
-      <!-- Category Filter Bar -->
-      <section style="background: #F8F8F9; border-bottom: 1px solid #EAEAEA; padding: 20px 0;">
-        <div class="page-width" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-          <button class="felicia-filter-btn active" onclick="filterBeddings('all', this)">All Luxury Beddings (10)</button>
-          <button class="felicia-filter-btn" onclick="filterBeddings('duvet', this)">Duvet Sets (5)</button>
-          <button class="felicia-filter-btn" onclick="filterBeddings('comforter', this)">Comforter &amp; Jacquard (2)</button>
-          <button class="felicia-filter-btn" onclick="filterBeddings('sheets', this)">Sheets &amp; Linens (2)</button>
-          <button class="felicia-filter-btn" onclick="filterBeddings('pillows', this)">Pillows &amp; Accessories (1)</button>
-        </div>
-      </section>
-
-      <section style="padding: 50px 0;">
+      <section style="padding: 40px 0 60px 0;">
         <div class="page-width">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 12px;">
-            <p style="margin: 0; color: #666; font-size: 0.95rem;">Showing <span id="beddings-count" style="font-weight: 700; color: #141416;">10</span> imported luxury bedding sets &amp; linens</p>
-            <div style="font-size: 0.85rem; color: #888;">Standard Sizes: 6x6 (Queen) &amp; 7x7 (King) | Same-Day Nairobi Delivery</div>
+          <div class="felicia-filter-toolbar" data-target-grid="beddings-grid">
+        <div class="felicia-filter-topbar">
+          <div class="felicia-category-chips">
+            <button type="button" class="felicia-chip active" data-category="all">All Luxury Beddings (10)</button>
+          <button type="button" class="felicia-chip" data-category="duvet">Duvet Cover Sets</button>
+          <button type="button" class="felicia-chip" data-category="comforter">Comforter & Jacquard</button>
+          <button type="button" class="felicia-chip" data-category="sheets">Sheets & Linens</button>
+          <button type="button" class="felicia-chip" data-category="pillows">Pillows & Accessories</button>
           </div>
-          <div id="beddings-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+          <div class="felicia-filter-controls">
+            <span class="felicia-items-count">Showing <strong>10</strong> items</span>
+            <button type="button" class="felicia-filter-toggle-btn" aria-label="Filter and Sort Options">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+              <span>Filter &amp; Sort</span>
+              <span class="felicia-filter-badge" style="display: none;">0</span>
+            </button>
+            <select class="felicia-sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Collapsible Filter Drawer -->
+        <div class="felicia-filter-drawer">
+          <div class="felicia-filter-grid-sections">
+            
+            <!-- Group 1: Color Swatch -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Color Swatch</div>
+              <div class="felicia-color-swatches">
+                <button type="button" class="felicia-color-swatch active" data-color="all">All Colors</button>
+                <button type="button" class="felicia-color-swatch" data-color="black"><span class="felicia-color-dot" style="background: #141416;"></span>Black</button>
+                <button type="button" class="felicia-color-swatch" data-color="cream"><span class="felicia-color-dot" style="background: #FFFDD0;"></span>Cream / Ivory</button>
+                <button type="button" class="felicia-color-swatch" data-color="tan"><span class="felicia-color-dot" style="background: #C19A6B;"></span>Tan / Brown</button>
+                <button type="button" class="felicia-color-swatch" data-color="burgundy"><span class="felicia-color-dot" style="background: #800020;"></span>Burgundy</button>
+                <button type="button" class="felicia-color-swatch" data-color="pink"><span class="felicia-color-dot" style="background: #FFB6C1;"></span>Blush Pink</button>
+                <button type="button" class="felicia-color-swatch" data-color="gold"><span class="felicia-color-dot" style="background: #D4AF37;"></span>Gold / Champagne</button>
+                <button type="button" class="felicia-color-swatch" data-color="white"><span class="felicia-color-dot" style="background: #FFFFFF; border: 1px solid #CCC;"></span>White</button>
+              </div>
+            </div>
+
+            <!-- Group 2: Price Brackets -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Price Range (KSh)</div>
+              <div class="felicia-price-brackets">
+                <button type="button" class="felicia-price-pill active" data-price-bracket="all">All Prices</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="under-3000">Under KSh 3,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="3000-6000">KSh 3,000 – KSh 6,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="6000-12000">KSh 6,000 – KSh 12,000</button>
+                <button type="button" class="felicia-price-pill" data-price-bracket="above-12000">Above KSh 12,000</button>
+              </div>
+            </div>
+
+            <!-- Group 3: Max Price Slider -->
+            <div class="felicia-filter-group">
+              <div class="felicia-filter-group-title">Max Price Slider</div>
+              <div class="felicia-price-slider-wrap">
+                <input type="range" class="felicia-price-slider" min="3000" max="25000" step="500" value="25000" aria-label="Filter by maximum price">
+                <div class="felicia-price-slider-val">
+                  <span>Min: KSh 3,000</span>
+                  <span class="felicia-slider-val-num" style="font-weight: 700; color: #C5A059;">KSh 25,000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Filter Actions -->
+          <div class="felicia-filter-actions">
+            <button type="button" class="felicia-btn-reset-filters">Reset All Filters</button>
+            <button type="button" class="felicia-btn-apply-filters">Done</button>
+          </div>
+        </div>
+      </div>
+          
+          </div>
+          <div class="felicia-carousel-wrapper">
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-prev" aria-label="Previous Beddings">&#10094;</button>
+            <button type="button" class="felicia-carousel-arrow felicia-carousel-next" aria-label="Next Beddings">&#10095;</button>
+            <div id="beddings-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
 
     <!-- Item 1: Starlight Celestial Navy & White Duvet Set -->
-    <div class="felicia-product-card" data-category="duvet">
+    <div class="felicia-product-card" data-id="201" data-category="duvet" data-color="white" data-price="11800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(201)">
         <img src="images/bedding-item-1.jpg" alt="The Starlight Celestial Navy &amp; White Duvet Cover Set" loading="lazy">
         <span class="felicia-card-badge">Celestial Silk-Touch</span>
@@ -1442,7 +1510,7 @@
     </div>
 
     <!-- Item 2: Monochrome Ribbon Wave Luxury Bedding Set -->
-    <div class="felicia-product-card" data-category="duvet">
+    <div class="felicia-product-card" data-id="202" data-category="duvet" data-color="black" data-price="12500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(202)">
         <img src="images/bedding-item-2.jpg" alt="The Monochrome Ribbon Wave Luxury Bedding Set" loading="lazy">
         <span class="felicia-card-badge">Modern Atelier</span>
@@ -1456,7 +1524,7 @@
     </div>
 
     <!-- Item 3: Grand Chandelier Mocha Geometric Rings Duvet Set -->
-    <div class="felicia-product-card" data-category="comforter">
+    <div class="felicia-product-card" data-id="203" data-category="comforter" data-color="tan" data-price="14800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(203)">
         <img src="images/bedding-item-3.jpg" alt="The Grand Chandelier Mocha Geometric Rings Duvet Set" loading="lazy">
         <span class="felicia-card-badge">Presidential Suite</span>
@@ -1470,7 +1538,7 @@
     </div>
 
     <!-- Item 4: Royale Emerald Confetti Sphere Luxury Duvet Set -->
-    <div class="felicia-product-card" data-category="duvet">
+    <div class="felicia-product-card" data-id="204" data-category="duvet" data-color="cream" data-price="13900">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(204)">
         <img src="images/bedding-item-4.jpg" alt="The Royale Emerald Confetti Sphere Luxury Duvet Set" loading="lazy">
         <span class="felicia-card-badge">Royal Emerald</span>
@@ -1484,7 +1552,7 @@
     </div>
 
     <!-- Item 5: Nordic Cross Minimalist Caramel Bedding Set -->
-    <div class="felicia-product-card" data-category="duvet">
+    <div class="felicia-product-card" data-id="205" data-category="duvet" data-color="tan" data-price="11500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(205)">
         <img src="images/bedding-item-5.jpg" alt="The Nordic Cross Minimalist Caramel Bedding Set" loading="lazy">
         <span class="felicia-card-badge">Nordic Minimalist</span>
@@ -1498,7 +1566,7 @@
     </div>
 
     <!-- Item 6: Imperial Gold Botanical Ginkgo Jacquard Bed Set -->
-    <div class="felicia-product-card" data-category="comforter">
+    <div class="felicia-product-card" data-id="206" data-category="comforter" data-color="gold" data-price="19800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(206)">
         <img src="images/bedding-item-6.jpg" alt="The Imperial Gold Botanical Ginkgo Jacquard Bed Set" loading="lazy">
         <span class="felicia-card-badge">24K Gold Jacquard</span>
@@ -1512,7 +1580,7 @@
     </div>
 
     <!-- Item 7: Hotel-Grade 1000TC Satin-Stripe Sheet Set -->
-    <div class="felicia-product-card" data-category="sheets">
+    <div class="felicia-product-card" data-id="207" data-category="sheets" data-color="white" data-price="8500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(207)">
         <img src="images/bedding-item-7.jpg" alt="Hotel-Grade 1000TC Satin-Stripe Sheet Set (4 Colorways)" loading="lazy">
         <span class="felicia-card-badge">Hotel 1000TC</span>
@@ -1526,7 +1594,7 @@
     </div>
 
     <!-- Item 8: CloudComfort Hotel Plush Down-Alternative Pillow Set -->
-    <div class="felicia-product-card" data-category="pillows">
+    <div class="felicia-product-card" data-id="208" data-category="pillows" data-color="white" data-price="7800">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(208)">
         <img src="images/bedding-item-8.jpg" alt="CloudComfort Hotel Plush Down-Alternative Pillow Set (Pack of 4)" loading="lazy">
         <span class="felicia-card-badge">Pack of 4 Pillows</span>
@@ -1540,7 +1608,7 @@
     </div>
 
     <!-- Item 9: Kyoto Slate Circle Mosaic Fitted Bedspread Set -->
-    <div class="felicia-product-card" data-category="sheets">
+    <div class="felicia-product-card" data-id="209" data-category="sheets" data-color="cream" data-price="9500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(209)">
         <img src="images/bedding-item-9.jpg" alt="The Kyoto Slate Circle Mosaic Fitted Bedspread Set" loading="lazy">
         <span class="felicia-card-badge">Japandi Living</span>
@@ -1554,7 +1622,7 @@
     </div>
 
     <!-- Item 10: Royal Sapphire Botanical Trellis Duvet Cover Set -->
-    <div class="felicia-product-card" data-category="duvet">
+    <div class="felicia-product-card" data-id="210" data-category="duvet" data-color="black" data-price="13500">
       <div class="felicia-card-img-wrapper" onclick="openProductModal(210)">
         <img src="images/bedding-item-10.jpg" alt="The Royal Sapphire Botanical Trellis Duvet Cover Set" loading="lazy">
         <span class="felicia-card-badge">Royal Sapphire</span>
@@ -1567,6 +1635,7 @@
       </div>
     </div>
 
+          </div>
           </div>
         </div>
       </section>
@@ -1677,5 +1746,6 @@
       </div>
     </footer>
   <script src="js/felicia-cart.js" defer></script>
+<script src="js/felicia-filters.js" defer></script>
 </body>
 </html>
