@@ -764,136 +764,194 @@
         <div class="felicia-page-hero-inner">
           <span class="felicia-hero-tag">Culinary Elegance</span>
           <h1>Modern Kitchen Items &amp; Dining</h1>
-          <p>Imported premium non-stick cookware, fine porcelain dinner sets, and titanium gold cutlery to elevate your modern home in Nairobi.</p>
+          <p>Imported premium multi-ply cookware sets, high-power kitchen appliances, and fine porcelain dinnerware to elevate modern living in Nairobi.</p>
         </div>
       </section>
 
-      <section style="background: #FAF9F6; border-bottom: 1px solid #EFECE6; padding: 25px 0; text-align: center;">
-        <div class="page-width" style="max-width: 800px; margin: 0 auto;">
-          <p style="color: #666; font-size: 0.95rem; margin: 0;">
-            High-durability imported cookware sets &bull; Toxic-free PTFE/PFOA-free coatings &bull; Fast delivery across Nairobi and Kenya.
-          </p>
+      <!-- Category Filter Bar -->
+      <section style="background: #F8F8F9; border-bottom: 1px solid #EAEAEA; padding: 20px 0;">
+        <div class="page-width" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+          <button class="felicia-filter-btn active" onclick="filterKitchen('all', this)">All Kitchen Essentials (10)</button>
+          <button class="felicia-filter-btn" onclick="filterKitchen('appliances', this)">Kitchen Appliances (5)</button>
+          <button class="felicia-filter-btn" onclick="filterKitchen('dinnerware', this)">Dinnerware &amp; Porcelain (3)</button>
+          <button class="felicia-filter-btn" onclick="filterKitchen('cookware', this)">Cookware Sets (2)</button>
         </div>
       </section>
 
       <section style="padding: 50px 0;">
         <div class="page-width">
-          <div id="kitchen-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 12px;">
+            <p style="margin: 0; color: #666; font-size: 0.95rem;">Showing <span id="kitchen-count" style="font-weight: 700; color: #141416;">10</span> imported luxury kitchen &amp; dining essentials</p>
+            <div style="font-size: 0.85rem; color: #888;">Nairobi Delivery: Same / Next Day | Fast Secure Courier Across Kenya</div>
+          </div>
+          <div id="kitchen-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(301)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="12-Piece Non-Stick Die-Cast Granite Cookware Set" loading="lazy">
-        <span class="felicia-card-badge">German Tech</span>
+    <!-- Item 1: Stainless Steel Cookware Set -->
+    <div class="felicia-product-card" data-category="cookware">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(301)">
+        <img src="images/kitchen-item-1.jpg" alt="Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set" loading="lazy">
+        <span class="felicia-card-badge">Premium Multi-Ply</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Cookware</div>
-        <a href="javascript:void(0)" onclick="openProductModal(301)" class="felicia-product-title-link">12-Piece Non-Stick Die-Cast Granite Cookware Set</a>
-        <div class="felicia-card-price">KSh 16,500</div>
+        <div class="felicia-card-category">Cookware Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(301)" class="felicia-product-title-link">Mayer &amp; Boch Imperial Stainless Steel 12-Piece Cookware Set</a>
+        <div class="felicia-card-price">KSh 18,500</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(301)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(302)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="24-Piece Gold-Rimmed Fine Porcelain Dinner Set" loading="lazy">
-        <span class="felicia-card-badge">Imperial Gold</span>
+    <!-- Item 2: Teal Non-Stick Cookware Set -->
+    <div class="felicia-product-card" data-category="cookware">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(302)">
+        <img src="images/kitchen-item-2.jpg" alt="Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set" loading="lazy">
+        <span class="felicia-card-badge">Bestseller Set</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Dinnerware</div>
-        <a href="javascript:void(0)" onclick="openProductModal(302)" class="felicia-product-title-link">24-Piece Gold-Rimmed Fine Porcelain Dinner Set</a>
-        <div class="felicia-card-price">KSh 18,900</div>
+        <div class="felicia-card-category">Cookware Sets</div>
+        <a href="javascript:void(0)" onclick="openProductModal(302)" class="felicia-product-title-link">Riviera Teal Non-Stick Cookware &amp; Bakeware 14-Piece Set</a>
+        <div class="felicia-card-price">KSh 16,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(302)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(303)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="30-Piece Titanium Gold Mirror Cutlery Set" loading="lazy">
-        <span class="felicia-card-badge">Bestseller</span>
+    <!-- Item 3: Commercial Blender -->
+    <div class="felicia-product-card" data-category="appliances">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(303)">
+        <img src="images/kitchen-item-3.jpg" alt="Maxkon Pro-Grade 2200W Commercial High-Speed Blender" loading="lazy">
+        <span class="felicia-card-badge">Commercial 2200W</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Cutlery</div>
-        <a href="javascript:void(0)" onclick="openProductModal(303)" class="felicia-product-title-link">30-Piece Titanium Gold Mirror Cutlery Set</a>
-        <div class="felicia-card-price">KSh 7,500</div>
+        <div class="felicia-card-category">Kitchen Appliances</div>
+        <a href="javascript:void(0)" onclick="openProductModal(303)" class="felicia-product-title-link">Maxkon Pro-Grade 2200W Commercial High-Speed Blender</a>
+        <div class="felicia-card-price">KSh 14,500</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(303)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(304)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="Cast Iron Enameled Dutch Oven (5.5 Litre)" loading="lazy">
-        <span class="felicia-card-badge">Chef Choice</span>
+    <!-- Item 4: Electric Convection Oven -->
+    <div class="felicia-product-card" data-category="appliances">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(304)">
+        <img src="images/kitchen-item-4.jpg" alt="Deluxe Multi-Function Electric Countertop Convection &amp; Baking Oven" loading="lazy">
+        <span class="felicia-card-badge">Chef Convection</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Cookware</div>
-        <a href="javascript:void(0)" onclick="openProductModal(304)" class="felicia-product-title-link">Cast Iron Enameled Dutch Oven (5.5 Litre)</a>
-        <div class="felicia-card-price">KSh 9,200</div>
+        <div class="felicia-card-category">Kitchen Appliances</div>
+        <a href="javascript:void(0)" onclick="openProductModal(304)" class="felicia-product-title-link">Deluxe Multi-Function Electric Countertop Convection &amp; Baking Oven</a>
+        <div class="felicia-card-price">KSh 15,200</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(304)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(305)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="6-Piece Crystal Stemmed Wine Glass Set" loading="lazy">
-        <span class="felicia-card-badge">Crystal</span>
+    <!-- Item 5: Gas Stove -->
+    <div class="felicia-product-card" data-category="appliances">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(305)">
+        <img src="images/kitchen-item-5.jpg" alt="Dual-Burner Shatterproof Tempered Glass Auto-Ignition Gas Cooker" loading="lazy">
+        <span class="felicia-card-badge">Auto-Ignition</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Glassware</div>
-        <a href="javascript:void(0)" onclick="openProductModal(305)" class="felicia-product-title-link">6-Piece Crystal Stemmed Wine Glass Set</a>
-        <div class="felicia-card-price">KSh 6,200</div>
+        <div class="felicia-card-category">Kitchen Appliances</div>
+        <a href="javascript:void(0)" onclick="openProductModal(305)" class="felicia-product-title-link">Dual-Burner Shatterproof Tempered Glass Auto-Ignition Gas Cooker</a>
+        <div class="felicia-card-price">KSh 9,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(305)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(306)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="Rotating Bamboo & Glass Spice Rack (16 Jars)" loading="lazy">
-        <span class="felicia-card-badge">Kitchen Chic</span>
+    <!-- Item 6: Electric Deep Fryer -->
+    <div class="felicia-product-card" data-category="appliances">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(306)">
+        <img src="images/kitchen-item-6.jpg" alt="ChefGrade Stainless Steel Temperature-Controlled Electric Deep Fryer" loading="lazy">
+        <span class="felicia-card-badge">ChefGrade 3.5L</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Organizers</div>
-        <a href="javascript:void(0)" onclick="openProductModal(306)" class="felicia-product-title-link">Rotating Bamboo & Glass Spice Rack (16 Jars)</a>
-        <div class="felicia-card-price">KSh 4,800</div>
+        <div class="felicia-card-category">Kitchen Appliances</div>
+        <a href="javascript:void(0)" onclick="openProductModal(306)" class="felicia-product-title-link">ChefGrade Stainless Steel Temperature-Controlled Electric Deep Fryer</a>
+        <div class="felicia-card-price">KSh 10,500</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(306)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(307)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="Natural Acacia Wood Charcuterie & Chopping Board" loading="lazy">
-        <span class="felicia-card-badge">Natural Living</span>
+    <!-- Item 7: Hand Mixer Set -->
+    <div class="felicia-product-card" data-category="appliances">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(307)">
+        <img src="images/kitchen-item-7.jpg" alt="Elite Multi-Speed Turbo Electric Hand &amp; Stand Mixer Set" loading="lazy">
+        <span class="felicia-card-badge">5-Speed Turbo</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Serving</div>
-        <a href="javascript:void(0)" onclick="openProductModal(307)" class="felicia-product-title-link">Natural Acacia Wood Charcuterie & Chopping Board</a>
-        <div class="felicia-card-price">KSh 3,800</div>
+        <div class="felicia-card-category">Kitchen Appliances</div>
+        <a href="javascript:void(0)" onclick="openProductModal(307)" class="felicia-product-title-link">Elite Multi-Speed Turbo Electric Hand &amp; Stand Mixer Set</a>
+        <div class="felicia-card-price">KSh 7,200</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(307)">ADD TO CART</button>
       </div>
     </div>
-  
 
-    <div class="felicia-product-card">
-      <div class="felicia-card-img-wrapper" onclick="openProductModal(308)" style="cursor: pointer; background: #141416;">
-        <img src="images/placeholder-kitchen.svg" alt="Electric Touch Gooseneck Precision Kettle" loading="lazy">
-        <span class="felicia-card-badge">Barista Grade</span>
+    <!-- Item 8: Asian Soup Bowls -->
+    <div class="felicia-product-card" data-category="dinnerware">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(308)">
+        <img src="images/kitchen-item-8.jpg" alt="Kyoto Two-Tone Crimson &amp; Obsidian Ramen Bowl &amp; Spoon Set" loading="lazy">
+        <span class="felicia-card-badge">Asian Tableware</span>
       </div>
       <div class="felicia-card-body">
-        <div class="felicia-card-category">Appliances</div>
-        <a href="javascript:void(0)" onclick="openProductModal(308)" class="felicia-product-title-link">Electric Touch Gooseneck Precision Kettle</a>
-        <div class="felicia-card-price">KSh 8,500</div>
+        <div class="felicia-card-category">Dinnerware &amp; Porcelain</div>
+        <a href="javascript:void(0)" onclick="openProductModal(308)" class="felicia-product-title-link">Kyoto Two-Tone Crimson &amp; Obsidian Ramen Bowl &amp; Spoon Set</a>
+        <div class="felicia-card-price">KSh 5,800</div>
         <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(308)">ADD TO CART</button>
       </div>
     </div>
-  
+
+    <!-- Item 9: Scarlet Shallow Pasta Bowls -->
+    <div class="felicia-product-card" data-category="dinnerware">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(309)">
+        <img src="images/kitchen-item-9.jpg" alt="Tuscan Scarlet Porcelain Shallow Pasta &amp; Salad Bowl Set (Set of 7)" loading="lazy">
+        <span class="felicia-card-badge">Scarlet Glaze</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Dinnerware &amp; Porcelain</div>
+        <a href="javascript:void(0)" onclick="openProductModal(309)" class="felicia-product-title-link">Tuscan Scarlet Porcelain Shallow Pasta &amp; Salad Bowl Set (Set of 7)</a>
+        <div class="felicia-card-price">KSh 8,900</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(309)">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- Item 10: 60-Piece Porcelain Dinner Set -->
+    <div class="felicia-product-card" data-category="dinnerware">
+      <div class="felicia-card-img-wrapper" onclick="openProductModal(310)">
+        <img src="images/kitchen-item-10.jpg" alt="Royal Auburn Swirl 60-Piece Fine Porcelain Dinner &amp; Tea Service Set" loading="lazy">
+        <span class="felicia-card-badge">Banquet 60-Piece</span>
+      </div>
+      <div class="felicia-card-body">
+        <div class="felicia-card-category">Dinnerware &amp; Porcelain</div>
+        <a href="javascript:void(0)" onclick="openProductModal(310)" class="felicia-product-title-link">Royal Auburn Swirl 60-Piece Fine Porcelain Dinner &amp; Tea Service Set</a>
+        <div class="felicia-card-price">KSh 28,500</div>
+        <button type="button" class="felicia-btn-add-to-cart" onclick="addToCart(310)">ADD TO CART</button>
+      </div>
+    </div>
+
           </div>
         </div>
       </section>
+
+      <script>
+      function filterKitchen(category, btn) {
+        const buttons = document.querySelectorAll('.felicia-filter-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        const cards = document.querySelectorAll('#kitchen-grid .felicia-product-card');
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (category === 'all' || cat === category) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        const countEl = document.getElementById('kitchen-count');
+        if (countEl) countEl.textContent = visibleCount;
+      }
+      </script>
     </main>
   
     <!-- Luxury Brand Footer -->
