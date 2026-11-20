@@ -70,6 +70,11 @@
     224: { id: 224, price: 3900, color: 'burgundy', cat: 'duvet', page: 'beddings' },
     225: { id: 225, price: 450, color: 'cream', cat: 'pillows', page: 'beddings' },
     226: { id: 226, price: 2400, color: 'black', cat: 'pillows', page: 'beddings' },
+    227: { id: 227, price: 3500, color: 'cream', cat: 'duvet', page: 'beddings' },
+    228: { id: 228, price: 3700, color: 'pink', cat: 'duvet', page: 'beddings' },
+    229: { id: 229, price: 3300, color: 'white', cat: 'duvet', page: 'beddings' },
+    230: { id: 230, price: 3500, color: 'gold', cat: 'duvet', page: 'beddings' },
+    231: { id: 231, price: 2900, color: 'white', cat: 'duvet', page: 'beddings' },
 
     // --- Kitchen Items (301-310) ---
     301: { id: 301, price: 18500, color: 'gold', cat: 'cookware', page: 'kitchen' },

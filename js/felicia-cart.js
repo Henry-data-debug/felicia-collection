@@ -827,6 +827,127 @@
         "Price: KSh 2,400"
       ]
     },
+    {
+      id: 227,
+      name: "Pom Laced Design Duvet cover set",
+      image: "images/Pom Laced Design Duvet cover set.jpg",
+      images: [
+        "images/Pom Laced Design Duvet cover set.jpg",
+        "images/Pom Laced Design Duvet cover set 2.jpg",
+        "images/Pom Laced Design Duvet cover set 3.jpg",
+        "images/Pom Laced Design Duvet cover set 4.jpg",
+        "images/Pom Laced Design Duvet cover set 5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3500,
+      priceFormatted: "KSh 3,500",
+      badge: "Bohemian Microfibre",
+      description: "Pom-Pom laced design duvet cover set crafted from bohemian microfibre. Luxury soft and lightweight quilt cover tailored for modern comfort.",
+      specs: [
+        "Size: 6x6 / 6x7",
+        "Material: Bohemian Microfibre, Luxury Soft & Lightweight Quilt Cover",
+        "Includes: 1 Duvet Cover, 2 Pillowcases",
+        "Design: Elegant Pom-Pom Laced Border Detail",
+        "Price: KSh 3,500"
+      ]
+    },
+    {
+      id: 228,
+      name: "Bowknot Tufted Duvet cover set",
+      image: "images/Bowknot Tufted Duvet cover set.jpg",
+      images: [
+        "images/Bowknot Tufted Duvet cover set.jpg",
+        "images/Bowknot Tufted Duvet cover set 2.jpg",
+        "images/Bowknot Tufted Duvet cover set 3.jpg",
+        "images/Bowknot Tufted Duvet cover set 4.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3700,
+      priceFormatted: "KSh 3,700",
+      badge: "Tufted Bowknot",
+      description: "Bowknot tufted duvet cover set fashioned from ultra luxury soft cotton microfibre material. Features elegant bowknot tufted embroidery accents.",
+      specs: [
+        "Size: 6x6 / 6x7",
+        "Material: Ultra Luxury Soft Cotton Microfibre Material",
+        "Includes: 1 Duvet Cover, 2 Pillowcases",
+        "Detailing: Elegant Bowknot Tufted Texturing",
+        "Price: KSh 3,700"
+      ]
+    },
+    {
+      id: 229,
+      name: "Pinch Pleat Cross Pintuck Duvet Cover set",
+      image: "images/Pinch Pleat Cross Pintuck Duvet Cover set.jpg",
+      images: [
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set.jpg",
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set 2.jpg",
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set 3.jpg",
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set 4.jpg",
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set 5.jpg",
+        "images/Pinch Pleat Cross Pintuck Duvet Cover set 6.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3300,
+      priceFormatted: "KSh 3,300",
+      badge: "Cross Pintuck",
+      description: "Pinch pleat cross pintuck duvet cover set featuring luxurious diamond pintuck geometric tailoring. Crafted for plush elegance and five-star bedroom comfort.",
+      specs: [
+        "Size: 6x6 / 6x7",
+        "Material: Premium Soft Breathable Microfibre / Cotton Blend",
+        "Includes: 1 Duvet Cover, 2 Pillowcases",
+        "Pattern: Cross Pintuck / Diamond Pinch Pleat",
+        "Price: KSh 3,300"
+      ]
+    },
+    {
+      id: 230,
+      name: "Luxury Mulberry Silk Duvet cover set",
+      image: "images/Luxury  Mulberry Silk Duvet cover set.jpg",
+      images: [
+        "images/Luxury  Mulberry Silk Duvet cover set.jpg",
+        "images/Luxury  Mulberry Silk Duvet cover set 2.jpg",
+        "images/Luxury  Mulberry Silk Duvet cover set 3.jpg",
+        "images/Luxury  Mulberry Silk Duvet cover set 4.jpg",
+        "images/Luxury  Mulberry Silk Duvet cover set 5.jpg",
+        "images/Luxury  Mulberry Silk Duvet cover set 6.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 3500,
+      priceFormatted: "KSh 3,500",
+      badge: "100% Mulberry Silk",
+      description: "Luxury 100% Mulberry silk duvet cover set. Exquisitely smooth, skin-friendly, and naturally temperature-regulating for high-end hotel luxury.",
+      specs: [
+        "Size: 6x6 / 6x7",
+        "Material: 100% Pure Mulberry Silk Luster",
+        "Set Includes: 1 Duvet Cover, 1 Bedsheet, 2 Pillowcases",
+        "Features: Ultra-Silky Texture, Naturally Breathable & Hypoallergenic",
+        "Price: KSh 3,500"
+      ]
+    },
+    {
+      id: 231,
+      name: "Luxury Cotton Satin Striped Duvet cover set",
+      image: "images/Luxury Cotton Satin Duvet cover.jpg",
+      images: [
+        "images/Luxury Cotton Satin Duvet cover.jpg",
+        "images/Luxury Cotton Satin Duvet cover 2.jpg",
+        "images/Luxury Cotton Satin Duvet cover 3.jpg",
+        "images/Luxury Cotton Satin Duvet cover 4.jpg",
+        "images/Luxury Cotton Satin Duvet cover 5.jpg"
+      ],
+      category: "Duvet Cover Sets",
+      price: 2900,
+      priceFormatted: "From KSh 2,900",
+      badge: "Satin Stripe",
+      description: "Luxury cotton satin striped duvet cover set featuring classic high-end hotel damask stripes. Available in 6x6/6x7 (KSh 2,900) and 7x8 (KSh 3,200).",
+      specs: [
+        "Sizes: 6x6 / 6x7 (KSh 2,900) and 7x8 (KSh 3,200)",
+        "Material: 100% Luxury Cotton Satin Weave with Damask Stripe",
+        "Includes: 1 Duvet Cover, 1 Bedsheet, 2 Pillowcases",
+        "Design: Classic Five-Star Hotel Satin Stripe Finish",
+        "Price: From KSh 2,900"
+      ]
+    },
 
     // --- Kitchen Items (301-310) ---
     {
