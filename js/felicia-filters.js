@@ -122,7 +122,11 @@
     338: { id: 338, price: 3900, color: 'black', cat: 'appliances', page: 'kitchen' },
     339: { id: 339, price: 600, color: 'white', cat: 'cookware', page: 'kitchen' },
     340: { id: 340, price: 450, color: 'cream', cat: 'cookware', page: 'kitchen' },
-    341: { id: 341, price: 2200, color: 'white', cat: 'dinnerware', page: 'kitchen' }
+    341: { id: 341, price: 2200, color: 'white', cat: 'dinnerware', page: 'kitchen' },
+    342: { id: 342, price: 3100, color: 'gold', cat: 'dinnerware', page: 'kitchen' },
+    343: { id: 343, price: 5800, color: 'black', cat: 'appliances', page: 'kitchen' },
+    344: { id: 344, price: 2200, color: 'black', cat: 'appliances', page: 'kitchen' },
+    345: { id: 345, price: 4800, color: 'white', cat: 'appliances', page: 'kitchen' }
   };
 
   /**

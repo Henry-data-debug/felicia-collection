@@ -1796,6 +1796,86 @@
         "Usage: Countertop Coffee, Loose Tea & Sugar Storage",
         "Price: KSh 2,200"
       ]
+    },
+    {
+      id: 342,
+      name: "3 pcs deco canister",
+      image: "images/3 pcs deco canister.jpg",
+      images: [
+        "images/3 pcs deco canister.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 3100,
+      priceFormatted: "KSh 3,100",
+      badge: "3-Pc Deco Gold Ceramic",
+      description: "3 pcs deco canister set. Luxury white ceramic canister jars with lustrous gold glaze fluting and crystal facet knobs on a scrolled gold wire countertop display rack. Sugar, coffee, and tea set, 1 litre capacity each.",
+      specs: [
+        "Set Composition: 3 Ceramic Canister Jars (Sugar, Coffee & Tea) + 1 Gold Scroll Countertop Stand",
+        "Capacity: 1 Litre (1000ml) per Jar",
+        "Material: High-Fired White Glazed Ceramic with Electroplated Gold Finish",
+        "Lids: Ceramic Airtight Lids with Crystal-Cut Gemstone Knobs",
+        "Price: KSh 3,100"
+      ]
+    },
+    {
+      id: 343,
+      name: "Nunix air fryer 10L",
+      image: "images/Nunix air fryer 10L.jpg",
+      images: [
+        "images/Nunix air fryer 10L.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 5800,
+      priceFormatted: "KSh 5,800",
+      badge: "10L 1400W Family Size",
+      description: "Nunix 10L digital air fryer (Model AF-10-2A). New design featuring 1400W rapid heating technology, extra-large 10-litre capacity, intuitive digital LED touch panel with one-touch recipe presets, and 1-year warranty.",
+      specs: [
+        "Capacity: 10 Litres Extra Large Family Feast Capacity",
+        "Power: 1400 Watts Rapid Hot Air Convection Heating",
+        "Model: Nunix AF-10-2A High Quality Edition",
+        "Features: Digital LED Touch Screen, 8 Preset Cooking Menus, Non-Stick Fry Basket",
+        "Price: KSh 5,800"
+      ]
+    },
+    {
+      id: 344,
+      name: "Primadel dispenser 2 in 1",
+      image: "images/Primadel dispenser 2 in 1.jpg",
+      images: [
+        "images/Primadel dispenser 2 in 1.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "2-in-1 500W Blender",
+      description: "Primdale 2 in 1 electric blender dispenser (Model PMDL-111). 500 Watts power, 1500ml (1.5L) jug capacity, multi-speed push button controls, and included dry grinding mill cup for spices and coffee beans.",
+      specs: [
+        "Configuration: 2-in-1 Electric Blender & Grinder Mill",
+        "Motor Power: 500 Watts Pure Copper Motor",
+        "Jug Capacity: 1500ml (1.5 Litres) High-Impact Resistant Pitcher",
+        "Model: Primdale PMDL-111 Multi-Speed System",
+        "Price: KSh 2,200"
+      ]
+    },
+    {
+      id: 345,
+      name: "Primdale 4in1 Food Processor Juicer",
+      image: "images/Primdale 4in1 Food Processor Juicer.jpg",
+      images: [
+        "images/Primdale 4in1 Food Processor Juicer.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 4800,
+      priceFormatted: "KSh 4,800",
+      badge: "4-in-1 800W System",
+      description: "Primdale 4 in 1 food processor (Model PMDL-265). Complete multi-function kitchen center with 800W powerful motor, juicer extractor, 1.0L blender jar, dry grinder, and food chopper with solid state controls and 1-year warranty.",
+      specs: [
+        "Functions: 4-in-1 Centrifugal Juicer, Blender, Dry Grinder & Food Chopper",
+        "Power: 800 Watts Powerful Motor with Overheat Protection",
+        "Model: Primdale PMDL-265 A1 Series",
+        "Includes: 1.0L Large Capacity Blender Jug, Chopping Bowl & Grinding Cup",
+        "Price: KSh 4,800"
+      ]
     }
   ];
 
