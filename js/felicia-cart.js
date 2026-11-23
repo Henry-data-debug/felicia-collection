@@ -1176,6 +1176,26 @@
       badge: "Banquet 60-Piece",
       description: "Comprehensive imported banquet dining service set for 12 guests. Crafted from pristine high-fired white porcelain, accented with fluid artistic auburn crimson ribbon flourishes. Complete with square-contoured dinner plates, deep soup plates, dessert plates, side saucers, and matching tea/coffee cups.",
       specs: ["Total Pieces: 60-Piece Complete Banquet Service (Serves 12 Guests)", "Contents: 12 Dinner Plates, 12 Soup Bowls, 12 Dessert Plates, 12 Cups, 12 Saucers", "Material: High-Fired Translucent Vitreous Porcelain", "Design: Modern Curved Square Silhouette with Auburn Ribbon Inset", "Origin: Directly Imported Fine Porcelain Dinnerware"]
+    },
+    {
+      id: 311,
+      name: "Spectra Gold 4pcs insulated hotpot",
+      image: "images/Spectra Gold 4pcs insulated hotpot.jpg",
+      images: [
+        "images/Spectra Gold 4pcs insulated hotpot.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 4200,
+      priceFormatted: "KSh 4,200",
+      badge: "Available in 3 Colors",
+      description: "Spectra Gold 4pcs insulated hotpot set (1200ml, 2200ml, 3200ml, and 4200ml). Premium thermal food warmers designed with superior insulation to keep meals piping hot or chilled for hours. Available in Beige, White, and Brown.",
+      specs: [
+        "Set Includes: 4 Pieces (1200ml, 2200ml, 3200ml, and 4200ml)",
+        "Available Colours: Beige, White, Brown with Gold Accents",
+        "Material: Food-Grade Stainless Steel Interior with Thermal Insulated Casing",
+        "Features: Airtight Twist-Lock Lids, Integrated Carry Handles",
+        "Price: KSh 4,200"
+      ]
     }
   ];
 
