@@ -1196,6 +1196,146 @@
         "Features: Airtight Twist-Lock Lids, Integrated Carry Handles",
         "Price: KSh 4,200"
       ]
+    },
+    {
+      id: 312,
+      name: "24pc Executive Egg-Shaped Cutlery Set",
+      image: "images/24pc Executive Egg-Shaped Cutlery Set.jpg",
+      images: [
+        "images/24pc Executive Egg-Shaped Cutlery Set.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 3100,
+      priceFormatted: "KSh 3,100",
+      badge: "Executive Silver 24-Pc",
+      description: "24-piece executive egg-shaped cutlery set in mirror-polished silver finish. Comes housed in an elegant luxury egg-shaped protective storage case. Includes 6 dinner forks, 6 table spoons, 6 tea spoons, and 6 butter knives.",
+      specs: [
+        "Contents: 24 Pieces (6 Dinner Forks, 6 Table Spoons, 6 Tea Spoons, 6 Butter Knives)",
+        "Storage Case: 1 Designer Egg-Shaped Protective Capsule Case",
+        "Material: High-Grade 18/10 Mirror-Polished Stainless Steel",
+        "Finish: Sleek Mirror Silver",
+        "Price: KSh 3,100"
+      ]
+    },
+    {
+      id: 313,
+      name: "6PCS BEER GLASS SET – 420ML",
+      image: "images/6PCS BEER GLASS SET – 420ML.jpg",
+      images: [
+        "images/6PCS BEER GLASS SET – 420ML.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 1600,
+      priceFormatted: "KSh 1,600",
+      badge: "Crystal-Clear 6-Pack",
+      description: "6-piece beer glass set (420ml). Enjoy your favourite drinks in style! Elegant, crystal-clear heavyweight glassware, perfect for craft beers, chilled juices, and entertaining guests.",
+      specs: [
+        "Pack Size: 6 Glasses (Complete 6-Piece Set)",
+        "Capacity: 420ml per Glass",
+        "Material: Heavy-Base Crystal-Clear Lead-Free Glass",
+        "Ideal For: Craft Beer, Cocktails, Cider & Chilled Juices",
+        "Price: KSh 1,600"
+      ]
+    },
+    {
+      id: 314,
+      name: "11pcs silicone cooking sticks set",
+      image: "images/11pcs silicone cooking sticks set.jpg",
+      images: [
+        "images/11pcs silicone cooking sticks set.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "Heat-Resistant 11-Piece",
+      description: "11-piece premium silicone cooking sticks and utensils set. Crafted with food-grade BPA-free heat-resistant silicone heads and natural wooden handles to protect non-stick cookware from scratches.",
+      specs: [
+        "Pieces: 11-Piece Complete Kitchen Utensil Ensemble with Countertop Holder",
+        "Material: Food-Grade BPA-Free Heat-Resistant Silicone & Hardwood Handles",
+        "Heat Resistance: Up to 230°C (446°F) Non-Scratch Cooking Safe",
+        "Includes: Spatula, Soup Ladle, Slotted Turner, Whisk, Tongs, Basting Brush & More",
+        "Price: KSh 2,200"
+      ]
+    },
+    {
+      id: 315,
+      name: "High quality Nonstick mixed shape baking tins",
+      image: "images/High quality Nonstick mixed shape baking tins.jpg",
+      images: [
+        "images/High quality Nonstick mixed shape baking tins.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 1400,
+      priceFormatted: "KSh 1,400",
+      badge: "Heart, Square & Round",
+      description: "High quality non-stick mixed shape baking tins. Multi-shape springform cake and dessert pans featuring quick-release latch and leakproof honeycomb base. Includes Heart, Square, and Round shapes.",
+      specs: [
+        "Shapes Included: Heart, Square & Round Baking Tins",
+        "Coating: Heavy-Duty PFOA-Free Double Non-Stick Finish",
+        "Features: Quick-Release Stainless Springform Buckle & Removable Base",
+        "Oven Safe: High Heat Baking up to 230°C",
+        "Price: KSh 1,400 each"
+      ]
+    },
+    {
+      id: 316,
+      name: "Two tier fruit rack",
+      image: "images/Two tier fruit rack.jpg",
+      images: [
+        "images/Two tier fruit rack.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 1500,
+      priceFormatted: "KSh 1,500",
+      badge: "Gold & Black Finish",
+      description: "Two-tier fruit and vegetable display rack. Space-saving geometric wire basket for kitchen countertops and dining tables. Available in luxury Gold and Obsidian Black finishes.",
+      specs: [
+        "Design: 2-Tier Stackable Basket Organizer with Wooden Carry Handle",
+        "Colours Available: Luxury Gold, Matte Black",
+        "Material: Heavy-Gauge Rust-Resistant Carbon Steel with Powder Coating",
+        "Usage: Countertop Fruit, Vegetable, Bread & Produce Storage",
+        "Price: KSh 1,500"
+      ]
+    },
+    {
+      id: 317,
+      name: "Small Plastic storage baskets",
+      image: "images/Small Plastic storage baskets.jpg",
+      images: [
+        "images/Small Plastic storage baskets.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 650,
+      priceFormatted: "KSh 650",
+      badge: "Black & White Edition",
+      description: "Small plastic storage basket organizers for kitchen cabinets, pantry shelves, and countertops. Dimensions 30 x 15 x 12.8 cm. Available in clean Black and White.",
+      specs: [
+        "Dimensions: 30 cm × 15 cm × 12.8 cm",
+        "Available Colours: Crisp White, Matte Black",
+        "Material: High-Durability BPA-Free Shatterproof Polymer",
+        "Features: Built-in Grip Handles, Stackable Modular Storage",
+        "Price: KSh 650"
+      ]
+    },
+    {
+      id: 318,
+      name: "Nunix Kettle 5.7Litres",
+      image: "images/Nunix Kettle 5.7Litres.jpg",
+      images: [
+        "images/Nunix Kettle 5.7Litres.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 3500,
+      priceFormatted: "KSh 3,500",
+      badge: "Jumbo 5.7 Litres",
+      description: "Nunix 5.7L jumbo commercial-capacity electric kettle. Engineered with rapid-boil heating element, double-layer heat-insulated body, automatic shut-off boil-dry protection, and 360-degree swivel cordless power base.",
+      specs: [
+        "Capacity: Jumbo 5.7 Litres (Ideal for Families, Offices & Catering)",
+        "Power: Rapid-Boil Fast Heating Element",
+        "Safety Features: Automatic Shut-Off & Boil-Dry Thermal Protection",
+        "Body: Food-Grade Stainless Steel Inner Vessel with Stay-Cool Exterior",
+        "Price: KSh 3,500"
+      ]
     }
   ];
 
