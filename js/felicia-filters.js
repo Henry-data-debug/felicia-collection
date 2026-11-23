@@ -112,7 +112,17 @@
     328: { id: 328, price: 150, color: 'tan', cat: 'dinnerware', page: 'kitchen' },
     329: { id: 329, price: 1350, color: 'black', cat: 'dinnerware', page: 'kitchen' },
     330: { id: 330, price: 5200, color: 'black', cat: 'cookware', page: 'kitchen' },
-    331: { id: 331, price: 1500, color: 'white', cat: 'dinnerware', page: 'kitchen' }
+    331: { id: 331, price: 1500, color: 'white', cat: 'dinnerware', page: 'kitchen' },
+    332: { id: 332, price: 950, color: 'black', cat: 'dinnerware', page: 'kitchen' },
+    333: { id: 333, price: 950, color: 'white', cat: 'dinnerware', page: 'kitchen' },
+    334: { id: 334, price: 800, color: 'white', cat: 'dinnerware', page: 'kitchen' },
+    335: { id: 335, price: 650, color: 'white', cat: 'cookware', page: 'kitchen' },
+    336: { id: 336, price: 1300, color: 'white', cat: 'dinnerware', page: 'kitchen' },
+    337: { id: 337, price: 500, color: 'white', cat: 'cookware', page: 'kitchen' },
+    338: { id: 338, price: 3900, color: 'black', cat: 'appliances', page: 'kitchen' },
+    339: { id: 339, price: 600, color: 'white', cat: 'cookware', page: 'kitchen' },
+    340: { id: 340, price: 450, color: 'cream', cat: 'cookware', page: 'kitchen' },
+    341: { id: 341, price: 2200, color: 'white', cat: 'dinnerware', page: 'kitchen' }
   };
 
   /**

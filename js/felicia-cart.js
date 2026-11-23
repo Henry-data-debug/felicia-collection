@@ -1596,6 +1596,206 @@
         "Safe For: Microwave Safe, Dishwasher Safe & Scratch Resistant",
         "Price: KSh 1,500 per set"
       ]
+    },
+    {
+      id: 332,
+      name: "black japanese ripped black mug",
+      image: "images/black japanese ripped black mug.jpg",
+      images: [
+        "images/black japanese ripped black mug.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 950,
+      priceFormatted: "KSh 950",
+      badge: "6-Piece Set with Stand",
+      description: "All black Japanese ribbed black ceramic mug set (Model 25001-000-B). Complete 6-piece fluted stoneware coffee and tea mug collection displayed on a chrome stainless steel countertop tree stand.",
+      specs: [
+        "Contents: 6 Ceramic Mugs + 1 Chrome Countertop Hanging Tree Stand",
+        "Design: Japanese Ribbed Texture Fluted Ceramic Mugs",
+        "Finish: High-Gloss Obsidian Jet Black",
+        "Usage: Espresso, Coffee, Hot Cocoa & Afternoon Tea",
+        "Price: KSh 950"
+      ]
+    },
+    {
+      id: 333,
+      name: "387ml twisted glass",
+      image: "images/387ml twisted glass.jpg",
+      images: [
+        "images/387ml twisted glass.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 950,
+      priceFormatted: "KSh 950",
+      badge: "6-Piece 387ml Set",
+      description: "387ml Nice One twisted crystal glass tumbler set (Model BYD-29 / DF017). 6-piece diamond twist pattern heavyweight glassware, perfect for iced water, fruit juice, whiskey, and cocktails.",
+      specs: [
+        "Pack Size: 6 Glasses (Complete 6-Piece Set)",
+        "Capacity: 387ml per Tumbler",
+        "Model: Nice One BYD-29 / DF017",
+        "Design: Elegant Swirl Twist Faceted Heavy Base Glass",
+        "Price: KSh 950"
+      ]
+    },
+    {
+      id: 334,
+      name: "1.8LTR ribbed glass jug",
+      image: "images/1.8LTR ribbed glass jug.jpg",
+      images: [
+        "images/1.8LTR ribbed glass jug.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 800,
+      priceFormatted: "KSh 800",
+      badge: "1.8L Ribbed Glass",
+      description: "1.8LTR ribbed vertical-stripe glass beverage pitcher (Model BDSTH1800-D). Styled with fluted crystalline body, fitted airtight white lid, and ergonomic easy-pour handle for refrigerator and table serving.",
+      specs: [
+        "Capacity: 1.8 Litres (1800ml)",
+        "Model: BDSTH1800 / BDSTH1800-D",
+        "Material: Fluted Heavy Crystal-Clear Glass with Seal Pour Lid",
+        "Ideal For: Fresh Lemonade, Iced Tea, Fruit Water & Milk",
+        "Price: KSh 800"
+      ]
+    },
+    {
+      id: 335,
+      name: "ice shovel/scooper small",
+      image: "images/ice shovel-scooper small.jpg",
+      images: [
+        "images/ice shovel-scooper small.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 650,
+      priceFormatted: "KSh 650",
+      badge: "Stainless Steel Scooper",
+      description: "Small stainless steel utility ice shovel and food scooper (Model 1283-3). Heavy-duty mirror-polished scoop with hanging loop handle, perfect for ice buckets, flour, grains, coffee beans, and bar service.",
+      specs: [
+        "Model: 1283-3 Small Utility Scoop",
+        "Material: Food-Grade Mirror Stainless Steel",
+        "Features: Seamless Tubular Handle with Hanging Ring Loop",
+        "Applications: Ice Cubes, Flour, Grains, Candy, Pet Food & Bar Entertaining",
+        "Price: KSh 650"
+      ]
+    },
+    {
+      id: 336,
+      name: "Wine glass",
+      image: "images/Wine glass.jpg",
+      images: [
+        "images/Wine glass.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 1300,
+      priceFormatted: "KSh 1,300",
+      badge: "6-Piece Stemware Set",
+      description: "Nice One 6-piece crystal stemware wine glass set (Model R3057, 300ml/330ml). Elegant long-stem wine glasses crafted from lead-free crystal-clear glass for red wine, white wine, and celebration dining.",
+      specs: [
+        "Quantity: 6 Wine Glasses (Complete 6-Piece Boxed Set)",
+        "Capacity: 300ml / 330ml (Model R3057 Nice One)",
+        "Stemware: Slender Ergonomic Stem with Stable Flat Base",
+        "Ideal For: Red & White Wine, Champagne, Tasting & Entertaining",
+        "Price: KSh 1,300 per set"
+      ]
+    },
+    {
+      id: 337,
+      name: "3 in 1 metallic sieve",
+      image: "images/3 in 1 metallic sieve.jpg",
+      images: [
+        "images/3 in 1 metallic sieve.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 500,
+      priceFormatted: "KSh 500",
+      badge: "3-Piece Mesh Set",
+      description: "3 in 1 metallic stainless steel fine-mesh strainer and sieve set. Features three graduated sizes (8cm, 10cm, and 12cm) with durable wire loop handles and resting bowl ears for sifting flour, tea, and straining broth.",
+      specs: [
+        "Sizes Included: 8cm, 10cm, and 12cm Respectively",
+        "Material: Rust-Resistant Food-Grade Stainless Steel Wire Mesh",
+        "Features: Long Wire Handle & Twin Bowl Rest Hooks",
+        "Uses: Tea Filtering, Flour Sifting, Straining Pasta & Vegetable Broth",
+        "Price: KSh 500"
+      ]
+    },
+    {
+      id: 338,
+      name: "electromate juicer",
+      image: "images/electromate juicer.jpg",
+      images: [
+        "images/electromate juicer.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 3900,
+      priceFormatted: "KSh 3,900",
+      badge: "800W Centrifugal Juicer",
+      description: "ElectroMate 800W electric centrifugal juicer extractor (Model JH-3028). Sleek stainless steel and silver finish with wide feed chute, stainless steel micro-mesh filter basket, safety locking bar, and separate pulp/juice containers.",
+      specs: [
+        "Motor Power: 800 Watts High-Torque Motor",
+        "Model: JH-3028 ElectroMate Silver Series",
+        "Components: Juicer Machine, Pusher, Juice Jug & Pulp Container",
+        "Safety: Locking Arm Mechanism & Anti-Slip Rubber Suction Feet",
+        "Price: KSh 3,900"
+      ]
+    },
+    {
+      id: 339,
+      name: "Spoon holder",
+      image: "images/Spoon holder.jpg",
+      images: [
+        "images/Spoon holder.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 600,
+      priceFormatted: "KSh 600",
+      badge: "Perforated Stainless Steel",
+      description: "Perforated stainless steel cutlery spoon holder and utensil caddy cylinder. Features all-around ventilated drainage holes, weighted anti-tip flared base, and high-shine polish for clean countertop organization.",
+      specs: [
+        "Design: Round Perforated Cutlery & Utensil Drying Cylinder",
+        "Material: Heavy-Gauge Corrosion-Resistant Stainless Steel",
+        "Features: Fast-Draining Perforated Pattern & Flared Non-Tip Base",
+        "Usage: Spoons, Forks, Knives, Chopsticks & Kitchen Utensils",
+        "Price: KSh 600"
+      ]
+    },
+    {
+      id: 340,
+      name: "Reusable honeycomb silicone ice cube",
+      image: "images/Reusable honeycomb silicone ice cube.jpg",
+      images: [
+        "images/Reusable honeycomb silicone ice cube.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 450,
+      priceFormatted: "KSh 450",
+      badge: "Silicone with Lid",
+      description: "Reusable honeycomb silicone ice cube mould with tight-seal protective lid. Dimensions 8.1 x 4.7 x 0.9 inches. Flexible food-grade silicone allows effortless pop-out release of hexagonal ice cubes and freezes stacked without odors.",
+      specs: [
+        "Material: 100% BPA-Free Flexible Food-Grade Silicone",
+        "Dimensions: 8.1 × 4.7 × 0.9 Inches",
+        "Features: Removable Splash-Proof Lid, Stackable, Odor-Free",
+        "Properties: Easy Twist Cube Release, Dishwasher Safe & Reusable",
+        "Price: KSh 450"
+      ]
+    },
+    {
+      id: 341,
+      name: "3 pcs canister",
+      image: "images/3 pcs canister.jpg",
+      images: [
+        "images/3 pcs canister.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 2200,
+      priceFormatted: "KSh 2,200",
+      badge: "3-Piece Ceramic with Rack",
+      description: "3-piece superior ceramic kitchen countertop canister set with spherical cork ball stoppers and wooden organizer tray. Labeled for Coffee, Tea, and Sugar with airtight fluted ceramic jars.",
+      specs: [
+        "Set Includes: 3 Fluted Ceramic Jars (Coffee, Tea, Sugar) + 1 Wooden Display Stand",
+        "Lids: Natural Spherical Cork Ball Airtight Seals",
+        "Material: High-Fired Glazed Ceramic & Eco Natural Hardwood",
+        "Usage: Countertop Coffee, Loose Tea & Sugar Storage",
+        "Price: KSh 2,200"
+      ]
     }
   ];
 
