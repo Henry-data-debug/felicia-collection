@@ -1336,6 +1336,266 @@
         "Body: Food-Grade Stainless Steel Inner Vessel with Stay-Cool Exterior",
         "Price: KSh 3,500"
       ]
+    },
+    {
+      id: 319,
+      name: "ElectroMate  6L Digital Air Fryer",
+      image: "images/ElectroMate  6L Digital Air Fryer.jpg",
+      images: [
+        "images/ElectroMate  6L Digital Air Fryer.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 5000,
+      priceFormatted: "KSh 5,000",
+      badge: "6L Digital Touch",
+      description: "ElectroMate 6L Digital Air Fryer. Advanced rapid hot-air circulation system engineered for healthier cooking with little to no oil. Features intuitive digital touch presets, non-stick removable basket, and cool-touch handle. 4 pieces per carton wholesale packaging.",
+      specs: [
+        "Capacity: 6.0 Litres Family Capacity",
+        "Control Panel: Digital LED Touch Screen with Preset Cooking Menus",
+        "Packaging: 4 Pieces per Carton Wholesale Packaging",
+        "Features: 360° Rapid Air Circulation, Non-Stick Dishwasher-Safe Basket",
+        "Price: KSh 5,000"
+      ]
+    },
+    {
+      id: 320,
+      name: "Kitchen dish rack",
+      image: "images/Kitchen dish rack.jpg",
+      images: [
+        "images/Kitchen dish rack.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 4500,
+      priceFormatted: "KSh 4,500",
+      badge: "3-Tier Stainless Steel",
+      description: "Kitchen dish rack in modern grey and stainless steel. Heavy-duty 3-tier dish drying and organization rack with dedicated cutlery caddies, plate racks, and drip drainage trays.",
+      specs: [
+        "Structure: 3-Tier High-Capacity Countertop Dish Organizer",
+        "Colours & Materials: Sleek Grey & Corrosion-Resistant Stainless Steel",
+        "Includes: Plate Slots, Bowl Shelves, Side Cutlery Holder & Drip Trays",
+        "Dimensions: Compact Space-Saving Multi-Level Footprint",
+        "Price: KSh 4,500"
+      ]
+    },
+    {
+      id: 321,
+      name: "2 in 1 commercial blender",
+      image: "images/2 in 1 commercial blender.jpg",
+      images: [
+        "images/2 in 1 commercial blender.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 2700,
+      priceFormatted: "KSh 2,700",
+      badge: "2-in-1 Heavy Duty",
+      description: "2 in 1 commercial heavy-duty multifunction blender. Powered by a high-torque pure copper motor for smoothies, purees, and crushing ice. Includes an unbreakable high-capacity blending jug, stainless steel dry mill grinder cup, and stirring rod.",
+      specs: [
+        "Configuration: 2-in-1 Blender & Dry Mill Grinder Robot",
+        "Motor: High-Performance Multi-Speed Variable Rotary Dial",
+        "Included Accessories: Large Blending Jar, Compact Grinding Cup, Tamper Plunger",
+        "Applications: Commercial Smoothies, Crushed Ice, Nuts, Seeds & Spices",
+        "Price: KSh 2,700"
+      ]
+    },
+    {
+      id: 322,
+      name: "1.8 litres jug",
+      image: "images/1.8 litres jug.jpg",
+      images: [
+        "images/1.8 litres jug.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 900,
+      priceFormatted: "KSh 900",
+      badge: "1.8L Crystal Glass",
+      description: "1.8 litres Dongfang embossed crystal glass beverage jug (Model DF-25113). Styled with geometric diamond cuts, fitted dust-proof lid, and ergonomic easy-pour handle for table serving.",
+      specs: [
+        "Capacity: 1.8 Litres (1800ml)",
+        "Material: Heavy-Base Crystal-Clear Embossed Glass",
+        "Model: Dongfang DF-25113 with Fitted Seal Lid",
+        "Ideal For: Fresh Juices, Chilled Water, Cocktails & Iced Beverages",
+        "Price: KSh 900"
+      ]
+    },
+    {
+      id: 323,
+      name: "Mika 4in1 Juicer",
+      image: "images/Mika 4in1 Juicer.jpg",
+      images: [
+        "images/Mika 4in1 Juicer.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 14500,
+      priceFormatted: "KSh 14,500",
+      badge: "4-in-1 800W Motor",
+      description: "Mika Diamond Collection 4-in-1 Juicer, Blender, Grinder, and Food Chopper. Equipped with a robust 800W motor, extra-wide feeding tube for whole fruits, stainless steel micro-filter, and 1-year warranty.",
+      specs: [
+        "Functions: 4-in-1 Juicer Extractor, Blender, Dry Grinder & Food Chopper",
+        "Power: 800 Watts Heavy-Duty Motor with Rotary Speed Control",
+        "Features: Extra-Large Whole-Fruit Feeding Chute, Anti-Drip Spout",
+        "Warranty: 1 Year Manufacturer Warranty Included",
+        "Price: KSh 14,500"
+      ]
+    },
+    {
+      id: 324,
+      name: "SmartPro Hand Blender",
+      image: "images/SmartPro Hand Blender.jpg",
+      images: [
+        "images/SmartPro Hand Blender.jpg"
+      ],
+      category: "Kitchen Appliances",
+      price: 1900,
+      priceFormatted: "KSh 1,900",
+      badge: "1000W 4-Blade",
+      description: "SmartPro Model SHB-313 1000W electric immersion hand blender. Features a durable 4-blade stainless steel cutting head, skid prevention grip, detachable wand for effortless cleaning, and a 600ml blending jar.",
+      specs: [
+        "Power: 1000 Watts Turbo Performance (220-240V, 50/60Hz)",
+        "Blade System: 4-Blade Stainless Steel Multi-Angle Cutting Head",
+        "Included: Hand Blender Unit + 600ml Measuring & Blending Jar",
+        "Best For: Soups, Sauces, Purees, Dressings & Baby Food",
+        "Price: KSh 1,900"
+      ]
+    },
+    {
+      id: 325,
+      name: "4PCS TANGENT HOTPOTS",
+      image: "images/4PCS TANGENT HOTPOTS.jpg",
+      images: [
+        "images/4PCS TANGENT HOTPOTS.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 4500,
+      priceFormatted: "KSh 4,500",
+      badge: "4-Piece Insulated Set",
+      description: "4PCS Tangent luxury insulated thermal hotpot casserole set by Selvel. Designed with fluted exterior bodies, twist-lock marble-finish lids, and gold accents to keep foods steaming hot or chilled for hours. Capacity: 1000ml, 1500ml, 2500ml and 3500ml.",
+      specs: [
+        "Set Includes: 4 Pieces (1000ml, 1500ml, 2500ml, and 3500ml)",
+        "Insulation: Double-Wall High-Density Thermal Polyurethane Insulation",
+        "Design: Fluted Textured Casserole Body with Gold Trim & Handles",
+        "Lids: Secure Twist-Lock Lids with Decorative Marble Finish",
+        "Price: KSh 4,500"
+      ]
+    },
+    {
+      id: 326,
+      name: "Ceramic Chaffing dishes",
+      image: "images/Ceramic Chaffing dishes.jpg",
+      images: [
+        "images/Ceramic Chaffing dishes.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 6000,
+      priceFormatted: "KSh 6,000",
+      badge: "3-Tier Gold Ceramic",
+      description: "Ceramic chaffing dishes buffet food warmer set. Features 3 graduated rectangular white porcelain serving dishes (11.5\", 13.5\", 15.5\") with gold sunburst trim, clear glass lids, and sturdy gold candle warming stands.",
+      specs: [
+        "Set Includes: 3 Rectangular Ceramic Dishes (11.5\", 13.5\", 15.5\")",
+        "Hardware: Gold-Plated Warming Wire Stands with Tea Light Fuel Holders",
+        "Covers: Tempered Glass Lids with Gold Beaded Top Knobs",
+        "Ideal For: Buffets, Banquets, Family Gatherings & Fine Entertaining",
+        "Price: KSh 6,000"
+      ]
+    },
+    {
+      id: 327,
+      name: "Edenburg cookware",
+      image: "images/Edenburg cookware.jpg",
+      images: [
+        "images/Edenburg cookware.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 9000,
+      priceFormatted: "KSh 9,000",
+      badge: "12-Piece German Design",
+      description: "Edenburg EB-3999 12-piece premium German-design stainless steel cookware set. Engineered with heavy multi-layer induction thermal capsule bottoms, stay-cool rivet handles, and vented tempered glass lids.",
+      specs: [
+        "Set Composition: 12 Pieces (Graduated Casseroles, Saucepan & Matching Lids)",
+        "Model: Edenburg EB-3999 German Technology Induction Safe",
+        "Base: 7-Layer Encapsulated Thermal Bottom for Rapid Even Heat",
+        "Material: Heavy-Gauge Mirror-Polished 18/10 Stainless Steel",
+        "Price: KSh 9,000"
+      ]
+    },
+    {
+      id: 328,
+      name: "knife",
+      image: "images/knife.jpg",
+      images: [
+        "images/knife.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 150,
+      priceFormatted: "KSh 150",
+      badge: "8-Inch Chef Blade",
+      description: "8-inch professional stainless steel kitchen chef knife. Forged from high-carbon rust-resistant stainless steel with a razor-sharp precision edge and textured ergonomic slip-resistant handle.",
+      specs: [
+        "Blade Size: 8 Inches Razor-Honed Cutting Edge",
+        "Blade Material: High-Durability Stain-Resistant Stainless Steel",
+        "Handle: Textured Alligator-Pattern Hard Ergonomic Grip",
+        "Colours Available: Saddle Tan, Ivory Cream, Sleek Black",
+        "Price: KSh 150 per piece"
+      ]
+    },
+    {
+      id: 329,
+      name: "2.0 Litres Jp flask",
+      image: "images/2.0 Litres Jp flask.jpg",
+      images: [
+        "images/2.0 Litres Jp flask.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 1350,
+      priceFormatted: "KSh 1,350",
+      badge: "2.0L Thermal Flask",
+      description: "2.0 Litres JP vacuum insulated coffee pot and thermal beverage flask. Dual-wall vacuum insulation maintains hot drinks piping hot or cold beverages icy fresh for up to 24 hours. Available in Matte Black and Pure White.",
+      specs: [
+        "Capacity: 2.0 Litres High-Capacity Carafe",
+        "Colours Available: Matte Black, Clean Pure White",
+        "Insulation: Vacuum Insulated Double-Wall Thermal Retention (Hot / Cold)",
+        "Features: One-Touch Push Lever Pour Spout, Chrome Accents",
+        "Price: KSh 1,350"
+      ]
+    },
+    {
+      id: 330,
+      name: "5tier foldable kitchen rack",
+      image: "images/5tier foldable kitchen rack.jpg",
+      images: [
+        "images/5tier foldable kitchen rack.jpg"
+      ],
+      category: "Cookware Sets",
+      price: 5200,
+      priceFormatted: "KSh 5,200",
+      badge: "5-Tier Heavy Duty",
+      description: "5-tier foldable heavy-duty kitchen storage rack and baker's shelving unit. Features collapsible instant-setup carbon steel frame, high load-bearing mesh shelves, and 360° lockable swivel caster wheels.",
+      specs: [
+        "Structure: 5-Tier Foldable Heavy-Duty Storage Organizer",
+        "Mobility: 4 Heavy-Duty 360° Smooth Swivel Caster Wheels with Locks",
+        "Material: Industrial Carbon Steel with Anti-Rust Powder Coating",
+        "Foldable: Folds Flat for Instant Storage with Zero Assembly Required",
+        "Price: KSh 5,200"
+      ]
+    },
+    {
+      id: 331,
+      name: "Square white plate",
+      image: "images/Square white plate.jpg",
+      images: [
+        "images/Square white plate.jpg"
+      ],
+      category: "Dinnerware & Porcelain",
+      price: 1500,
+      priceFormatted: "KSh 1,500",
+      badge: "6-Piece 11\" Set",
+      description: "Square white porcelain dinner plate 6-piece set (Model 0126, 11-inch). Crafted from durable, chip-resistant hotel-grade opal glass porcelain with smooth curved modern square rims.",
+      specs: [
+        "Set Size: 6 Pieces Complete Dining Plate Set",
+        "Dimensions: 11 Inches (Model 0126)",
+        "Material: High-Grade Chip-Resistant Opal Porcelain Glass",
+        "Safe For: Microwave Safe, Dishwasher Safe & Scratch Resistant",
+        "Price: KSh 1,500 per set"
+      ]
     }
   ];
 
